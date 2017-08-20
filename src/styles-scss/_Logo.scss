@@ -1,0 +1,129 @@
+$glass: $orange;
+$main: $redOrange;
+$second: $yellow;
+
+.logoBlock {
+  position: relative;
+  display: block;
+  margin: 170px;
+  margin-bottom: 100px;
+}
+
+.logoContainer, .inner, .bridge, .rim, .shadow {
+  position: absolute;
+}
+
+.logoContainer {
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 450px;
+  height: 200px;
+  transform: scale(0.6);
+}
+
+.backgroundCircle {
+  width: 450px;
+  height: 450px;
+  background: $blue;
+  border-radius: 450px;
+  position: absolute;
+  z-index: -4;
+  left: -45px;
+  top: -170px;
+  border: 30px solid $green;
+}
+
+
+.inner {
+  width: 150px;
+  height: 150px;
+  background: $glass;
+  border-radius: 100%;
+  border: 10px solid $main;
+  &:before, &:after {
+    position: absolute;
+    content: '';
+  }
+
+  &:before {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #FFF;
+    opacity: 0.7;
+    top: 20px;
+    left: 60px;
+  }
+
+  &:after {
+      width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background: #FFF;
+    opacity: 0.7;
+    top: 30px;
+    left: 30px;
+  }
+}
+
+.inner.right {
+  left: 250px;
+}
+
+.shadow {
+  top: 35px;
+  left: 13px;
+  width: 150px;
+  height: 75px;
+  border-bottom: 35px solid rgba(#000, 0.2);
+  border-radius: 0 0 100px 100px;
+  transform: rotate(-40deg);
+}
+
+.bridge {
+  z-index: -1;
+  width: 330px;
+  height: 100px;
+  left: 50px;
+  border-radius: 100%;
+  border-top: 60px solid $main;
+  &:before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: $main;
+    border: 5px solid #458379;
+    border-radius: 100%;
+    top: -72px;
+    left: 130px;
+  }
+}
+
+.rim {
+  z-index: -1;
+  width: 70px;
+  height: 130px;
+  background: #458379;
+  border-radius: 0 100px 100px 100px;
+  left: 90px;
+  top: -25px;
+  transform: rotate(-45deg);
+}
+
+.rim.right {
+  left: 260px;
+  border-radius: 100px 0 100px 100px;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 800px) {
+  .logoContainer {
+    transform: scale(0.4);
+    width: 250px;
+    height: 100px;
+  }
+}

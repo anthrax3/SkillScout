@@ -1,0 +1,21 @@
+
+$blue: #1BE7FF;
+$green: #6EEB83;
+$yellow: #E4FF1A;
+$orange: #FFB800;
+$redOrange: #FF5714;
+
+$buttonInputWidth: 200px;
+
+html, body {
+	text-align: center;
+}
+
+@import 'Container';
+@import 'Background';
+@import 'Logo';
+@import 'Title';
+@import 'Input';
+@import 'SubmitButton';
+@import 'Results';
+@import 'Footer';

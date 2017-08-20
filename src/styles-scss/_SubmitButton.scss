@@ -1,0 +1,26 @@
+.submitButton {
+    border-radius: 5px;
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: $buttonInputWidth*1.3; // widht of button should be half default width (half of clicked tile width)
+    padding-right: auto;
+    padding-left: auto;
+    text-align: center;
+    font-size: 16px;
+	border: none;
+	font-family: inherit;
+	font-size: 20px;
+	cursor: pointer;
+	display: inline-block;
+margin: 0 auto;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  overflow: hidden;
+  background: $green
+}
