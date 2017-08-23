@@ -2,7 +2,7 @@
 """
 Created on Tue Aug 22 14:40:42 2017
 
-Proxy switching and fake user settings
+What did you think this was.. it's secret settings!
 @author: stephen
 """
 #set rate of requests to prevent sending too many at once.
