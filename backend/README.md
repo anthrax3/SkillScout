@@ -1,4 +1,3 @@
-# Don't Readme plz
-This is the backend of a newb.
+# Readme
 
-Some scraping stuff...
+Scraping job postings
