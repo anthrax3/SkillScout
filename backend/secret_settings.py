@@ -23,7 +23,7 @@ DOWNLOADER_MIDDLEWARES = {
        'scrapy_proxies.RandomProxy': 100,
        'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
         }
-PROXY_LIST = '/home/stephen/Code/Python/venv/full_proxy.txt'
+PROXY_LIST = '/home/stephen/Code/Python/venv/SkillScout/backend/full_proxy.txt'
 # Proxy mode
 # 0 = Every requests have different proxy
 # 1 = Take only one proxy from the list and assign it to every requests
