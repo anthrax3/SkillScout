@@ -2,8 +2,10 @@ require('normalize.css/normalize.css');
 require('styles/App.css');
 
 import React from 'react';
+import Popup from 'react-popup';
 
 // custom components
+import SearchErrorPopupContent from './popups/SearchErrorPopupContent.js'
 import Container from './container/Container.js';
 import Background from './background/Background.js';
 import Logo from './logo/Logo.js';
@@ -19,36 +21,44 @@ class AppComponent extends React.Component {
       super();
       this.state = {
         bShowResults: false,
-        sLocation: '',
-        aJobData: {percChangeMonth: -5,
-        leadDescription: 'Developer',
-      leadSkill1: 'Webscraping',
-    leadSkill1Perc: 32}
+        city: ''
       };
       this.onChange = this.onChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
       this.loadResults = this.loadResults.bind(this);
+      this.onClickCityError = this.onClickCityError.bind(this);
   }
-  onChange(sLocation) {
-    console.log(sLocation);
-    this.setState({sLocation: sLocation});
+  onChange(city) {
+    console.log(city);
+    this.setState({city: city});
   }
-  onSubmit(sLocation) {
-    console.log(sLocation);
-      this.setState({sLocation: sLocation});
-      this.loadResults();
+  onSubmit(city) {
+    console.log(city);
+      this.setState({city: city, bShowResults: true});
+      //this.loadResults();
+  }
+  onClickCityError() {
+    console.log("in onClickCityError...");
+    Popup.create({
+      title: null,
+      content: <SearchErrorPopupContent/>,
+      className: 'alert',
+      buttons: {
+          right: ['Done']
+      }
+    });
   }
   loadResults() {
-    // TODO: on select from drop down are NOT propagating to the sLocation portion of the state
+    // TODO: on select from drop down are NOT propagating to the city portion of the state
     console.log('getting results for:');
-    console.log(this.state.sLocation);
+    console.log(this.state.city);
     this.setState({bShowResults: true});
 //     this.setState({aJobData: [{percChangeMonth: -5,
 //     leadDescription: 'Developer',
 //   leadSkill1: 'Webscraping',
 // leadSkill1Perc: 32}]});
     // fetch process will look something like this:
-    // fetch(sLocation).then(function(response) {
+    // fetch(city).then(function(response) {
     //   response.json().then(function(data) {
     //     // do something with your data
     //     this.setState({oData: data})
@@ -64,7 +74,7 @@ class AppComponent extends React.Component {
         { !this.state.bShowResults && <InputGuide/>}
         <Input onSubmit={this.onSubmit} onChange={this.onChange}/>
         <SubmitButton onSubmit={this.loadResults}/>
-        { this.state.bShowResults && <Results jobData={this.state.aJobData} city={this.state.sLocation}/> }
+        { this.state.bShowResults && <Results city={this.state.city} onClickCityError={this.onClickCityError}/> }
         <Footer/>
       </Container>
     );
