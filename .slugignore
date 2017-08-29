@@ -1,2 +1,0 @@
-# when deploying to heroku, ignore the /backend folder:
-/backend
