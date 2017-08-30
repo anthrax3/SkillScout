@@ -9,10 +9,8 @@ import SearchErrorPopupContent from './popups/SearchErrorPopupContent.js'
 import Container from './container/Container.js';
 import Background from './background/Background.js';
 import Logo from './logo/Logo.js';
-import Title from './title/Title.js';
 import InputGuide from './inputGuide/InputGuide.js';
-import Input from './input/Input.js';
-import SubmitButton from './submitButton/SubmitButton.js';
+import InputAndButton from './input/InputAndButton.js';
 import Results from './results/Results.js';
 import Footer from './footer/Footer.js';
 
@@ -28,21 +26,11 @@ class AppComponent extends React.Component {
         submitButtonText: 'GO!',
         city: ''
       };
-      this.onChange = this.onChange.bind(this);
+      //this.onChange = this.onChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
-      this.loadResults = this.loadResults.bind(this);
       this.onClickCityError = this.onClickCityError.bind(this);
   }
-  onChange(city) {
-    console.log("on change...");
-    if (!this.state.bShowResults) {
-      console.log(city);
-      this.setState({city: city});
-    }
-  }
   onSubmit(city) {
-    console.log("on submit...");
-    console.log(city);
     this.setState({city: city, bShowResults: true, submitButtonText: sNewSearchText});
   }
   onClickCityError() {
@@ -56,24 +44,18 @@ class AppComponent extends React.Component {
       }
     });
   }
-  loadResults() {
-    // TODO: on select from drop down are NOT propagating to the city portion of the state
-    console.log('getting results for:');
-    console.log(this.state.city);
-    this.setState({bShowResults: true, submitButtonText: sNewSearchText});
-  }
   render() {
     return (
-      <Container>
-        <Background/>
-        { !this.state.bShowResults && <Logo/> }
-        { !this.state.bShowResults && <Title/> }
-        { !this.state.bShowResults && <InputGuide/>}
-        <Input onSubmit={this.onSubmit} onChange={this.onChange}/>
-        <SubmitButton onSubmit={this.loadResults} submitButtonText={this.state.submitButtonText}/>
-        { this.state.bShowResults && <Results city={this.state.city} onClickCityError={this.onClickCityError}/> }
+      <div>
+        <Container>
+          <Background/>
+          <Logo bShowResults={this.state.bShowResults}/>
+          { !this.state.bShowResults && <InputGuide/>}
+          <InputAndButton onSubmit={this.onSubmit} submitButtonText={this.state.submitButtonText}/>
+          { this.state.bShowResults && <Results city={this.state.city} onClickCityError={this.onClickCityError}/> }
+        </Container>
         <Footer/>
-      </Container>
+      </div>
     );
   }
 }

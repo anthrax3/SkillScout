@@ -1,12 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 $glass: $orange;
 $main: $redOrange;
 $second: $yellow;
+
+.logo {
+  transition: 1s all;
+}
 
 .logoBlock {
   position: relative;
   display: block;
   margin: 170px;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
+}
+
+.logoFixed {
+  position: fixed;
+  top: -120px;
+  left: -165px;
+  width: 180px;
+  .logoContainer, .titleContainer {
+    transform: scale(0.2);
+  }
+
+  .titleContainer {
+    top: 110px;
+    left: 115px;
+  }
+
 }
 
 .logoContainer, .inner, .bridge, .rim, .shadow {
@@ -126,4 +148,25 @@ $second: $yellow;
     width: 250px;
     height: 100px;
   }
+}
+
+.titleContainer {
+  position: relative;
+  display: block;
+  top: 200px;
+
+
+}
+
+#title {
+  font-family: Pacifico;
+  font-size: 80px;
+  color: $green;
+  margin-bottom: 125px;
+}
+.sup {
+  font-family: Arial;
+  font-size: 20px;
+  vertical-align: super;
+  color: $blue;
 }

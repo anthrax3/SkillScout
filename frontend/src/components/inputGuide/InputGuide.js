@@ -3,7 +3,7 @@ import React from 'react';
 class InputGuide extends React.Component {
   render() {
     return (
-      <span id="inputGuide">Enter a location to start exploring skills:</span>
+      <span id="inputGuide">Enter a city to start exploring career skills there:</span>
     );
   }
 }

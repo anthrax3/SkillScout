@@ -4,7 +4,8 @@ html, body {
 
 #container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  min-height: 100vh; }
 
 #background {
   width: 1px;
@@ -23,11 +24,25 @@ html, body {
   position: absolute;
   z-index: -10; }
 
+.logo {
+  transition: 1s all; }
+
 .logoBlock {
   position: relative;
   display: block;
   margin: 170px;
-  margin-bottom: 100px; }
+  margin-bottom: 200px; }
+
+.logoFixed {
+  position: fixed;
+  top: -120px;
+  left: -165px;
+  width: 180px; }
+  .logoFixed .logoContainer, .logoFixed .titleContainer {
+    transform: scale(0.2); }
+  .logoFixed .titleContainer {
+    top: 110px;
+    left: 115px; }
 
 .logoContainer, .inner, .bridge, .rim, .shadow {
   position: absolute; }
@@ -129,6 +144,11 @@ html, body {
     transform: scale(0.4);
     width: 250px;
     height: 100px; } }
+
+.titleContainer {
+  position: relative;
+  display: block;
+  top: 200px; }
 
 #title {
   font-family: Pacifico;
@@ -312,13 +332,23 @@ html, body {
   margin: 0 auto;
   text-align: left; }
 
+.cityErrorText {
+  font-size: 12px;
+  color: gray; }
+
+.coolCity {
+  font-family: Pacifico;
+  font-size: 80px;
+  color: #6EEB83; }
+
 footer {
-  color: #FF5714;
+  color: white;
   font-weight: bold;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  font-size: 20px;
+  position: relative;
+  width: 90%;
   padding: 1rem;
+  margin: 0 auto;
   background-color: #6EEB83;
-  text-align: center; }
+  text-align: center;
+  overflow-x: hidden; }
