@@ -16,11 +16,16 @@ import SubmitButton from './submitButton/SubmitButton.js';
 import Results from './results/Results.js';
 import Footer from './footer/Footer.js';
 
+// constants TODO: should eventually be moved to a CONSTS file
+const sNewSearchText = 'NEW SEARCH!';
+
+
 class AppComponent extends React.Component {
   constructor() {
       super();
       this.state = {
         bShowResults: false,
+        submitButtonText: 'GO!',
         city: ''
       };
       this.onChange = this.onChange.bind(this);
@@ -29,13 +34,16 @@ class AppComponent extends React.Component {
       this.onClickCityError = this.onClickCityError.bind(this);
   }
   onChange(city) {
-    console.log(city);
-    this.setState({city: city});
+    console.log("on change...");
+    if (!this.state.bShowResults) {
+      console.log(city);
+      this.setState({city: city});
+    }
   }
   onSubmit(city) {
+    console.log("on submit...");
     console.log(city);
-      this.setState({city: city, bShowResults: true});
-      //this.loadResults();
+    this.setState({city: city, bShowResults: true, submitButtonText: sNewSearchText});
   }
   onClickCityError() {
     console.log("in onClickCityError...");
@@ -52,18 +60,7 @@ class AppComponent extends React.Component {
     // TODO: on select from drop down are NOT propagating to the city portion of the state
     console.log('getting results for:');
     console.log(this.state.city);
-    this.setState({bShowResults: true});
-//     this.setState({aJobData: [{percChangeMonth: -5,
-//     leadDescription: 'Developer',
-//   leadSkill1: 'Webscraping',
-// leadSkill1Perc: 32}]});
-    // fetch process will look something like this:
-    // fetch(city).then(function(response) {
-    //   response.json().then(function(data) {
-    //     // do something with your data
-    //     this.setState({oData: data})
-    //   });
-    // });
+    this.setState({bShowResults: true, submitButtonText: sNewSearchText});
   }
   render() {
     return (
@@ -73,7 +70,7 @@ class AppComponent extends React.Component {
         { !this.state.bShowResults && <Title/> }
         { !this.state.bShowResults && <InputGuide/>}
         <Input onSubmit={this.onSubmit} onChange={this.onChange}/>
-        <SubmitButton onSubmit={this.loadResults}/>
+        <SubmitButton onSubmit={this.loadResults} submitButtonText={this.state.submitButtonText}/>
         { this.state.bShowResults && <Results city={this.state.city} onClickCityError={this.onClickCityError}/> }
         <Footer/>
       </Container>

@@ -15,12 +15,16 @@ class Results extends React.Component {
       writtenDescriptionData: {},
       doughnutChartData: {},
       recentTrendsChartData: {},
-      longTrendsChartData: {}
+      longTrendsChartData: {},
+      bDataCleared: false,
+      bResultsRetreived: false
     };
     this.onClickDropdown = this.onClickDropdown.bind(this);
     this.onClickCityError = this.onClickCityError.bind(this);
     this.onClickGoToCityPage = this.onClickGoToCityPage.bind(this);
-    this.onClickSearchAgain = this.onClickSearchAgain.bind(this);
+    this.clearResults = this.clearResults.bind(this);
+    this.getResults = this.getResults.bind(this);
+
   }
   onClickDropdown(sField) {
     console.log(sField);
@@ -28,22 +32,35 @@ class Results extends React.Component {
   }
   onClickGoToCityPage() {
     // TODO: react router stuff (open the city page)
-  }
-  onClickSearchAgain() {
-
+    window.open('localhost:8000/cityList.html')
   }
   onClickCityError() {
     this.props.onClickCityError;
   }
+  clearResults() {
+
+  }
+  getResults(sCity) {
+    // console.log("in clearresults");
+    // if (!this.state.bDataCleared) {
+    //   console.log("actually clearing results");
+    //   this.setState({writtenDescriptionData: {}, doughnutChartData: {}, recentTrendsChartData: {}, longTrendsChartData: {}, bDataCleared: true, bResultsRetreived: false});
+    // }
+    // console.log("in getresults");
+    // console.log(this.state.bResultsRetreived);
+    // console.log(sCity)
+    if (!this.state.bResultsRetreived) {
+      console.log("actually getting results");
+      var that = this;
+      return firebase.database().ref('/' + sCity + '/').once('value').then(function(snapshot) {
+        var oData = snapshot.val();
+        console.log(oData);
+        that.setState({writtenDescriptionData: oData.writtenDescriptionData, doughnutChartData: oData.doughnutChartData, recentTrendsChartData: oData.recentTrendsChartData, longTrendsChartData: oData.longTrendsChartData, bResultsRetreived: true});
+      });
+    } 
+  }
   componentWillMount() {
-    // TODO: put this stuff in the component did mount, have a loader rendering in the meanwhile yahoooo
-    console.log(this.props.city);
-    var that = this;
-    return firebase.database().ref('/' + this.props.city + '/').once('value').then(function(snapshot) {
-      var oData = snapshot.val();
-      console.log(oData);
-      that.setState({writtenDescriptionData: oData.writtenDescriptionData, doughnutChartData: oData.doughnutChartData, recentTrendsChartData: oData.recentTrendsChartData, longTrendsChartData: oData.longTrendsChartData});
-    });
+    this.getResults(this.props.city); // before the very first render, try to get the data associated with the city
   }
   render() {
     // determine direction based on percentage change value
@@ -74,6 +91,16 @@ class Results extends React.Component {
           </div>
         </div>
     );
+  }
+  // componentWillUpdate() {
+  //   this.clearResults(); // every new search we have to clear the text
+  // }
+  componentDidUpdate() {
+    // TODO: put this stuff in the component did mount, have a loader rendering in the meanwhile yahoooo
+    console.log("comopnent did mount...");
+    console.log(this.props.city);
+    this.getResults(this.props.city);
+    //this.setState({bResultsRetreived: false});
   }
 }
 
