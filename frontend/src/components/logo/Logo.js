@@ -3,19 +3,19 @@ import React from 'react';
 class Logo extends React.Component {
   constructor() {
     super();
-    this.determineLogoClassName = this.determineLogoClassName.bind(this);
+    this.determineClassName = this.determineClassName.bind(this);
   }
-  determineLogoClassName() {
+  determineClassName() {
     if (this.props.bShowResults) {
-      return "logoFixed";
+      return "logoHidden";
     } else {
-      return "logoBlock";
+      return "logo";
     }
   }
   render() {
     return (
-        <div className="logo">
-        <div className={this.determineLogoClassName()}>
+        <div className={this.determineClassName()}>
+        <div>
           <div className="logoContainer">
             <div className="backgroundCircle"></div>
             <div className="inner">
@@ -28,11 +28,11 @@ class Logo extends React.Component {
             <div className="rim"></div>
             <div className="rim right"></div>
           </div>
+
+        </div>
         <div className="titleContainer">
           <h1 id="title">SkillScout <span className="sup">TM</span> </h1>
         </div>
-        </div>
-
         </div>
     );
   }

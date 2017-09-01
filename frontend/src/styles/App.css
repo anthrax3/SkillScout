@@ -2,10 +2,20 @@
 html, body {
   text-align: center; }
 
-#container {
+[class^="container--"] {
+  transition: 3s all; }
+
+.container--border {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; }
+  border-left: 16px solid #1BE7FF;
+  border-right: 16px solid #1BE7FF; }
+
+.container--noBorder {
+  display: flex;
+  flex-direction: column;
+  border-left: 0px;
+  border-right: 0px; }
 
 #background {
   width: 1px;
@@ -25,31 +35,18 @@ html, body {
   z-index: -10; }
 
 .logo {
-  transition: 1s all; }
-
-.logoBlock {
-  position: relative;
   display: block;
-  margin: 170px;
-  margin-bottom: 200px; }
+  margin: 0 auto; }
 
-.logoFixed {
-  position: fixed;
-  top: -120px;
-  left: -165px;
-  width: 180px; }
-  .logoFixed .logoContainer, .logoFixed .titleContainer {
-    transform: scale(0.2); }
-  .logoFixed .titleContainer {
-    top: 110px;
-    left: 115px; }
+.logoHidden {
+  display: none; }
 
 .logoContainer, .inner, .bridge, .rim, .shadow {
   position: absolute; }
 
 .logoContainer {
   margin: auto;
-  top: 0;
+  top: -750px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -148,7 +145,7 @@ html, body {
 .titleContainer {
   position: relative;
   display: block;
-  top: 200px; }
+  top: 300px; }
 
 #title {
   font-family: Pacifico;
@@ -163,7 +160,21 @@ html, body {
   color: #1BE7FF; }
 
 #inputGuide {
-  font-size: 20px; }
+  position: relative;
+  display: block;
+  font-size: 20px;
+  margin-top: 175px; }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .logoContainer {
+    top: -450px;
+    transform: scale(0.2); }
+  .titleContainer {
+    top: 100px; }
+  #title {
+    font-size: 35px; }
+  #inputGuide {
+    margin-top: 50px; } }
 
 #input {
   display: flex;
@@ -349,6 +360,7 @@ footer {
   width: 90%;
   padding: 1rem;
   margin: 0 auto;
+  margin-top: 500px;
   background-color: #6EEB83;
   text-align: center;
   overflow-x: hidden; }

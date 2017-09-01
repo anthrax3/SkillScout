@@ -1,5 +1,15 @@
-#container {
+[class^="container--"] {
+  transition: 3s all;
+}
+.container--border {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  border-left: 16px solid $blue;
+	border-right: 16px solid $blue;
+}
+.container--noBorder {
+  display: flex;
+  flex-direction: column;
+  border-left: 0px;
+	border-right: 0px;
 }

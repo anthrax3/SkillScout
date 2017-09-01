@@ -5,30 +5,11 @@ $main: $redOrange;
 $second: $yellow;
 
 .logo {
-  transition: 1s all;
+  display:block;
+  margin: 0 auto;
 }
-
-.logoBlock {
-  position: relative;
-  display: block;
-  margin: 170px;
-  margin-bottom: 200px;
-}
-
-.logoFixed {
-  position: fixed;
-  top: -120px;
-  left: -165px;
-  width: 180px;
-  .logoContainer, .titleContainer {
-    transform: scale(0.2);
-  }
-
-  .titleContainer {
-    top: 110px;
-    left: 115px;
-  }
-
+.logoHidden {
+  display: none;
 }
 
 .logoContainer, .inner, .bridge, .rim, .shadow {
@@ -37,7 +18,7 @@ $second: $yellow;
 
 .logoContainer {
   margin: auto;
-  top: 0;
+  top: -750px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -153,9 +134,7 @@ $second: $yellow;
 .titleContainer {
   position: relative;
   display: block;
-  top: 200px;
-
-
+  top: 300px;
 }
 
 #title {
@@ -169,4 +148,26 @@ $second: $yellow;
   font-size: 20px;
   vertical-align: super;
   color: $blue;
+}
+#inputGuide {
+  position:relative;
+  display: block;
+  font-size: 20px;
+  margin-top: 175px;
+}
+
+@include media(">=phone", "<=tablet") {
+  .logoContainer {
+    top:-450px;
+    transform: scale(0.2);
+  }
+  .titleContainer {
+    top: 100px;
+  }
+  #title {
+    font-size: 35px;
+  }
+  #inputGuide {
+    margin-top: 50px;
+  }
 }

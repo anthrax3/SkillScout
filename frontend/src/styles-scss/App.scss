@@ -1,3 +1,9 @@
+// breakpoints for media mixin
+$breakpoints: (
+  'phone': 320px,
+  'tablet': 768px,
+  'desktop': 1024px
+) !default;
 
 $blue: #1BE7FF;
 $green: #6EEB83;
@@ -11,6 +17,7 @@ html, body {
 	text-align: center;
 }
 
+@import 'include-media'; // tasty media mixin
 @import 'Container';
 @import 'Background';
 @import 'Logo';

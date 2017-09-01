@@ -45,16 +45,17 @@ class AppComponent extends React.Component {
     });
   }
   render() {
+    // <Background/>
+
     return (
       <div>
-        <Container>
-          <Background/>
+        <Container bShowResults={this.state.bShowResults}>
           <Logo bShowResults={this.state.bShowResults}/>
           { !this.state.bShowResults && <InputGuide/>}
           <InputAndButton onSubmit={this.onSubmit} submitButtonText={this.state.submitButtonText}/>
           { this.state.bShowResults && <Results city={this.state.city} onClickCityError={this.onClickCityError}/> }
+          <Footer/>
         </Container>
-        <Footer/>
       </div>
     );
   }
