@@ -7,6 +7,8 @@ import os
 import scrapy
 import sys
 from datetime import datetime, timedelta
+#import module to connect to postgresql
+import psycopg2
 # enter working directory: os.chdir('/home/stephen/Code/Python/venv/SkillScout/backend')
 # Add directory to path: sys.path.append('/home/stephen/Code/Python/venv/SkillScout/backend')
 #import module to connect to postgresql
@@ -34,7 +36,7 @@ class JobSpider(scrapy.Spider):
     abs_link = 'https://www.indeed.com'
     #control page range here!
     #request how many pages to scrape
-    pg_limit = 2
+    pg_limit = 9
     verify_page_scrape = []
     check_repeats = set()
     pg_counter = 0     
@@ -135,21 +137,32 @@ class JobSpider(scrapy.Spider):
                 if job_url not in check_repeats:
                     print 'url is unique'
                     f.write(job_url + '\n')
-                    print 'Saving metadata to SQL'
-                    ### open sql to view last doc downloaded for count???
+                    # Read counter doc to assign unique ID
                     with open(count_file, 'r') as f:
                         doc_count = f.readline()
                     total_doc_count = doc_count.strip()
+                    print 'Saving metadata to SQL'
+                    #Connect to an existing database
+                    conn = psycopg2.connect("dbname ='Skilldb' user = 'postgres' host = 'localhost' password = 'postgres'")
+                    #Open a cursor to perform database operations
+                    cur = conn.cursor()
+                    #Fill a query
+                    cur.execute("INSERT INTO jobs (docid,title,date,city,url) VALUES (%s, %s, %s, %s, %s)",(int(total_doc_count),
+                    job_title,job_date,job_city,job_url))
+                    conn.commit()
+                    cur.close()
+                    conn.close()
                     
-                    filename = os.path.join(output_loc, total_doc_count + '.html')
                     #save file:
+                    filename = os.path.join(output_loc, total_doc_count + '.html')
                     with open(filename, 'wb') as f:
                         f.write(response.body)
+                    #make read-only    
                     os.chmod(filename, 0555) 
-                    #count documents downloaded
+                  
                     print 'Downloading document %s\ntitle: %s\ndate: %s\nurl:  %s' % (total_doc_count, job_title, job_date, response.url)
-                    total_doc_count = str(int(total_doc_count) + 1)
                     #increment total doc_count
+                    total_doc_count = str(int(total_doc_count) + 1)
                     with open(count_file, 'wb') as f:
                         f.write(total_doc_count)
                 else:
@@ -159,19 +172,31 @@ class JobSpider(scrapy.Spider):
         except IOError:
             with open(verify_filename, 'wb') as f:
                 f.write(job_url + '\n')
-                print 'Saving metadata to SQL'
+                # Read counter doc to assign unique ID
                 with open(count_file, 'r') as f:
                     doc_count = f.readline()
                 total_doc_count = doc_count.strip()
                 
-                filename = os.path.join(output_loc, total_doc_count + '.html')
+                print 'Saving metadata to SQL'
+                #Connect to an existing database
+                conn = psycopg2.connect("dbname ='Skilldb' user = 'postgres' host = 'localhost' password = 'postgres'")
+                #Open a cursor to perform database operations
+                cur = conn.cursor()
+                #Fill a query
+                cur.execute("INSERT INTO jobs (docid,title,date,city,url) VALUES (%s, %s, %s, %s, %s)",(int(total_doc_count),
+                job_title,job_date,job_city,job_url))
+                conn.commit()
+                cur.close()
+                conn.close()
+                
                 #save file:
+                filename = os.path.join(output_loc, total_doc_count + '.html')
                 with open(filename, 'wb') as f:
                     f.write(response.body)
+                #make read-only        
                 os.chmod(filename, 0555) 
-                #count documents downloaded
                 print 'Downloading document %s\ntitle: %s\ndate: %s\nurl:  %s' % (total_doc_count, job_title, job_date, response.url)
-
+                #increment total doc_count
                 total_doc_count = str(int(total_doc_count) + 1)
                 with open(count_file, 'wb') as f:
                     f.write(total_doc_count)
