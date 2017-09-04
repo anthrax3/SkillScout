@@ -1,12 +1,12 @@
 import React from 'react';
-import {Scatter} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 
 class TrendsChart extends React.Component {
   render() {
-    console.log(this.props.chartData);
+    console.log(this.props.recentTrendsChartData);
     return (
       <div>
-        <Scatter data={this.props.recentTrendsChartData} redraw/>
+        <Line data={this.props.recentTrendsChartData} redraw/>
       </div>
     );
   }

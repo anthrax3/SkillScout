@@ -72,7 +72,9 @@ class Results extends React.Component {
   render() {
     // determine direction based on percentage change value
     var writtenDescriptionData = this.state.writtenDescriptionData;
-    var direction = writtenDescriptionData.percChangeMonth > 0 ? 'up' : 'down';
+    var directionMonth = writtenDescriptionData.percChangeMonth > 0 ? 'up' : 'down';
+    var directionYear = writtenDescriptionData.percChangeYear > 0 ? 'up' : 'down';
+    var leadDescriptionPlural = writtenDescriptionData.leadDescription + 's';
 
     return (
       <div>
@@ -83,10 +85,15 @@ class Results extends React.Component {
               <h2>Overview</h2>
               <h4>Key Points</h4>
               <ul className="keyPointsList">
-                <li>{this.props.city} jobs are <b>{direction} {writtenDescriptionData.percChangeMonth}%</b> since last month.</li><br/>
-                <li><b>{writtenDescriptionData.leadDescription}</b> is the most desired job description. The most desired skill for this job is <b>{writtenDescriptionData.leadSkill}</b> (<b>{writtenDescriptionData.leadSkillPerc}%</b> of postings)</li><br/>
-                <li>Something...</li><br/>
-                <li>Something more...</li><br/>
+                <li>There were a total of <b>{writtenDescriptionData.jobsTotal} jobs</b> found for {this.props.city}.</li><br/>
+                <li><b>{writtenDescriptionData.jobsYesterday} new jobs</b> were posted yesterday.</li><br/>
+                <li>The amount of jobs posted for {this.props.city} are <b>{directionMonth} {writtenDescriptionData.percChangeMonth}%</b> since last month.</li><br/>
+                <li>The amount of jobs posted for {this.props.city} are <b>{directionYear} {writtenDescriptionData.percChangeYear}%</b> year to date.</li><br/>
+              </ul>
+              <h4>Job Specifics</h4>
+              <ul className="keyPointsList">
+                <li><b>{writtenDescriptionData.leadDescription}</b> is the most desired job description, found in <b>{writtenDescriptionData.leadDescriptionPerc}%</b> of postings. ({writtenDescriptionData.leadDescriptionCount} of {writtenDescriptionData.jobsTotal} jobs)</li><br/>
+                <li>The most desired skill for <b>{leadDescriptionPlural}</b> is <b>{writtenDescriptionData.leadSkill}</b>, found in <b>{writtenDescriptionData.leadSkillPerc}%</b> of postings. ({writtenDescriptionData.leadSkillCount} of {writtenDescriptionData.jobsTotal} jobs)</li><br/>
               </ul>
               <h2>Jobs by Industry</h2>
                 <DoughnutChart doughnutChartData={this.state.doughnutChartData}/>

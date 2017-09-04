@@ -36,13 +36,16 @@ class Input extends React.Component {
         <div id="input">
           <div id="input--orangeBorder">
             <div id="input--yellowBorder">
-              <Geosuggest onKeyPress={this.handleInputKeyPress} placeholder="Search cities..." onChange={this.handleOnChange} onSuggestSelect={this.handleSuggestSelect}/>
+              <Geosuggest onKeyPress={this.handleInputKeyPress} placeholder="Search cities..." onChange={this.handleOnChange} onSuggestSelect={this.handleSuggestSelect} ref={(input) => { this.geoInput = input; }} />
             </div>
           </div>
         </div>
         <button className="submitButton" onClick={this.handleButtonClick}>{this.props.submitButtonText}</button>
       </div>
     );
+  }
+  componentDidMount(){
+    this.geoInput.focus();
   }
 }
 
