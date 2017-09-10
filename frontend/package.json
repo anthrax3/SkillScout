@@ -72,6 +72,8 @@
     "react-chartjs-2": "^2.6.1",
     "react-dom": "^15.0.0",
     "react-geosuggest": "^2.5.0",
-    "react-popup": "^0.8.0"
+    "react-notify-toast": "^0.3.2",
+    "react-popup": "^0.8.0",
+    "react-toastify": "^2.0.0-rc.3"
   }
 }

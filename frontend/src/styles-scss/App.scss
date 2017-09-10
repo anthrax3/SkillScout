@@ -17,6 +17,11 @@ html, body {
 	text-align: center;
 }
 
+/* for multi line display of notification */
+#notification-wrapper span {
+  display: inline-block !important;
+}
+
 @import 'include-media'; // tasty media mixin
 @import 'Container';
 @import 'Background';

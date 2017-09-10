@@ -1,8 +1,10 @@
 require('normalize.css/normalize.css');
 require('styles/App.css');
 
+// third party components
 import React from 'react';
 import Popup from 'react-popup';
+import Notifications from 'react-notify-toast';
 
 // custom components
 import SearchErrorPopupContent from './popups/SearchErrorPopupContent.js'
@@ -24,14 +26,14 @@ class AppComponent extends React.Component {
       this.state = {
         bShowResults: false,
         submitButtonText: 'GO!',
-        city: ''
+        placeId: ''
       };
       //this.onChange = this.onChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
       this.onClickCityError = this.onClickCityError.bind(this);
   }
-  onSubmit(city) {
-    this.setState({city: city, bShowResults: true, submitButtonText: sNewSearchText});
+  onSubmit(placeId) {
+    this.setState({placeId: placeId, bShowResults: true, submitButtonText: sNewSearchText});
   }
   onClickCityError() {
     console.log("in onClickCityError...");
@@ -49,11 +51,12 @@ class AppComponent extends React.Component {
 
     return (
       <div>
+        <Notifications />
         <Container bShowResults={this.state.bShowResults}>
           <Logo bShowResults={this.state.bShowResults}/>
           { !this.state.bShowResults && <InputGuide/>}
           <InputAndButton onSubmit={this.onSubmit} submitButtonText={this.state.submitButtonText}/>
-          { this.state.bShowResults && <Results city={this.state.city} onClickCityError={this.onClickCityError}/> }
+          { this.state.bShowResults && <Results placeId={this.state.placeId} onClickCityError={this.onClickCityError}/> }
           <Footer/>
         </Container>
       </div>

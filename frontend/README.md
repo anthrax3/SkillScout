@@ -4,11 +4,17 @@
 
 This started as the framework from generator-react-webpack (https://github.com/react-webpack-generators/generator-react-webpack)
 
+The UI process is as follows:
+1. User enters a city Location (error message is provided when location can not be found)
+2. If a valid city/location was given, the google maps geocode API is used to determine the city/locations's place ID and that place ID is used to look up relevant data from a firebase database, that has been populated with values from a combined NLP and webscraping algorithm (see the /backend folder README)
+3. That endpoint data is rendered in various lists and charts
+
 ## Current File Structure of Source (Folder `/src`) ##
 
-(generated with linux command `tree` inside of `/src`)
+(generated with bash command `tree src`)
 
 ```
+src
 ├── actions
 │   └── README.md
 ├── components
@@ -26,20 +32,16 @@ This started as the framework from generator-react-webpack (https://github.com/r
 │   ├── footer
 │   │   └── Footer.js
 │   ├── input
-│   │   └── Input.js
+│   │   └── InputAndButton.js
 │   ├── inputGuide
 │   │   └── InputGuide.js
 │   ├── logo
 │   │   └── Logo.js
 │   ├── popups
 │   │   └── SearchErrorPopupContent.js
-│   ├── results
-│   │   ├── JobsDropdown.js
-│   │   └── Results.js
-│   ├── submitButton
-│   │   └── SubmitButton.js
-│   └── title
-│       └── Title.js
+│   └── results
+│       ├── JobsDropdown.js
+│       └── Results.js
 ├── config
 │   ├── README.md
 │   ├── base.js
@@ -50,7 +52,6 @@ This started as the framework from generator-react-webpack (https://github.com/r
 │   └── cityTableData.js
 ├── favicon.ico
 ├── images
-│   └── yeoman.png
 ├── index.html
 ├── index.js
 ├── sources
@@ -69,5 +70,5 @@ This started as the framework from generator-react-webpack (https://github.com/r
     ├── _Logo.scss
     ├── _Results.scss
     ├── _SubmitButton.scss
-    └── _Title.scss
+    └── _include-media.scss
 ```

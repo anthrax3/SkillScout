@@ -2,6 +2,10 @@
 html, body {
   text-align: center; }
 
+/* for multi line display of notification */
+#notification-wrapper span {
+  display: inline-block !important; }
+
 [class^="container--"] {
   transition: 3s all; }
 
