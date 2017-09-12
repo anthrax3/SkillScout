@@ -25,9 +25,8 @@ lIndustries = [ "Agriculture, Forestry, Fishing", "Mining", "Manufacturing", "El
 ################################################################
 ### Connect to DB and get all cities / endpoints for website ###
 ################################################################
-conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT) # connect to db
-
 print "Connecting..."
+conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT) # connect to db
 cur = conn.cursor() # Open a cursor to perform database operations
 print "Done."
 
@@ -83,9 +82,11 @@ for i in range(0, len(lCities)):
 
     # write the row of tastiness into the DB
     cur.execute(sQuery, tValues)
-    print "Mock data line " + str(i) + " done..."
+    print "Mock data line " + str(i) + " complete..."
 
 # done with loop of transactions, commit them to the db
 print "Commiting..."
 conn.commit()
 print "Done."
+conn.close()
+print "Connection closeed."
