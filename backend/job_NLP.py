@@ -7,7 +7,7 @@ NLP algo to detect skills in each html doc
 @author: stephen
 """
 import os
-indir = '/home/stephen/Code/Python/venv/SkillScout/backend/html_out'
+indir = '/html_out' # Chris 12.09.2017 - take advantage of python's relative file path reading so this will work on any computer
 filelist = []
 for filenames in os.listdir(indir):
         if len(filenames) == 6:
@@ -23,8 +23,8 @@ for html_doc in range (0,len(filelist)):
         doc_words = f.readline()
 
 
-           
-           
+
+
 ##import module to connect to postgresql
 #import psycopg2
 ##Connect to an existing database
