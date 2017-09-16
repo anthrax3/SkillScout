@@ -3,14 +3,25 @@
 Web scraper built using the Scrapy framework
 @author: stephen schneider
 """
+import sys
+sys.path.insert(0,"../utils")
+from utils.skillscout_connection_utilities import MongoDB
+from utils.skillscout_connection_utilities import PostgresqlDB
+
 import os
 import scrapy
 import sys
 from datetime import datetime, timedelta
-#import module to connect to postgresql
 import psycopg2
-# enter working directory: os.chdir('/home/stephen/Code/Python/venv/SkillScout/backend')
-# Add directory to path: sys.path.append('/home/stephen/Code/Python/venv/SkillScout/backend')
+
+# connect to mongodb
+oMongoDB = MongoDB()
+
+# Connect to heroku postgresql
+oPostgresql = PostgresqlDB()
+
+# collection from mongo
+oHTMLCollection = oMongoDB.db['html-collection']
 
 from scrapy.crawler import CrawlerProcess
 
@@ -33,14 +44,14 @@ class JobSpider(scrapy.Spider):
     abs_link = 'https://www.indeed.com'
     #control page range here!
     #request how many pages to scrape
-    pg_limit = raw_input("Enter how many pages would you like to scrape: ")
-    #pg_limit = 2
+    #pg_limit = raw_input("Enter how many pages would you like to scrape: ")
+    pg_limit = 10
     verify_page_scrape = []
     check_repeats = set()
     pg_counter = 0
     current_path = os.path.dirname(os.path.realpath('__file__'))
     print 'output directory must be in the same directory as this script and named "html_out"'
-    output_dir = os.path.join(current_path,'html_out')
+    output_dir = os.path.join(current_path,'../html_out')
 
 
     def parse(self, response):
@@ -122,40 +133,40 @@ class JobSpider(scrapy.Spider):
         job_date = info_per_link[1]
         job_city = self.user_city
 
-        #Connect to an existing database
-        conn = psycopg2.connect("dbname ='Skilldb' user = 'postgres' host = 'localhost' password = 'postgres'")
-        #Open a cursor to perform database operations
-        cur = conn.cursor()
-        cur.execute("SELECT max(docid) FROM jobs;")
-        max_id = cur.fetchone()
-        total_doc_count = max_id[0]
+        oPostgresql.execute("SELECT max(docid) FROM jobs;", "")
+        max_id = oPostgresql.fetchone()
+        if max_id[0] is None: # if table is brand new, there will be no max id yet
+            total_doc_count = 0
+        else:
+            total_doc_count = max_id[0]
         #increment total_doc_count, then download w/ new doc_count as label
         doc_count = total_doc_count + 1
         #Fill a query
         print 'checking for repeats in primary key (url)...'
         try:
-            cur.execute("INSERT INTO jobs (docid,title,date,city,url_id) VALUES (%s, %s, %s, %s, %s)",(doc_count,
+            oPostgresql.execute("INSERT INTO jobs (docid,title,date,city,urlid) VALUES (%s, %s, %s, %s, %s) ON CONFLICT (urlid) DO NOTHING",(doc_count,
             job_title,job_date,job_city,job_url))
             print 'no error, saving metadata to SQL and downloading document'
-            conn.commit()
-            cur.close()
-            conn.close()
+            oPostgresql.commit()
+
 
             #save file:
-            filename = os.path.join(self.output_dir, str(doc_count) + '.html')
-            with open(filename, 'wb') as f:
-                f.write(response.body)
+            # filename = os.path.join(self.output_dir, str(doc_count) + '.html')
+            # with open(filename, 'wb') as f:
+            #     f.write(response.body)
             #make read-only
-            os.chmod(filename, 0555)
+            # os.chmod(filename, 0555)
 
-            print 'Downloading document %s\ntitle: %s\ndate: %s\nurl:  %s' % (doc_count, job_title, job_date, response.url)
+            # write html contents to mongodb
+            oHTMLCollection.insert_one({"docid": doc_count, "html": response.body})
+
+            print 'Posted to Heroku Postgresql & MongoDB: document %s\ntitle: %s\ndate: %s\nurl:  %s' % (doc_count, job_title, job_date, response.url)
 
         except psycopg2.IntegrityError:
             print 'Integrity Error so table was left out... should also leave out downloading tho...'
             print 'url is not unique \nSkipping download, document already downloaded'
-            conn.commit()
-            cur.close()
-            conn.close()
+            oPostgresql.commit()
+
 
         self.logger.info('visited %s', response.url)
 
@@ -168,4 +179,4 @@ class JobSpider(scrapy.Spider):
 
 process = CrawlerProcess()
 process.crawl(JobSpider)
-process.start() 
+process.start()

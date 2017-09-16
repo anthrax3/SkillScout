@@ -1,13 +1,7 @@
 # imports
-import os
-import psycopg2
-
-# DB Credentials (in bashrc)
-DB_NAME = os.environ.get("SKILLSCOUT_DB_NAME")
-DB_USER = os.environ.get("SKILLSCOUT_DB_USER")
-DB_PASSWORD = os.environ.get("SKILLSCOUT_DB_PASSWORD")
-DB_HOST = os.environ.get("SKILLSCOUT_DB_HOST")
-DB_PORT = os.environ.get("SKILLSCOUT_DB_PORT")
+import sys
+sys.path.insert(0,"../utils")
+from utils import skillscout_connection_utilities
 
 # keywords to help look in text (add to this as we see fit)
 keywords =  ["required","able","ability","should","will","need","not","want","looking","responsibilities","include","relevant","experience","seeking"]
@@ -16,8 +10,7 @@ keywords =  ["required","able","ability","should","will","need","not","want","lo
 ### Connect to DB and get all cities / endpoints for website ###
 ################################################################
 print "Connecting..."
-conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT) # connect to db
-cur = conn.cursor() # Open a cursor to perform database operations
+conn, cur = skillscout_connection_utilities.postgresql_connect() # connect to db
 print "Done."
 
 # query string (seperated into multiple lines for readability, same for every city loop)

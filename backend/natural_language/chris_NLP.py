@@ -1,31 +1,38 @@
-import psycopg2
-import os
 import re
 import nltk
-from bs4 import BeautifulSoup
+import sys
+sys.path.insert(0,"../utils")
+from utils.skillscout_connection_utilities import PostgresqlDB
+from utils.skillscout_connection_utilities import MongoDB
+from utils.skillscout_connection_utilities import cleanHTML
 from nltk.corpus import stopwords
 from rake_nltk import Rake
 
-# DB Credentials (in bashrc)
-DB_NAME = os.environ.get("SKILLSCOUT_DB_NAME")
-DB_USER = os.environ.get("SKILLSCOUT_DB_USER")
-DB_PASSWORD = os.environ.get("SKILLSCOUT_DB_PASSWORD")
-DB_HOST = os.environ.get("SKILLSCOUT_DB_HOST")
-DB_PORT = os.environ.get("SKILLSCOUT_DB_PORT")
+# mongodb DB object
+oMongoDB = MongoDB()
+
+# collection
+oHTMLCollection = oMongoDB.db['html-collection']
+
 ##########################################
 ### Connect to DB and get all keywords ###
 ##########################################
-print "Connecting, retreving keywords, and closing..."
-conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT) # connect to db
-cur = conn.cursor() # Open a cursor to perform database operations
-cur.execute("SELECT * FROM keywords;")
-tKeywords = cur.fetchall()
-conn.close()
+print "Connecting, retreving keywords, positive phrases, negative phrases, and closing..."
+oPostgresql = PostgresqlDB()
+oPostgresql.execute("SELECT * FROM keywords;","") # note the params parameter can be just an empty string here
+tKeywords = oPostgresql.fetchall()
+oPostgresql.execute("SELECT * FROM positive_phrases;","") # note the params parameter can be just an empty string here
+tPositivePhrases = oPostgresql.fetchall()
+oPostgresql.execute("SELECT * FROM negative_phrases;","") # note the params parameter can be just an empty string here
+tNegativePhrases = oPostgresql.fetchall()
+oPostgresql.close()
 print "Done."
 
-# constants
+# variables
 r = Rake()
 lKeywords = [i[0] for i in tKeywords] # covert list of singular tuples to list
+lPositivePhrases = [i[0] for i in tPositivePhrases] # covert list of singular tuples to list
+lNegativePhrases = [i[0] for i in tNegativePhrases] # covert list of singular tuples to list
 cachedStopWords = stopwords.words("english")
 porter = nltk.PorterStemmer() # porter stemmer
 lStemmedKeywords = [porter.stem(t) for t in lKeywords] # stem all the keywords
@@ -37,16 +44,8 @@ def findIndexes(lList, sVal):
     return [i for i, x in enumerate(lList) if x == sVal]
 
 ### prints preceding and following words around keywords in the text
-def findSkills(sHTML, sMethod):
-    oSoup = BeautifulSoup(sHTML, "html5lib") # BeautifulSoup the html!
-    [s.extract() for s in oSoup('head')] # remove everything in <head> tag
-    [s.extract() for s in oSoup('script')] # remove everything in <script> tags
-    [s.extract() for s in oSoup('noscript')] # remove everything in <noscript> tags
-    sText = oSoup.text # get raw text left in article
-    sText.lower() # convert any uppercase letters to lowercase
-    sText = re.sub(r'\s+', ' ', sText) # clean up all the leftover whitespace with just a single space
-    sText = sText.encode('utf-8')
-    sText = ' '.join([word for word in sText.split() if word not in cachedStopWords]) # use nltk to remove stop words
+def findSkills(sText, sMethod):
+    ### BEGIN METHOD CHOICE ###
     if sMethod == "RAKE_RANKED_PHRASES":
         r.extract_keywords_from_text(sText)
         print r.get_ranked_phrases();
@@ -88,14 +87,30 @@ def findSkills(sHTML, sMethod):
         for i in range(min(50, len(counts))):
           count, word = counts[i]
           print('%s %d' % (word, count))
+    if sMethod == "PHRASES":
+        # positive key phrases: loop over all positive key phrases and regex out the key sentances
+        print "Positive Phrases:"
+        for sPositivePhrase in lPositivePhrases:
+            sRegexString = sPositivePhrase + " (.*?)\." # build regex string to query the text (everything between phrase and end of sentance)
+            for result in re.findall(sRegexString, sText, re.S): # re.S is the DOTALL flag, meaning even if a newline is inbetween the delimiters, it picks it up
+                # for each sentence found from our regex
+                print sPositivePhrase + ": " + result
+
+        # positive key phrases: loop over all positive key phrases and regex out the key sentances
+        print "Negative Phrases:"
+        for sNegativePhrase in lNegativePhrases:
+            sRegexString = sNegativePhrase + " (.*?)\." # build regex string to query the text (everything between phrase and end of sentance)
+            for result in re.findall(sRegexString, sText, re.S): # re.S is the DOTALL flag, meaning even if a newline is inbetween the delimiters, it picks it up
+                # for each sentence found from our regex
+                print sNegativePhrase + ": " + result
 
 ###########################
 ### Main Program Proces ###
 ###########################
 
-# loop over all html files
-for filename in os.listdir('./html_out/'):
-    if filename.endswith('.html'):
-        oFile = open('./html_out/%s' % filename) # file object
-        sHTML = oFile.read() # get all html from the file
-        findSkills(sHTML, "RAKE_SCORED_PHRASES")
+# loop over all html data in
+for oHTMLEntry in oHTMLCollection.find():
+    sHTML = oHTMLEntry['html'] # we only need the html component
+    sText = cleanHTML(sHTML) # clean the raw html
+    sText = ' '.join([word for word in sText.split() if word not in cachedStopWords]) # use nltk to remove stop words
+    findSkills(sText, "PHRASES")

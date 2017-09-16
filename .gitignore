@@ -1,2 +1,4 @@
 /backend/html_out
+/backend/raw_text
 /frontend/node_modules
+*.pyc
