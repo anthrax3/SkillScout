@@ -97,5 +97,5 @@ def findSkills(sHTML, sMethod):
 for filename in os.listdir('./html_out/'):
     if filename.endswith('.html'):
         oFile = open('./html_out/%s' % filename) # file object
-        sHTML = oFile.read() # get all html from this
+        sHTML = oFile.read() # get all html from the file
         findSkills(sHTML, "RAKE_SCORED_PHRASES")
