@@ -47,23 +47,6 @@ class PostgresqlDB(object):
     def __del__(self):
         self.conn.close()
 
-class MongoDB(object):
-    client = None
-    db = None
-
-    def __init__(self):
-        SKILLSCOUT_MONGODB_USER = os.environ.get("SKILLSCOUT_MONGODB_USER")
-        SKILLSCOUT_MONGODB_PASSWORD = os.environ.get("SKILLSCOUT_MONGODB_PASSWORD")
-        SKILLSCOUT_MONGODB_HOST = os.environ.get("SKILLSCOUT_MONGODB_HOST")
-        SKILLSCOUT_MONGODB_PORT = os.environ.get("SKILLSCOUT_MONGODB_PORT")
-        SKILLSCOUT_MONGODB_DB_NAME = os.environ.get("SKILLSCOUT_MONGODB_DB_NAME")
-        sMongoURI = "mongodb://" + SKILLSCOUT_MONGODB_USER + ":" + SKILLSCOUT_MONGODB_PASSWORD + "@" + SKILLSCOUT_MONGODB_HOST + ":" + SKILLSCOUT_MONGODB_PORT + "/" + SKILLSCOUT_MONGODB_DB_NAME
-        self.client = MongoClient(sMongoURI)
-        self.db = self.client[SKILLSCOUT_MONGODB_DB_NAME]
-
-    def __del__(self):
-        self.client.close()
-
 class FirebaseDB(object):
     app = None
     root = None

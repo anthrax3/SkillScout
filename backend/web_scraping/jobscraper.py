@@ -5,23 +5,16 @@ Web scraper built using the Scrapy framework
 """
 import sys
 sys.path.insert(0,"../utils")
-from utils.skillscout_connection_utilities import MongoDB
 from utils.skillscout_connection_utilities import PostgresqlDB
-
+from utils.skillscout_connection_utilities import cleanHTML
 import os
 import scrapy
 import sys
 from datetime import datetime, timedelta
 import psycopg2
 
-# connect to mongodb
-oMongoDB = MongoDB()
-
 # Connect to heroku postgresql
 oPostgresql = PostgresqlDB()
-
-# collection from mongo
-oHTMLCollection = oMongoDB.db['html-collection']
 
 from scrapy.crawler import CrawlerProcess
 
@@ -77,6 +70,9 @@ class JobSpider(scrapy.Spider):
         self.verify_page_scrape.extend([self.pg_counter, response.url[-3:]])
 
         #change link of next page, depending on current page
+        print "pg_counter:" + str(self.pg_counter)
+        print "pg_limit:" + str(self.pg_limit)
+
         if self.pg_counter > self.pg_limit:
             print('Page limit reached, Closing Scraper')
             print(self.verify_page_scrape)
@@ -94,7 +90,6 @@ class JobSpider(scrapy.Spider):
 
 
         for link_num in range(10):
-
             #location of doc info: url, title, date
             info_location = self.main_table + '/div[' + str(start_int + link_num)
             url_location = info_location +']/h2/a/@href'
@@ -132,6 +127,8 @@ class JobSpider(scrapy.Spider):
         job_title = info_per_link[0]
         job_date = info_per_link[1]
         job_city = self.user_city
+        job_html = response.body
+        job_text = cleanHTML(response.body)
 
         oPostgresql.execute("SELECT max(docid) FROM jobs;", "")
         max_id = oPostgresql.fetchone()
@@ -144,8 +141,8 @@ class JobSpider(scrapy.Spider):
         #Fill a query
         print 'checking for repeats in primary key (url)...'
         try:
-            oPostgresql.execute("INSERT INTO jobs (docid,title,date,city,urlid) VALUES (%s, %s, %s, %s, %s) ON CONFLICT (urlid) DO NOTHING",(doc_count,
-            job_title,job_date,job_city,job_url))
+            oPostgresql.execute("INSERT INTO jobs (docid,title,date,city,urlid,html,raw) VALUES (%s, %s, %s, %s, %s, %s, %s) ON CONFLICT (urlid) DO NOTHING",(doc_count,
+            job_title,job_date,job_city,job_url,job_html,job_text))
             print 'no error, saving metadata to SQL and downloading document'
             oPostgresql.commit()
 
@@ -157,10 +154,8 @@ class JobSpider(scrapy.Spider):
             #make read-only
             # os.chmod(filename, 0555)
 
-            # write html contents to mongodb
-            oHTMLCollection.insert_one({"docid": doc_count, "html": response.body})
 
-            print 'Posted to Heroku Postgresql & MongoDB: document %s\ntitle: %s\ndate: %s\nurl:  %s' % (doc_count, job_title, job_date, response.url)
+            print 'Posted to Heroku Postgresql: document %s\ntitle: %s\ndate: %s\nurl:  %s' % (doc_count, job_title, job_date, response.url)
 
         except psycopg2.IntegrityError:
             print 'Integrity Error so table was left out... should also leave out downloading tho...'

@@ -2,40 +2,37 @@ import re
 import nltk
 import sys
 sys.path.insert(0,"../utils")
+reload(sys)
+sys.setdefaultencoding('utf8')
 from utils.skillscout_connection_utilities import PostgresqlDB
-from utils.skillscout_connection_utilities import MongoDB
 from utils.skillscout_connection_utilities import cleanHTML
 from nltk.corpus import stopwords
 from rake_nltk import Rake
-
-# mongodb DB object
-oMongoDB = MongoDB()
-
-# collection
-oHTMLCollection = oMongoDB.db['html-collection']
 
 ##########################################
 ### Connect to DB and get all keywords ###
 ##########################################
 print "Connecting, retreving keywords, positive phrases, negative phrases, and closing..."
 oPostgresql = PostgresqlDB()
-oPostgresql.execute("SELECT * FROM keywords;","") # note the params parameter can be just an empty string here
-tKeywords = oPostgresql.fetchall()
+oPostgresql.execute("SELECT title, raw FROM jobs;","") # note the params parameter can be just an empty string here
+lJobData = oPostgresql.fetchall()
+oPostgresql.execute("SELECT * FROM skills;","") # note the params parameter can be just an empty string here
+tSkills = oPostgresql.fetchall()
 oPostgresql.execute("SELECT * FROM positive_phrases;","") # note the params parameter can be just an empty string here
 tPositivePhrases = oPostgresql.fetchall()
 oPostgresql.execute("SELECT * FROM negative_phrases;","") # note the params parameter can be just an empty string here
 tNegativePhrases = oPostgresql.fetchall()
-oPostgresql.close()
 print "Done."
 
 # variables
 r = Rake()
-lKeywords = [i[0] for i in tKeywords] # covert list of singular tuples to list
+lSkills = [i[0] for i in tSkills] # covert list of singular tuples to list
+lSkills = [x.lower() for x in lSkills] # remove any uppercase
 lPositivePhrases = [i[0] for i in tPositivePhrases] # covert list of singular tuples to list
 lNegativePhrases = [i[0] for i in tNegativePhrases] # covert list of singular tuples to list
 cachedStopWords = stopwords.words("english")
 porter = nltk.PorterStemmer() # porter stemmer
-lStemmedKeywords = [porter.stem(t) for t in lKeywords] # stem all the keywords
+lStemmedSkills = [porter.stem(t) for t in lSkills] # stem all the skills
 
 # definitions
 
@@ -43,7 +40,7 @@ lStemmedKeywords = [porter.stem(t) for t in lKeywords] # stem all the keywords
 def findIndexes(lList, sVal):
     return [i for i, x in enumerate(lList) if x == sVal]
 
-### prints preceding and following words around keywords in the text
+### prints preceding and following words around skills in the text
 def findSkills(sText, sMethod):
     ### BEGIN METHOD CHOICE ###
     if sMethod == "RAKE_RANKED_PHRASES":
@@ -52,17 +49,22 @@ def findSkills(sText, sMethod):
     if sMethod == "RAKE_SCORED_PHRASES":
         r.extract_keywords_from_text(sText)
         print r.get_ranked_phrases_with_scores();
-    if sMethod == "CUSTOM":
-        lText = sText.split() # split text into an array
-        lTokenText = nltk.word_tokenize(sText)
-        lTaggedText = nltk.pos_tag(lTokenText)
+    if sMethod == "KEYWORD_COUNTS":
+        try:
+            lTokenText = nltk.word_tokenize(sText) # tokenize text
+        except UnicodeDecodeError:
+            print "Invalid utf8 detected, moving on..."
+            return
         lStemmedText = [porter.stem(t) for t in lTokenText] # porter stemmer to (matched with stemmed key words)
         # for each of the keywords, find the index of those keywords and print the word in front and after it
-        for sKeyword in lStemmedKeywords:
-            lKeywordIndexes = findIndexes(lStemmedText, sKeyword) # find indexes of keyword
-            print sKeyword
-            for iIndex in lKeywordIndexes:
-                print(str(lTaggedText[iIndex-2][0]),  " ",  str(lTaggedText[iIndex-1][0]),  " ",  str(lTaggedText[iIndex+1][0]),  " ",  str(lTaggedText[iIndex+2][0]))
+        iFoundCount = 0
+        for sSkill in lStemmedSkills:
+            lKeywordIndexes = findIndexes(lStemmedText, sSkill) # find indexes of keyword
+            if len(lKeywordIndexes) > 0:
+                print "\tSkill found: " + lTokenText[lKeywordIndexes[0]] + " occured " + str(len(lKeywordIndexes)) + " times"
+                iFoundCount = iFoundCount + 1
+        if iFoundCount == 0:
+            print "\tNo skills for this job found..."
     if sMethod == "FREQUENCY":
         words = sText.split()
 
@@ -104,13 +106,25 @@ def findSkills(sText, sMethod):
                 # for each sentence found from our regex
                 print sNegativePhrase + ": " + result
 
+
 ###########################
 ### Main Program Proces ###
 ###########################
 
 # loop over all html data in
-for oHTMLEntry in oHTMLCollection.find():
-    sHTML = oHTMLEntry['html'] # we only need the html component
-    sText = cleanHTML(sHTML) # clean the raw html
-    sText = ' '.join([word for word in sText.split() if word not in cachedStopWords]) # use nltk to remove stop words
-    findSkills(sText, "PHRASES")
+iCount = 0
+print "=== BEGIN NLP SKILL SEARCH ==="
+for tData in lJobData:
+    print "Job " + str(iCount) + " of "+ str(len(lJobData)) + " Title: '" + tData[0] + "'"
+    sText = ' '.join([word for word in tData[1].split() if word not in cachedStopWords]) # use nltk to remove stop words
+    try:
+        sText.decode('utf-8')
+    except UnicodeDecodeError:
+        print "Invalid utf8 detected... moving to next job..."
+        continue
+    findSkills(sText, "KEYWORD_COUNTS") # if the utf8 is okay, we can call the findSkills function
+    iCount = iCount + 1
+print "== END NLP SKILL SEARCH =="
+
+# finally close connection to postgresql and mongodb
+oPostgresql.close()
