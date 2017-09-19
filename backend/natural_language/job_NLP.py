@@ -2,7 +2,7 @@
 """
 Created on Sun Sep  3 04:39:38 2017
 
-NLP algo to detect skills in each html doc
+NLP algo to detect skills in each html document
 
 @author: stephen
 """
