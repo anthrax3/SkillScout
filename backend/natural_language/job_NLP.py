@@ -8,8 +8,8 @@ NLP algo to detect skills in each html document
 """
 import os
 current_path = os.path.dirname(os.path.realpath('__file__'))
-print 'input directory must be in SkillScout/backend/web_scraping/ and in the directory and named "html_out"
-input_dir = os.path.join(current_path,'../../web_scraping/html_out')
+print 'input directory must be in SkillScout/backend/ and in the directory and named "html_out"
+input_dir = os.path.join(current_path,'../../backend/html_out')
 filelist = []
 for filenames in os.listdir(indir):
         if len(filenames) == 6:

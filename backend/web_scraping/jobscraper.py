@@ -43,8 +43,8 @@ class JobSpider(scrapy.Spider):
     check_repeats = set()
     pg_counter = 0
     current_path = os.path.dirname(os.path.realpath('__file__'))
-    print 'output directory must be in the same directory as this script and named "html_out"'
-    output_dir = os.path.join(current_path,'../html_out')
+    print 'output directory must be in the SkillScout/backend/ directory and named "html_out"'
+    output_dir = os.path.join(current_path,'../../backend/html_out')
 
 
     def parse(self, response):
