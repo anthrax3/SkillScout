@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><link href="../style/core.css" type="text/css" rel="styleSheet" /><style type="text/css">.pagination-disabled {opacity:0.4;}</style><link rel="stylesheet" href="default.css" type="text/css" />
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+	<title></title>
+<link rel="stylesheet" href="default.css" type="text/css"><link rel="stylesheet" href="default.css" type="text/css" /><meta property="og:image" content="https://agency.governmentjobs.com/images/AgencyImages/SMC_Logo_WEB-94px.png"/><meta property="og:title" content="Dental Assistant - Spanish Speaking Preferred - Extra Help -  (OPEN)"><meta property="og:description" content="Note: This job announcement was amended on February 22, 2017 to update the classification descriptions and salary range for the flexibly staffed Dental Assistant series.Note: This job announcement was amended on November 9, 2016 to update the salary range.NOTE: This is a continuous recruitment which may close at any time. The final filing date will be posted five days in advance on this job announcement.Are you a dedicated and motivated Dental Assistant who enjoys being part of a team of profess"></head>
+
+<body><div id="skip"><a href="#gjmaincontent">Skip to Main Content</a></div>
+<center>
+
+
+
+
+	
+	<a id="gjmaincontent"></a>
+
+	<div style="margin:0 auto;width:100%%;">
+		<table width="100%" border="0" cellspacing="1" cellpadding="4" summary="">
+			<tr>
+				<td class="tblbordbot PoweredByCell" style="width:100%;text-align:right;"><img src="/images/poweredby.gif" width="103" height="30" alt="Powered by NEOGOV" longdesc="/images/longDesc/poweredBy.html" style="border:none;"/></td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="margin:0 auto;">
+	<table width="100%" border="0" cellspacing="1" cellpadding="4" summary="Job Information">
+	
+			<tr>
+				<th scope="row" class="jobinfo" style="width:40%;white-space:nowrap;">Job Title:</th>
+				<td class="maroon">
+					Dental Assistant - Spanish Speaking Preferred - Extra Help -  (OPEN)
+				</td>
+			</tr>
+
+			
+			<tr>
+				<th scope="row" class="jobinfo" style="width:40%;white-space:nowrap;">Closing Date/Time:</th>
+				<td>
+					Continuous 
+				</td>
+			</tr>
+			  
+				<tr>
+					<th scope="row" class="jobinfo" valign="top">Salary:</th>
+					<td>
+						See Position Description
+					</td>
+				</tr>
+				
+				<tr>
+					<th scope="row" class="jobinfo">Job Type:</th>
+					<td>Extra Help</td>
+				</tr>
+			
+			<tr>
+				<th scope="row" class="jobinfo">Location:</th>
+				<td>
+					San Mateo, California
+				</td>
+			</tr>
+
+			
+			
+			
+
+
+
+		<tr>
+			<td colspan="2" class="tblbordtop">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+	
+	
+		<div class="classSpecLinksContainer" style="margin-right:0%;">
+			
+					<a class="applyonline gjbulletinlink" href="job_bulletin.cfm?JobID=1037100" target="_blank" title="This link will open in a new window.">Print Job Information</a> |
+				
+					<a class="applyonline gjapplylink" href="https://www.governmentjobs.com/jobs/1037100/Dental%20Assistant%20%20Spanish%20Speaking%20Preferred%20%20Extra%20Help%20%20%20OPEN/Agency/sanmateo/apply"  target="_blank"  onClick="alert('You are now leaving the San Mateo Countysite\nand being redirected to the online application.');"  onclick="window.open(this.href,'_blank','scrollbars=yes,resizable=yes, width=700,height=700');return false;" title="This link will open in a new window.">Apply</a>
+				
+			&nbsp;
+		</div>
+		<br />
+
+		
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="" style="margin:0 auto;">
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<th align="left" class="gjTabRow" id="viewJobDescription">
+					
+					<div class="tabArea">
+						<a class="tab activeTab" href="http://agency.governmentjobs.com/sanmateo/default.cfm?action=viewjob&amp;JobID=1037100&amp;headerfooter=1&amp;promo=0&amp;transfer=0&amp;WDDXJobSearchParams=%3CwddxPacket%20version%3D%271%2E0%27%3E%3Cheader%2F%3E%3Cdata%3E%3Cstruct%3E%3Cvar%20name%3D%27TRANSFER%27%3E%3Cstring%3E0%3C%2Fstring%3E%3C%2Fvar%3E%3Cvar%20name%3D%27CATEGORYID%27%3E%3Cstring%3E%2D1%3C%2Fstring%3E%3C%2Fvar%3E%3Cvar%20name%3D%27FIND%5FKEYWORD%27%3E%3Cstring%3E%3C%2Fstring%3E%3C%2Fvar%3E%3Cvar%20name%3D%27PROMOTIONALJOBS%27%3E%3Cstring%3E0%3C%2Fstring%3E%3C%2Fvar%3E%3C%2Fstruct%3E%3C%2Fdata%3E%3C%2FwddxPacket%3E">Description</a><span class="tabAreaSmall">&nbsp;</span>
+						
+						
+							<a class="tab " href="http://agency.governmentjobs.com/sanmateo/default.cfm?action=viewjob&amp;JobID=1037100&amp;ViewSupp=Yes&amp;headerfooter=1&amp;promo=0&amp;transfer=0&amp;WDDXJobSearchParams=%3CwddxPacket%20version%3D%271%2E0%27%3E%3Cheader%2F%3E%3Cdata%3E%3Cstruct%3E%3Cvar%20name%3D%27TRANSFER%27%3E%3Cstring%3E0%3C%2Fstring%3E%3C%2Fvar%3E%3Cvar%20name%3D%27CATEGORYID%27%3E%3Cstring%3E%2D1%3C%2Fstring%3E%3C%2Fvar%3E%3Cvar%20name%3D%27FIND%5FKEYWORD%27%3E%3Cstring%3E%3C%2Fstring%3E%3C%2Fvar%3E%3Cvar%20name%3D%27PROMOTIONALJOBS%27%3E%3Cstring%3E0%3C%2Fstring%3E%3C%2Fvar%3E%3C%2Fstruct%3E%3C%2Fdata%3E%3C%2FwddxPacket%3E">Supplemental Questions</a>
+						
+					</div>
+					<div class="tabMain">&nbsp;</div>
+				</th>
+			</tr>
+			
+				<tr>
+					<td class="jobdetail" headers="viewJobDescription">Note: This job announcement was amended on February 22, 2017 to update the classification descriptions and salary range for the flexibly staffed Dental Assistant series.<br><br>Note: This job announcement was amended on November 9, 2016 to update the salary range.<br><br><strong>NOTE: This is a continuous recruitment which may close at any time. The final filing date will be posted five days in advance on this job announcement.</strong><br><br>Are you a dedicated and motivated Dental Assistant who enjoys being part of a team of professionals who provide exceptional dental care to the community and patients in need? Do you thrive in a fast-paced, challenging environment where the rewards are many? If so, then the San Mateo Medical Center (SMMC) Dental Clinics have an exciting career opportunity for you!<br><br>Besides being a full-scope Medical Center and Hospital, the San Mateo Medical Center operates five dental clinics located in San Mateo (39th Avenue Clinic), Redwood City (Fair Oaks Health Center), Daly City (Daly City Clinic), Half Moon Bay (Coastside Clinic), and a Mobile Dental Clinic. These clinics treat children and adults, homeless and transitional populations, and patients with HIV&nbsp;diagnosis. Pregnant women on Medi-Cal can also obtain dental services in these clinics covered by the Ryan White grant.<br><br>All Clinics are open Monday through Friday, 8&nbsp;AM&nbsp;to 5 PM and some Saturdays and evenings.&nbsp; There is an oral surgeon at the San Mateo facility every Wednesday and every Monday at Fair Oaks Health Center. The Fair Oaks Health Center and the Mobile Dental Clinic host dental students from the University of the Pacific on a weekly basis to aid in patient care.<br><br>The Dental Assistant Series levels include:<br>&nbsp;<div style="margin-left: 40.0px;"><strong>Dental Assistant I ($20.96 - $26.20 Hourly)</strong> is the experienced level class in the Dental Assistant series, competent to independently perform the full range of journey-level dental assisting work under the supervision of a dentist. This class is flexibly staffed with the II level and incumbents may advance to the higher level after obtaining required certification and demonstrating the required proficiency for the II level.<br><br><strong>Dental Assistant II/Registered Dental Assistant</strong> <strong>($24.78 - $30.97 Hourly)</strong> is the advanced journey-level classification in the series. Under the supervision of a dentist, incumbents at this level perform dental assisting duties which are limited to a person certified as a Registered Dental Assistant in addition to performing Dental Assistant duties of the lower.</div><br><strong>The ideal candidate will:</strong><ul>	<li>be a self-starter and multi-tasker;</li>	<li>be capable of scheduling appointments and processing insurance claims, as well as have pedodontia experience, and minimally possess an x-ray certificate;</li>	<li>possess a positive, "can do" attitude and be an exceptional team player; and</li>	<li>possess good organizational skills and be open to discussing Clinic operations.</li></ul>We are seeking Dental Assistants who are motivated in adding ideas to improve work flow and demonstrate the willingness to learn and adapt to new situations. Dental Assistants rotate and should be available to work at any of our dental clinics. Transportation to each work site is the employee's responsibility.<br><br><strong>NOTE: This Job Announcement was edited on July 29, 2015 regarding the definition of the extra help assignment.</strong><br><br><strong>Extra-help assignments are at-will and the employee is paid on an hourly basis. Some extra help positions are eligible for benefits under the Affordable Care Act. Extra-help workers are not guaranteed permanent status at the end of the extra-help assignment.</strong><br /></td>
+				</tr>
+				
+					<tr>
+						<th class="jobheadings" id="examplesOfDuties">
+							&nbsp;Examples Of Duties:
+						</th>
+					</tr>
+					
+					<tr>
+						<td class="jobdetail" headers="examplesOfDuties">As an SMMC&nbsp;Dental Assistant, you will:<ul>	<li>Prepare patients for dental treatment</li>	<li>Assist the dentist at chairside</li>	<li>Mix cements, work with composite, amalgam and impression materials</li>	<li>Respond to the oral hygiene needs of a low-income population</li>	<li>Take&nbsp;digital x-rays</li>	<li>Respond to patient emergencies</li>	<li>Maintain office and equipment in a sanitary and orderly condition</li>	<li>Enter&nbsp;information into patient's electronic record</li>	<li>Triage drop-in patients</li>	<li>Gather and complete necessary insurance information and forms</li></ul><br /></td>
+					</tr>
+				
+					<tr>
+						<th class="jobheadings" id="typicalQualifications">
+							&nbsp;Qualifications:
+						</th>
+					</tr>
+					<tr>
+						<td class="jobdetail" headers="typicalQualifications"><strong>Licensure/Certification:</strong><ul>	<li>Possession of a Certificate of examination for radiation safety from the California Board of Dental Examiners.</li>	<li>Possession of a Certificate of completion for a course in Basic Life Support as approved by the American Red Cross or American Heart Association.</li>	<li>To qualify for the II-Level, possession of a valid California License as Registered Dental Assistant issued by the California Board of Dental Examiners.&nbsp;&nbsp;</li></ul><strong><em>Other:&nbsp;</em></strong>&nbsp;Fluency in Spanish is preferred but not required.<br><br><strong><em>Education and Experience:</em>&nbsp; </strong>Any combination of education and experience that would likely provide the required knowledge, skills and abilities is qualifying. A typical way to qualify is completion of a course of instruction for dental assistants.<br><br><strong><em>Knowledge of:&nbsp; </em></strong>Preparation of patients for examination; methods of use, care and sterilization of instruments and equipment; dental hygiene and prophylaxis or coronal polish (for RDA level); dental X-ray techniques and safety procedures; dental terminology; and office procedures and record keeping.<br><br><strong><em>Skill/Ability to:</em></strong>&nbsp; Take, develop and evaluate dental X-rays; work tactfully with patients and other personnel under stressful conditions;&nbsp;and respond appropriately to patient emergencies during treatment or surgery.<br /></td>
+					</tr>
+				
+					<tr>
+						<th class="jobheadings" id="supplementalInfo">
+							&nbsp;Application/Examination:
+						</th>
+					</tr>
+					<tr>
+						
+						<td class="jobdetail" headers="supplementalInfo"><strong>Anyone may apply.</strong> <em>Responses to the supplemental questions must be submitted in addition to&nbsp;our regular employment application form. A resume will not be accepted as a substitute for the required employment application and supplemental questionnaire.</em><br><br>The examination process will consist of an application screening (pass/fail) based on the candidate's application and responses to the supplemental questions. Candidates who pass the application screening will be invited to a panel interview (weight: 100%). Depending on the number of applicants, an application appraisal of education and experience may be used in place of other examinations, or further evaluation of work experience may be conducted to group applicants by level of qualification. Applicants who meet the minimum qualifications are not guaranteed advancement through any subsequent phase of the examination. All examinations will be given in San Mateo County, California, and applicants must participate at their own expense.&nbsp;<br><br>This is a continuous recruitment which may close at any time. The final filing date will be posted five days in advance on this job announcement.<br><br><strong>Apply immediately. This recruitment is open on a continuous basis and selections may be made at any time within the process.</strong><br><br><strong>IMPORTANT</strong>: <strong>Applications for this position will only be accepted online.</strong> If you are currently on the County's website, you may click the <strong>"Apply Online"</strong> button above or below. If you are not on the County's website, please go to <a href="http://jobs.smcgov.org/" target="_blank">http://jobs.smcgov.org/</a> to apply. <strong>Online applications must be received by the Human Resources Department before midnight on the final filing date.</strong><br><br>The County of San Mateo does not require job applicants to disclose conviction history information until after the applicant&nbsp;successfully completes&nbsp;all examination phases for the recruitment.&nbsp;All passing applicants will receive instructions by email only&nbsp;from&nbsp;Human Resources staff to complete and submit a&nbsp;conviction history questionnaire online within a specified deadline of two business days. <strong>Failure to do so within the timeframe will disqualify you from&nbsp;the rest of the process. </strong>Please visit this link at <a href="http://hr.smcgov.org/conviction-information-applicants-faqs">http://hr.smcgov.org/conviction-information-applicants-faqs</a> to find out more information about the conviction history questionnaire so that you can prepare accordingly.<br><br><strong>Note: </strong>Positions in criminal justice agencies currently required by law to pass background checks are exempted from this bill, and applicants may be required to submit conviction information at the time of application.<br>&nbsp;<div style="text-align: center;"><strong>County of San Mateo is an Equal Opportunity Employer</strong></div><div style="text-align: center;">&nbsp;</div>Analyst: Lillian Lilles (010915) (Dental Assistant I/II - F039/F063)<br><br><em>Keywords: Dentist Assistant, x-rays, medical </em><br /></td>
+					</tr>
+				
+			<tr>
+			  	<td colspan="2" class="jobdetailbot">&nbsp;</td>
+			</tr>
+		</table>
+	
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam.nr-data.net","licenseKey":"89019a8e50","agent":"","beacon":"bam.nr-data.net","applicationTime":23,"applicationID":"4449204","transactionName":"NlAGYxEFC0RWBhUIDQ8aN1IREglSQ0oiBw8yUBZBDwER","queueTime":0}</script> </center>
+</body>
+</html>

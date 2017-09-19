@@ -1,0 +1,1251 @@
+	
+<!DOCTYPE html>
+<html lang="en_US" xml:lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+	
+	<script type="text/javascript">
+(function(ENV, TOKEN) {
+	var isSupportedBrowser = false;
+	var enabledEnvironments = ['prod'];
+	var isEnabled = isSupportedBrowser && enabledEnvironments.indexOf(ENV) > -1;
+	var isMobile = false;
+
+	var _rollbarConfig = {
+			accessToken: TOKEN,
+			captureUncaught: isEnabled,
+			captureUnhandledRejections: isEnabled,
+			enabled: isEnabled,
+			payload: {
+				environment: ENV + '-' + (isMobile ? 'mobile' : 'desktop'),
+				client: {
+					javascript: {
+						source_map_enabled: true,
+						code_version: '17.0901.233834-8f1f71d',
+						guess_uncaught_frames: true
+					}
+				}
+			},
+			checkIgnore: function(isUncaught, args, payload) {
+				var severity = args[0];
+				var message = args[1];
+
+				var ignoreMessage = [
+						/WalkMeAPI/,
+						/_walkmeInternals/
+					].some(function(regex) {
+						return regex.test(message);
+					});
+
+				return (
+					ignoreMessage
+				) || Math.random() > 0.3;
+			}
+		};
+
+	// Rollbar Snippet
+	!function(r){function e(t){if(o[t])return o[t].exports;var n=o[t]={exports:{},id:t,loaded:!1};return r[t].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var o={};return e.m=r,e.c=o,e.p="",e(0)}([function(r,e,o){"use strict";var t=o(1).Rollbar,n=o(2);_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://d37gvrvc0wt4s1.cloudfront.net/js/v1.9/rollbar.min.js";var a=t.init(window,_rollbarConfig),i=n(a,_rollbarConfig);a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,i)},function(r,e){"use strict";function o(r){return function(){try{return r.apply(this,arguments)}catch(e){try{console.error("[Rollbar]: Internal error",e)}catch(o){}}}}function t(r,e,o){window._rollbarWrappedError&&(o[4]||(o[4]=window._rollbarWrappedError),o[5]||(o[5]=window._rollbarWrappedError._rollbarContext),window._rollbarWrappedError=null),r.uncaughtError.apply(r,o),e&&e.apply(window,o)}function n(r){var e=function(){var e=Array.prototype.slice.call(arguments,0);t(r,r._rollbarOldOnError,e)};return e.belongsToShim=!0,e}function a(r){this.shimId=++c,this.notifier=null,this.parentShim=r,this._rollbarOldOnError=null}function i(r){var e=a;return o(function(){if(this.notifier)return this.notifier[r].apply(this.notifier,arguments);var o=this,t="scope"===r;t&&(o=new e(this));var n=Array.prototype.slice.call(arguments,0),a={shim:o,method:r,args:n,ts:new Date};return window._rollbarShimQueue.push(a),t?o:void 0})}function l(r,e){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){var o=e.addEventListener;e.addEventListener=function(e,t,n){o.call(this,e,r.wrap(t),n)};var t=e.removeEventListener;e.removeEventListener=function(r,e,o){t.call(this,r,e&&e._wrapped?e._wrapped:e,o)}}}var c=0;a.init=function(r,e){var t=e.globalAlias||"Rollbar";if("object"==typeof r[t])return r[t];r._rollbarShimQueue=[],r._rollbarWrappedError=null,e=e||{};var i=new a;return o(function(){if(i.configure(e),e.captureUncaught){i._rollbarOldOnError=r.onerror,r.onerror=n(i);var o,a,c="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(o=0;o<c.length;++o)a=c[o],r[a]&&r[a].prototype&&l(i,r[a].prototype)}return e.captureUnhandledRejections&&(i._unhandledRejectionHandler=function(r){var e=r.reason,o=r.promise,t=r.detail;!e&&t&&(e=t.reason,o=t.promise),i.unhandledRejection(e,o)},r.addEventListener("unhandledrejection",i._unhandledRejectionHandler)),r[t]=i,i})()},a.prototype.loadFull=function(r,e,t,n,a){var i=function(){var e;if(void 0===r._rollbarPayloadQueue){var o,t,n,i;for(e=new Error("rollbar.js did not load");o=r._rollbarShimQueue.shift();)for(n=o.args,i=0;i<n.length;++i)if(t=n[i],"function"==typeof t){t(e);break}}"function"==typeof a&&a(e)},l=!1,c=e.createElement("script"),d=e.getElementsByTagName("script")[0],p=d.parentNode;c.crossOrigin="",c.src=n.rollbarJsUrl,c.async=!t,c.onload=c.onreadystatechange=o(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){c.onload=c.onreadystatechange=null;try{p.removeChild(c)}catch(r){}l=!0,i()}}),p.insertBefore(c,d)},a.prototype.wrap=function(r,e){try{var o;if(o="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._wrapped){r._wrapped=function(){try{return r.apply(this,arguments)}catch(e){throw e._rollbarContext=o()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e,e}},r._wrapped._isWrap=!0;for(var t in r)r.hasOwnProperty(t)&&(r._wrapped[t]=r[t])}return r._wrapped}catch(n){return r}};for(var d="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError,unhandledRejection".split(","),p=0;p<d.length;++p)a.prototype[d[p]]=i(d[p]);r.exports={Rollbar:a,_rollbarWindowOnError:t}},function(r,e){"use strict";r.exports=function(r,e){return function(o){if(!o&&!window._rollbarInitialized){var t=window.RollbarNotifier,n=e||{},a=n.globalAlias||"Rollbar",i=window.Rollbar.init(n,r);i._processShimQueue(window._rollbarShimQueue||[]),window[a]=i,window._rollbarInitialized=!0,t.processPayloads()}}}}]);
+	// End Rollbar Snippet
+})(
+	'prod',
+	'bbd4dc3ee9054297849030f2e674ceff'
+);
+</script>
+	<link rel="dns-prefetch" href="//resources.bamboohr.com/17.0901.233834-8f1f71d">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		Photographer
+	</title>
+
+	<meta name="viewport"content="width=device-width, initial-scale=1" />
+	<meta property="og:image"content="https://373be357d12ed7c73305-c7068247ffe97a6c7592595948eb0f4f.ssl.cf1.rackcdn.com/logos/cropped.jpg?v=25" />
+	<meta property="og:url"content="https://bellababy.bamboohr.com/jobs/view.php?id=89" />
+	<meta property="og:title"content="Photographer" />
+	<meta property="og:description"content="Looking for portrait photographers! Bella Baby Photography is the premier hospital photography company in the country. Our photographers capture the once in a lifetime memories of welcoming a newborn baby into the world! Be a part of an exciting, rapidly growing company where you have the opportunity to " />
+	<meta name="robots"content="noindex, follow" />
+
+<link id="theme-css" href='//resources.bamboohr.com/17.0901.233834-8f1f71d/css/theme-4EB8AF.dist.css?cb=4332c384' rel='stylesheet' type='text/css'/>
+	<link id="global-css" href='//resources.bamboohr.com/17.0901.233834-8f1f71d/css/global.dist.css?cb=43eda84e' rel='stylesheet' type='text/css'/>
+
+	<link type="text/css" rel="stylesheet" media="print" href="//resources.bamboohr.com/17.0901.233834-8f1f71d/css/print.css?cb=43f976e9" />
+	<link type="image/x-icon" href="//resources.bamboohr.com/17.0901.233834-8f1f71d/images/favicon.ico?cb=43e41780" rel="shortcut icon" />
+	<link rel="resource" type="application/l10n" href="/js/pdfjs/web/locale/locale.properties" />
+				<link rel="stylesheet" type="text/css" href="//resources.bamboohr.com/17.0901.233834-8f1f71d/css/app/jobs/index.css?cb=434074b6" class="pageCSS"/>
+				<link rel="stylesheet" type="text/css" href="//resources.bamboohr.com/17.0901.233834-8f1f71d/css/jobs.dist.css?cb=43f48ee1" class="pageCSS"/>
+	
+
+	<script type="text/javascript">
+		var GLOBAL_DATEPICKER_MASK = "mm\x2Fdd\x2Fyy";
+		var GLOBAL_NUMBER_REGEX = "\x5E\x28\x3F\x21\x2D0\x24\x29\x2D\x3F\x28\x3F\x3D\x5B0\x2D9\x5C.\x5D\x29\x28\x3F\x210\x5B0\x2D9\x5D\x29\x28\x3F\x3A\x5Cd\x2B\x7C\x5Cd\x7B1,3\x7D\x28\x3F\x3A,\x5Cd\x7B3\x7D\x29\x2B\x29\x3F\x28\x3F\x3A\x5C.\x5Cd\x2B\x29\x3F\x24";
+		var CSRF_TOKEN = "2f6b2ade27ff132d436cedadbf2a12046a9795a5db7e73001468cb63758dd0dec56393a262e6c380f0a9790ba491d286d268efa1e62d28cc0c9140befb6a01fd";
+		var CAN_EMAIL_FILES_AND_REPORTS = null;
+	</script>
+
+	<!-- Modernizr -->
+	<script type="text/javascript" src="//resources.bamboohr.com/17.0901.233834-8f1f71d/js/libs/modernizr.min.js?cb=4388b192"></script>
+		
+					<script type="text/javascript" id="___home_ci_workspace_441010_main_ui_src_gulp_res_dist___">
+						!function(e,n){if("function"==typeof define&&define.amd)define("___gulp_res___",[],n);else if("undefined"!=typeof exports)n();else{var t={exports:{}};n(),e.___gulp_res___=t.exports}}(this,function(){"use strict";function e(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}var n=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),t=new URLSearchParams(window.location.search),r=(t.get("ENV")||"prod").toLowerCase(),o=(t.get("BUILD_VERSION")||"").toLowerCase();window.BambooHR=window.BambooHR||{},window.BambooHR.env=function(){var e={val:r,dev:!1,stage:!1,prod:!1};return e[e.val]=!0,e}(),window.isarray=Array.isArray;var a=function(){if(window.BambooHR.env.dev)return"";var e="";return window.BambooHR.env.prod||(e="."+r),"resources"+e+".bamboohr.com"}(),i="bamboohr.com",s=window.location.protocol+"//"+(a||window.location.hostname),u={},c=new WeakMap,f=function(){function t(n,r){if(e(this,t),"string"!=typeof n)throw new TypeError("Res constructor expects a string as first argument");var o=new URL(n,s);Object.keys(r||{}).forEach(function(e){o.searchParams.set(e,r[e])}),c.set(this,o)}return n(t,null,[{key:"getCacheBustValue",value:function(e){return e="/"+e.replace(/^\/+/,""),u[e]=u[e]||Math.random().toString(36).substr(-6),u[e]}},{key:"className",get:function(){return"Res"}},{key:"STATIC_RESOURCES_CDN",get:function(){return a}},{key:"BASE_DOMAIN",get:function(){return i}}]),n(t,[{key:"toString",value:function(){var e,n=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t=c.get(this);return window.BambooHR.env.dev||t.searchParams.set("cb",this.cb),""!=o&&(t.pathname="/"+o+t.pathname),e=t.href,a&&n||(e=e.replace(t.origin,"")),e}},{key:"domain",get:function(){return c.get(this).hostname}},{key:"path",get:function(){return c.get(this).pathname}},{key:"qs",get:function(){return c.get(this).search}},{key:"hash",get:function(){return c.get(this).hash.replace(/^\#/,"")}},{key:"cb",get:function(){return t.getCacheBustValue(this.path)}}]),t}();window.Res=f,window.res=function(e,n,t){return 2===arguments.length&&"boolean"==typeof n&&(t=n,n={}),new f(e,n).toString(t)}});
+					</script>
+					<script type="text/javascript">
+		var IS_IE_OR_EDGE = false;
+	</script>
+	<script type="text/javascript" src="//resources.bamboohr.com/17.0901.233834-8f1f71d/js/head.dist.js?cb=43e168e4"></script>
+
+
+
+
+
+<!-- Walkme.com -->
+	<script type="text/javascript">
+		var WALK_ME_GROUP = '';
+		var WALK_ME_PERMS = '';
+		var WALK_ME_TRACK = '';
+		var WALK_ME_PACKAGE = '';
+		var WALK_ME_ACCOUNT_TYPE = '';
+		var WALK_ME_VERSION = '';
+		var WALK_ME_NEW_BENEFITS = '';
+		var WALK_ME_UNIQUE_USER_ID = '';
+	</script>
+		<script type="text/javascript">(function() {var walkme = document.createElement('script'); walkme.type = 'text/javascript'; walkme.async = true; walkme.src = 'https://cdn.walkme.com/users/b117d8dbf4754f0da37cf6ab7d051107/walkme_b117d8dbf4754f0da37cf6ab7d051107_https.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(walkme, s); window._walkmeConfig = {smartLoad:true}; })();</script>
+	<!-- End Walkme.com -->
+</head>
+<body  class="ResAts ResAts--view" ba-theme="4EB8AF">
+	<!-- Google Tag Manager -->
+<script>
+	dataLayer = [{
+		'postLogin': "true",
+		'trial': "false",
+		'grandfathered': "false",
+		'subscriber': "false",
+		'payroll': "false",
+		'performance': "false",
+		'role': "",
+		'accountStatus': "Subscriber"
+	}];
+</script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-ZC3S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-ZC3S');</script>
+<!-- End Google Tag Manager -->	
+
+
+<script type="text/javascript">
+	var GLOBAL_DATEPICKER_MASK = "mm\x2Fdd\x2Fyy";
+	var BASE_DOMAIN = "bamboohr.com";
+	var COMPANY = "Bella Baby Photography";
+</script>
+
+<svg style="position: absolute; left: -9999px;" xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 10 15" version="1.1">
+	<symbol id=Arrow>
+		<path d="M2.28 3L4.08 1.22 3.54 0 0 3.5 3.54 6.99 4.09 5.77 2.3 4 8 4 8 3 2.28 3Z"/>
+	</symbol>
+
+	<symbol id="Dept">
+		<path d="M4.5 11C2 11 0 12.7 0 15L9 15C9 12.7 7 11 4.5 11ZM4.5 10C6.4 10 8 8.4 8 6.5 8 4.6 6.4 3 4.5 3 2.6 3 1 4.6 1 6.5 1 8.4 2.6 10 4.5 10Z" fill="#AAAAAA"/>
+		<path d="M6.5 2.4C7.3 1 8.8 0 10.5 0 13 0 15 2 15 4.5 15 7 13 9 10.5 9 9.8 9 9.1 8.8 8.5 8.5 8.9 7.9 9.1 7.1 9.1 6.3 9.1 4.6 8 3.1 6.5 2.4ZM8 11C9.1 10.4 10.4 10 11.8 10 15.2 10 18 12.2 18 15L7.9 15 10.2 15C10.2 13.3 9.4 11.9 8 11Z" fill="#D4D4D4"/>
+	</symbol>
+
+	<symbol id="Facebook">
+		<path d="M16.9 19.09L14 19.09 14 14.92 16.9 14.92 16.9 11.36C16.9 8.57 18.61 6 22.56 6 24.16 6 25.34 6.16 25.34 6.16L25.25 10.05C25.25 10.05 24.04 10.04 22.73 10.04 21.3 10.04 21.08 10.73 21.08 11.88 21.08 12.79 21.08 9.94 21.08 14.92L25.36 14.92 25.18 19.09 21.08 19.09 21.09 30.43 16.9 30.43 16.9 19.09 16.9 19.09Z"/>
+	</symbol>
+
+	<symbol id="Jobs-Complete">
+		<path d="M80,40 C80,17.9695431 62.0304569,0 40,0 C17.9695431,0 0,17.9695431 0,40 C0,62.0304569 17.9695431,80 40,80 C62.0304569,80 80,62.0304569 80,40 L80,40 Z M5.9,39.9 C5.9,21.2253731 21.1238806,5.9 39.9,5.9 C58.6761194,5.9 73.9,21.1238806 73.9,39.9 C73.9,58.6761194 58.5746269,73.9 39.9,73.9 C21.2253731,73.9 5.9,58.5746269 5.9,39.9 L5.9,39.9 Z"></path>
+		<path d="M55,32.2857143 L35.6122449,51.6734694 L31.3265306,47.3877551 L25,41.0612245 L29.2857143,36.7755102 L35.6122449,43.1020408 L50.7142857,28 L55,32.2857143 L55,32.2857143 Z"></path>
+	</symbol>
+
+	<symbol id="Jobs-Icon">
+		<path d="M5 24L27 24 27 26 5 26 5 24 5 24ZM5 28L24 28 24 30 5 30 5 28 5 28ZM5 32L27 32 27 34 5 34 5 32 5 32ZM5 36L19 36 19 38 5 38 5 36 5 36Z"/>
+		<path d="M35 11L35 4 37 3C36.7 2.5 36.4 2 36 2L27 2C26.5 2 26.2 2.5 26 3L28 4 28 11 25 15C24.8 15.5 25.2 16.1 26 16 28 16 30.3 16.1 30 16L30 20 31.5 22.3 32.7 20 32.7 16C32.4 16.1 36.8 16.1 37 16 37.7 16.1 38.1 15.5 38 15L35 11 35 11Z" transform="translate(31.450509, 12.135888) rotate(20.000000) translate(-31.450509, -12.135888)"/>
+		<path d="M34 19.6C34.7 19.9 35.5 20.2 36 20.4L36 43C36 44.1 35.1 45 34 45L2 45C0.9 45 0 44.1 0 43L0 8C0 6.9 0.9 6 2 6L27.6 6 26.7 8.5 22.8 11.1C21.2 12.2 22 13.2 22.2 13.9 22.2 13.9 22.2 14 22.3 14L2 14 2 43 34 43 34 19.6Z"/>
+	</symbol>
+
+	<symbol id="LinkedIn">
+		<path d="M7.73 28.59L12.72 28.59 12.72 13.43 7.73 13.43 7.73 28.59 7.73 28.59 7.73 28.59 7.73 28.59ZM15.48 28.59L20.46 28.59 20.46 19.92C20.46 19.48 20.49 19.05 20.63 18.73 20.98 17.85 21.81 16.95 23.18 16.95 24.99 16.95 25.71 18.29 25.71 20.27L25.71 28.59 30.69 28.59 30.69 19.7C30.69 15.19 28.23 13.09 24.95 13.09 22.26 13.09 21.08 14.56 20.43 15.57L20.46 15.57 20.46 13.43 15.48 13.43C15.54 14.81 15.48 28.13 15.48 28.13L15.48 28.59 15.48 28.59ZM10.23 11.43C11.96 11.43 13.05 10.3 13.05 8.89 13.01 7.45 11.96 6.35 10.26 6.35 8.55 6.35 7.44 7.45 7.44 8.89 7.44 10.3 8.52 11.43 10.19 11.43L10.23 11.43 10.23 11.43 10.23 11.43 10.23 11.43Z"/>
+	</symbol>
+
+	<symbol id="Loc" fill="#AAAAAA">
+		<path d="M8.54 1.46C7.56 0.49 6.38 0 5 0 3.62 0 2.44 0.49 1.46 1.46 0.49 2.44 0 3.62 0 5 0 5.71 0.11 6.29 0.32 6.75L3.89 14.31C3.98 14.52 4.14 14.69 4.34 14.81 4.55 14.94 4.77 15 5 15 5.23 15 5.45 14.94 5.66 14.81 5.86 14.69 6.02 14.52 6.12 14.31L9.68 6.75C9.89 6.29 10 5.71 10 5 10 3.62 9.51 2.44 8.54 1.46L8.54 1.46ZM6.77 6.77C6.28 7.26 5.69 7.5 5 7.5 4.31 7.5 3.72 7.26 3.23 6.77 2.74 6.28 2.5 5.69 2.5 5 2.5 4.31 2.74 3.72 3.23 3.23 3.72 2.74 4.31 2.5 5 2.5 5.69 2.5 6.28 2.74 6.77 3.23 7.26 3.72 7.5 4.31 7.5 5 7.5 5.69 7.26 6.28 6.77 6.77L6.77 6.77Z"/>
+	</symbol>
+
+	<symbol id="Logo">
+		<path fill="#AFAFAF" d="M25.89 5.71L25.87 5.71C25.28 5.02 24.36 4.21 22.79 4.21 20.21 4.21 18.26 6.1 18.26 8.72 18.26 11.48 20.35 13.26 22.7 13.26 24.16 13.26 25.22 12.57 25.86 11.83L25.89 11.83 25.89 12.96 27.32 12.96 27.32 4.49 25.89 4.49 25.89 5.71 25.89 5.71ZM22.9 12.03C20.77 12.03 19.74 10.34 19.74 8.72 19.74 7.09 20.77 5.43 22.93 5.43 24.63 5.43 26.02 6.75 26.02 8.77 26.02 10.68 24.52 12.03 22.9 12.03L22.9 12.03ZM38.46 4.21C36.96 4.21 35.91 5.11 35.48 5.96 35.12 4.97 34.02 4.21 32.66 4.21 31.54 4.21 30.66 4.79 30.08 5.55L30.05 5.55 30.05 4.49 28.62 4.49 28.62 12.96 30.05 12.96 30.05 8.26C30.05 6.49 30.97 5.46 32.41 5.46 33.69 5.46 34.47 6.52 34.47 7.92L34.47 12.96 35.91 12.96 35.91 8.26C35.91 6.31 37.05 5.46 38.26 5.46 39.72 5.46 40.33 6.61 40.33 7.92L40.33 12.96 41.76 12.96 41.76 8.03C41.76 5.53 40.4 4.21 38.46 4.21M57.58 4.21C54.98 4.21 52.96 6.1 52.96 8.72 52.96 11.28 54.97 13.26 57.58 13.26 60.25 13.26 62.2 11.21 62.2 8.72 62.2 6.15 60.27 4.21 57.58 4.21L57.58 4.21ZM57.58 11.99C55.92 11.99 54.44 10.63 54.44 8.72 54.44 6.84 55.74 5.46 57.58 5.46 59.48 5.46 60.72 6.93 60.72 8.72 60.72 10.57 59.41 11.99 57.58 11.99L57.58 11.99ZM67.73 4.21C65.14 4.21 63.12 6.1 63.12 8.72 63.12 11.28 65.12 13.26 67.73 13.26 70.41 13.26 72.35 11.21 72.35 8.72 72.35 6.15 70.42 4.21 67.73 4.21L67.73 4.21ZM67.73 11.99C66.08 11.99 64.6 10.63 64.6 8.72 64.6 6.84 65.89 5.46 67.73 5.46 69.63 5.46 70.88 6.93 70.88 8.72 70.88 10.57 69.56 11.99 67.73 11.99L67.73 11.99ZM79.12 8.12L74.54 8.12 74.54 4.52 73.49 4.52 73.49 12.96 74.54 12.96 74.54 9.06 79.12 9.06 79.12 12.96 80.17 12.96 80.17 4.52 79.12 4.52 79.12 8.12M85.18 9.34C86.27 9.12 87.18 8.2 87.18 6.99 87.18 5.83 86.41 4.52 84.26 4.52L81.77 4.52 81.77 12.96 82.82 12.96 82.82 9.43 83.97 9.43 86.57 12.96 87.9 12.96 85.18 9.34 85.18 9.34ZM82.82 8.49L82.82 5.46 84.38 5.46C85.49 5.46 86.09 6 86.09 6.99 86.09 7.81 85.53 8.49 84.39 8.49L82.82 8.49 82.82 8.49ZM88.18 4.52L89.55 4.52 89.55 4.73 88.99 4.73 88.99 6.39 88.74 6.39 88.74 4.73 88.18 4.73 88.18 4.52M90.78 5.84L91.36 4.52 91.67 4.52 91.76 6.39 91.51 6.39 91.45 4.88 90.88 6.11 90.66 6.11 90.09 4.88 90.04 6.39 89.78 6.39 89.87 4.52 90.19 4.52 90.78 5.84M47.55 4.11C45.89 4.11 45 4.67 44.38 5.28L44.21 5.46 44.21 0.84 42.77 0.84 42.77 8.93C42.77 11.68 44.93 13.39 47.41 13.39 50.14 13.39 52.2 11.33 52.2 8.68 52.2 6.23 50.05 4.11 47.55 4.11L47.55 4.11ZM47.41 12.11C45.61 12.11 44.08 10.71 44.08 8.85 44.08 6.98 45.37 5.45 47.44 5.45 49.51 5.45 50.74 7.09 50.74 8.81 50.74 10.69 49.44 12.11 47.41 12.11L47.41 12.11ZM12.58 4.11C10.92 4.11 10.03 4.67 9.41 5.28L9.24 5.46 9.24 0 7.8 0 7.8 8.93C7.8 11.68 9.96 13.39 12.44 13.39 15.17 13.39 17.23 11.33 17.23 8.68 17.23 6.23 15.08 4.11 12.58 4.11L12.58 4.11ZM12.44 12.11C10.64 12.11 9.11 10.71 9.11 8.85 9.11 6.98 10.4 5.45 12.47 5.45 14.54 5.45 15.77 7.09 15.77 8.81 15.77 10.69 14.47 12.11 12.44 12.11L12.44 12.11ZM7.12 5.93C7.12 5.93 6.5 5.81 5.98 5.73 5.39 5.65 5.12 5.56 4.36 5.26 3.6 4.95 2.92 4.21 2.24 3.38 1.57 2.56 0 1.26 0 1.26 0 1.26 0.49 1.29 0.98 1.41 1.38 1.51 2.43 1.84 3.52 2.39 3.76 2.52 3.89 2.6 4.13 2.74 4.49 2.96 4.87 3.28 5.23 3.64 5.66 4.07 6.03 4.41 6.35 4.79 6 4.16 5.1 1.91 3.34 0.04 3.17-0.14 4.56 0.7 4.92 1.08 6 2.19 6.11 2.81 6.49 3.88L7.12 5.93"/>
+	</symbol>
+
+	<symbol id="Lock">
+		<path d="M1 3.28L1 5.01 2.11 5.01 2.11 3.28C2.11 2.13 2.99 1.19 4.06 1.19 5.13 1.19 6 2.13 6 3.28L6 5.01 7.12 5.01 7.12 3.28C7.12 1.47 5.74 0 4.06 0 2.37 0 1 1.47 1 3.28Z" fill="#A8A8A8"/>
+		<rect fill="#A7A9A6" x="0" y="6" width="8" height="5"/>
+	</symbol>
+
+	<symbol id="Twitter">
+		<path d="M31.94 11.26C31.02 11.64 29.72 12.45 28.69 12.56 29.62 11.6 31.55 10.12 31.93 9 30.94 9.55 29.17 10.31 28 10.53 27.07 9.59 25.74 9.01 24.27 9.01 21.44 9.01 19.15 11.16 19.15 13.81 19.15 14.18 19.2 14.55 19.28 14.9 15.03 14.7 11.26 12.79 8.74 9.89 8.3 10.6 8.04 11.42 8.04 12.3 8.04 13.96 9.85 15.78 11.22 16.64 10.38 16.62 8.69 16.05 8 15.69L8 15.75C8 18.07 10.67 20.01 13.01 20.45 12.58 20.56 11.23 20.62 10.76 20.62 10.43 20.62 10.11 20.59 9.8 20.53 10.45 22.44 13.56 23.89 15.8 23.93 14.05 25.22 10.62 25.91 8.22 25.91 7.81 25.91 7.4 25.89 7 25.85 9.26 27.21 11.95 28 14.84 28 24.25 28 29.4 22.05 29.4 15.72 29.4 15.51 29.4 15.3 29.39 15.1 30.38 14.42 31.25 12.22 31.94 11.26"/>
+	</symbol>
+
+</svg>
+
+<link href='//fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet' type='text/css'>
+
+<div class="container">
+	<div id="sessionMessage">
+		<span class="messageIcon"></span>
+		<span id="message"></span>
+		<span class="messageCloseWrapper">
+			<a href="#" onclick="closeMessage();" id="messageClose"></a>
+		</span>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-8 ResAts__header">
+			<a href="/jobs">
+									<img src="https://373be357d12ed7c73305-c7068247ffe97a6c7592595948eb0f4f.ssl.cf1.rackcdn.com/logos/cropped.jpg?v=25" /></a>
+							</a>
+		</div>
+
+		<div class="col-xs-12 col-sm-4 ResAts__social">
+
+			<div class="ResAts__social-wrapper ">
+				<div class="row">
+	<div class="col-sm-4">
+		<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=://bellababy.bamboohr.com/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01&amp;source=linkedin&amp;title=Position Name&amp;summary=&amp;source=BambooHR" target="_blank" title="LinkedIn" class="jobsShare__Widget jobsShare__Widget--count linkedin js-linkedin " data-via="BambooHR" data-url="https://bellababy.bamboohr.com/jobs/view.php?id=89?source=linkedin">
+			<span class="icon">
+				<svg viewBox="0 0 40 40" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#LinkedIn"></use>
+				</svg>
+			</span>
+			<span class="count">&nbsp;</span>
+		</a>
+	</div>
+	
+	<div class="col-sm-4">
+		<a title="Facebook" class="jobsShare__Widget jobsShare__Widget--count facebook js-facebook " data-via="BambooHR" data-url="https://bellababy.bamboohr.com/jobs/view.php?id=89?source=facebook">
+			<span class="icon">
+				<svg viewBox="0 0 40 40" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Facebook"></use>
+				</svg>
+			</span>
+			<span class="count">&nbsp;</span>
+		</a>
+	</div>
+	
+	<div class="col-sm-4">
+		<a href="https://twitter.com/intent/tweet?hashtags=&amp;original_referer=://bellababy.bamboohr.com/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01&amp;related=undefined&amp;source=tweetbutton&amp;text=Position Name&amp;url=://bellababy.bamboohr.com/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01&amp;via=BambooHR" title="Twitter" class="jobsShare__Widget twitter js-twitter " data-via="BambooHR" data-url="https://bellababy.bamboohr.com/jobs/view.php?id=89?source=twitter">
+			<span class="icon">
+				<svg viewBox="0 0 40 40" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Twitter"></use>
+				</svg>
+			</span>
+			<span class="count">&nbsp;</span>
+		</a>
+	</div>
+</div>			</div>
+
+			<div class="ResAts__privacy">
+				<svg viewBox="0 0 8 11" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Lock"></use>
+				</svg>
+				<a href="http://www.bamboohr.com/privacy.php" target="_blank" rel="external nofollow">Privacy Policy</a>
+			</div>
+
+			<iframe style="height: 65px;display:none;" id="count-linkedin" src="https://app.bamboohr.com/jobs/linkedin_count.php?domain=bellababy&id=89"></iframe>
+		</div>
+
+	</div>
+
+
+<script type="text/javascript">
+	var GLOBAL_DATE_MASK="mm\x2Fdd\x2Fyyyy";
+	var GLOBAL_DATEPICKER_MASK="mm\x2Fdd\x2Fyy";
+	var GLOBAL_THOUSANDS_SEPARATOR=",";
+	var GLOBAL_DECIMAL_CHAR=".";
+	var GLOBAL_CURRENCY_SYMBOL="\x24";
+	var CSRF_TOKEN ="";
+</script>
+
+<div class="ResAts__card col-md-8 baseColorBg-before js-jobs-left publicDetails">
+
+	<div class="ResAts__card-content">
+
+		<div class="row">
+
+			<div class="col-xs-12 ResAts__breadcrumb">
+				<svg class="ResAts__breadcrumb-arrow" viewBox="0 0 8 7" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Arrow"></use>
+				</svg>
+				<a class="ResAts__breadcrumb-link" href="/jobs">Job Openings</a>
+			</div>
+
+
+			<div class="col-xs-12 col-sm-8 col-md-12">
+				<h2>Photographer</h2>
+				<span class="ResAts__card-text">California &ndash; Walnut Creek, California</span>
+			</div>
+
+			<div class="col-xs-12 col-sm-4">
+				<a class="btn btnLarge btnAction js-jobs-action noCaps hideOnDesktop fl-right">Apply for this Job</a>
+			</div>
+
+		</div>
+
+		<div class="row ResAts__positionDetails">
+						<div class="ResAts__positionDetails-detail col-xs-12 col-sm-3">
+				<span class="i2b">Department</span>
+				<span class="i2b"><strong>California</strong></span>
+			</div>
+			
+			<div class="ResAts__positionDetails-detail col-xs-12 col-sm-3">
+				<span class="i2b">Employment Type</span>
+				<span class="i2b"><strong>Part-time</strong></span>
+			</div>
+
+						<div class="ResAts__positionDetails-detail col-xs-12 col-sm-3">
+				<span class="i2b">Minimum Experience</span>
+				<span class="i2b"><strong>Entry-level</strong></span>
+			</div>
+			
+						<div class="ResAts__positionDetails-detail col-xs-12 col-sm-3">
+				<span class="i2b">Compensation</span>
+				<span class="i2b"><strong>Commission</strong></span>
+			</div>
+					</div>
+
+	</div>
+
+	<hr />
+
+	<div class="ResAts__Viewport js-jobs-viewport">
+
+		<div class="ResAts__Viewport-content js-jobs-content js-chosen-container">
+
+			<div class="ResAts__page ResAts__description js-jobs-page js-jobs-description">
+
+				<div class="ResAts__card-content">
+					<div class="row">
+						<div class="col-xs-12">
+							<p >Looking for portrait photographers! Bella Baby Photography is the premier hospital photography company in the country. Our photographers capture the once in a lifetime memories of welcoming a newborn baby into the world! Be a part of an exciting, rapidly growing company where you have the opportunity to both photograph, present and sell your work! <br ><br >We are currently seeking part-time photographers to work in the Walnut Creek, CA area. Photography and Sales training will be provided. We offer flexible work hours in an independent and creative environment!<br ><br >Qualifications:<br >- Entry-Level to Mid-Level photography experience <br >- Knowledge of shooting in Manual mode.<br >- Experience working with Photoshop or Lightroom.<br >- Basic Computer Skills.<br >- Basic Selling Skills.<br >- Ability to work 1 weekend day per week.<br >- Open to working various holidays throughout the year. <br ><br >In order to be considered, your application must include a link to your online portfolio and/or website, including work samples capturing indoor/natural light photography.<br ><br >To see the work of our talented photographers, visit our website; www.bellababyphotography.com.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="ResAts__card-content ResAts__card-content--footer clearfix">
+					<div class="col-xs-12 col-sm-4">
+						<button class="btn btnLarge btnAction js-jobs-action noCaps">Apply for this Job</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="ResAts__page ResAts__application ResAts__page--footer js-jobs-page js-jobs-application">
+
+				<svg style="position: absolute; left: -9999px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="0" width="0">
+					<defs>
+
+						<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linkedInGradient">
+							<stop stop-color="#0F8EBF" offset="0%"></stop>
+							<stop stop-color="#0174A1" offset="100%"></stop>
+						</linearGradient>
+
+						<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="twitterGradient">
+							<stop stop-color="#2DACE2" offset="0%"></stop>
+							<stop stop-color="#2497CA" offset="100%"></stop>
+						</linearGradient>
+
+					</defs>
+
+					<symbol id="LinkedIn-small">
+						<rect stroke="#0074A2" fill="url(#linkedInGradient)" x="0" y="0" width="16" height="16" rx="3"></rect>
+						<path d="M2.54254545,13.5810909 L4.99345455,13.5810909 L4.99345455,6.12872727 L2.54254545,6.12872727 L2.54254545,13.5810909 Z M3.768,5.14181818 C4.62254545,5.14181818 5.15490909,4.58618182 5.15490909,3.89309091 C5.13890909,3.184 4.62254545,2.64436364 3.78472727,2.64436364 C2.94618182,2.64436364 2.39781818,3.184 2.39781818,3.89309091 C2.39781818,4.58618182 2.92945455,5.14181818 3.752,5.14181818 L3.768,5.14181818 L3.768,5.14181818 Z" fill="#FFFFFF"></path>
+						<path d="M6.34981818,13.5810909 L8.80072727,13.5810909 L8.80072727,9.31927273 C8.80072727,9.104 8.81672727,8.888 8.88218182,8.73381818 C9.05890909,8.30181818 9.46254545,7.85527273 10.1396364,7.85527273 C11.0261818,7.85527273 11.3810909,8.51781818 11.3810909,9.48945455 L11.3810909,13.5810909 L13.832,13.5810909 L13.832,9.21163636 C13.832,6.992 12.6225455,5.95854545 11.0101818,5.95854545 C9.688,5.95854545 9.10763636,6.68363636 8.78472727,7.17672727 L8.80072727,7.17672727 L8.80072727,6.12872727 L6.34981818,6.12872727 C6.38254545,6.80654545 6.34981818,13.3556364 6.34981818,13.3556364 L6.34981818,13.5810909" fill="#FFFFFF"></path>
+					</symbol>
+
+					<symbol id="Twitter-positive">
+						<path fill="#1E9BCF" d="M16,3.46071578 C15.412081,3.70735496 14.5794348,4.2264444 13.9159945,4.3019657 C14.5134731,3.68249985 15.7514489,2.72271016 15.9961761,2 C15.3623708,2.35466332 14.2219036,2.84794169 13.4733823,2.98655673 C12.8749477,2.38429826 12.0222262,2.00860369 11.077732,2.00860369 C9.26522077,2.00860369 7.79494533,3.39475414 7.79494533,5.104977 C7.79494533,5.34779232 7.82458027,5.58391588 7.88002629,5.81047978 C5.15265579,5.68142439 2.73310629,4.44918444 1.11465615,2.57549143 C0.831690267,3.03244309 0.670132043,3.56491605 0.670132043,4.13180379 C0.670132043,5.20630937 1.82876262,6.3831033 2.70920715,6.93756348 C2.17099839,6.92226803 1.08597718,6.55422119 0.643365,6.32192149 L0.643365,6.36111609 C0.643365,7.86198243 2.35358786,9.1133417 3.85541017,9.39821951 C3.58009201,9.46896098 2.71111908,9.50624365 2.41190177,9.50624365 C2.19967736,9.50624365 1.99414471,9.48712434 1.79434785,9.45079763 C2.21114895,10.6811256 4.21102946,11.621796 5.64784609,11.6466511 C4.52363028,12.4773854 2.32108502,12.9266894 0.783891976,12.9266894 C0.518133477,12.9266894 0.257154807,12.9123499 0,12.8836709 C1.45306805,13.7622035 3.17858637,14.2746012 5.0322041,14.2746012 C11.0700842,14.2746012 14.3719902,10.4325745 14.3719902,6.34008484 C14.3719902,6.20624963 14.3691223,6.07241441 14.3624305,5.94049113 C15.0038836,5.50361475 15.5602557,4.0811376 16,3.46071578"></path>
+					</symbol>
+
+				</svg>
+
+				<div class="ResAts__card-content">
+
+					<div class="submitOverlay js-jobs-overlay">
+						<h3 class="jobsAppHeader">Apply for this Position</h3>
+						<form id="applicationForm" class="jobsAppForm BhrForms BhrForms--dividerTop bhrValidate" method="POST" action="/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01">
+							<input type="hidden" name="ajaxSubmit" value="true"/>
+							<input type="hidden" name="applicantHash" value="d1e8644f85214013c789992e141f4fb219a7ef77"/>
+							<input type="hidden" name="eeoOnly" value="off" id="eeoOnly"/>
+
+							<div class="reqDiv"><span class="req">*</span>Required</div>
+<fieldset class="fieldsetIndent-outside">
+	<div class="fieldRow">
+		<div class="fieldBox required related">
+				<label for="firstName">First Name</label>
+			<div class="fieldDiv">
+				<input name="applicant[firstName]" type="text" class="text" maxlength="255" ba-count-chars value="">
+			</div>
+		</div>
+		<div class="fieldBox required related">
+				<label for="firstName">Last Name</label>
+			<div class="fieldDiv">
+				<input name="applicant[lastName]" type="text" class="text" maxlength="255" ba-count-chars value="">
+			</div>
+		</div>
+	</div>
+	<div class="fieldRow">
+		<div class="fieldBox required">
+			<label for="email">Email</label>
+			<div class="fieldDiv">
+				<input name="applicant[email]" type="text" class="validateEmail text long-field" maxlength="255" ba-count-chars value="">
+			</div>
+		</div>
+	</div>
+	<div class="fieldRow">
+		<div class="fieldBox required">
+				<label for="phone">Phone</label>
+			<div class="fieldDiv">
+				<input name="applicant[phone]" type="text" class="text" maxlength="255" ba-count-chars value="">
+			</div>
+		</div>
+	</div>
+		<div class="fieldRow">
+		<div class="fieldBox  required ">
+				<label for="address">Address</label>
+			<div class="fieldDiv">
+				<input name="location[addressLine1]" type="text" id="address" class="text long-field" maxlength="255" ba-count-chars value="">
+			</div>
+		</div>
+	</div>
+	<div class="fieldRow">
+
+		<div class="fieldBox related   required">
+			<label for="city">City</label>
+			<div class="fieldDiv">
+				<input name="location[city]" type="text" class="text" id="city" maxlength="255" ba-count-chars value="">
+			</div>
+		</div>
+		<div class="fieldBox related   required">
+			<label for="state">State</label>
+			<div class="fieldDiv js-state-fieldDiv">
+				<select name="location[stateId]" class="list-field  state-field" data-csz="state+" data-csz-value="" ><option value=""></option><option value="2" >AK</option><option value="1" >AL</option><option value="4" >AR</option><option value="3" >AZ</option><option value="5" >CA</option><option value="6" >CO</option><option value="7" >CT</option><option value="9" >DC</option><option value="8" >DE</option><option value="10" >FL</option><option value="356" >FM</option><option value="11" >GA</option><option value="354" >GU</option><option value="12" >HI</option><option value="16" >IA</option><option value="13" >ID</option><option value="14" >IL</option><option value="15" >IN</option><option value="17" >KS</option><option value="18" >KY</option><option value="19" >LA</option><option value="22" >MA</option><option value="21" >MD</option><option value="20" >ME</option><option value="355" >MH</option><option value="23" >MI</option><option value="24" >MN</option><option value="26" >MO</option><option value="357" >MP</option><option value="25" >MS</option><option value="27" >MT</option><option value="34" >NC</option><option value="35" >ND</option><option value="28" >NE</option><option value="30" >NH</option><option value="31" >NJ</option><option value="32" >NM</option><option value="29" >NV</option><option value="33" >NY</option><option value="36" >OH</option><option value="37" >OK</option><option value="38" >OR</option><option value="39" >PA</option><option value="359" >PR</option><option value="358" >PW</option><option value="40" >RI</option><option value="41" >SC</option><option value="42" >SD</option><option value="43" >TN</option><option value="44" >TX</option><option value="45" >UT</option><option value="47" >VA</option><option value="360" >VI</option><option value="46" >VT</option><option value="48" >WA</option><option value="50" >WI</option><option value="49" >WV</option><option value="51" >WY</option></select>
+			</div>
+		</div>
+		<div class="fieldBox related   required">
+			<label for="zip">Postal / Zip</label>
+			<div class="fieldDiv">
+				<input name="location[zipcode]" type="text" class="text short-field" id="zip" maxlength="255" ba-count-chars value="" data-csz="">
+			</div>
+		</div>
+	</div>
+	<div class="fieldRow">
+	<div class="fieldBox ">
+		<label for="country">Country</label>
+		<div class="fieldDiv">
+			<select id="country" name="location[countryId]" class="country" data-csz="" >
+				<option></option>
+				<option value='4'>Afghanistan</option>
+<option value='5'>Albania</option>
+<option value='6'>Algeria</option>
+<option value='7'>American Samoa</option>
+<option value='8'>Andorra</option>
+<option value='10'>Angola</option>
+<option value='9'>Anguilla</option>
+<option value='11'>Antarctica</option>
+<option value='12'>Antigua and Barbuda</option>
+<option value='13'>Argentina</option>
+<option value='14'>Armenia</option>
+<option value='15'>Aruba</option>
+<option value='3'>Australia</option>
+<option value='16'>Austria</option>
+<option value='17'>Azerbaijan</option>
+<option value='238'>Åland Islands</option>
+<option value='18'>Bahamas</option>
+<option value='19'>Bahrain</option>
+<option value='20'>Bangladesh</option>
+<option value='21'>Barbados</option>
+<option value='241'>Belarus</option>
+<option value='22'>Belgium</option>
+<option value='23'>Belize</option>
+<option value='24'>Benin</option>
+<option value='25'>Bermuda</option>
+<option value='26'>Bhutan</option>
+<option value='27'>Bolivia</option>
+<option value='240'>Bonaire, Sint Eustatius and Saba</option>
+<option value='28'>Bosnia and Herzegovina</option>
+<option value='29'>Botswana</option>
+<option value='30'>Bouvet Island</option>
+<option value='31'>Brazil</option>
+<option value='32'>British Indian Ocean Territory</option>
+<option value='33'>Brunei Darussalam</option>
+<option value='34'>Bulgaria</option>
+<option value='35'>Burkina Faso</option>
+<option value='36'>Burundi</option>
+<option value='37'>Cambodia</option>
+<option value='38'>Cameroon</option>
+<option value='2'>Canada</option>
+<option value='39'>Cape Verde</option>
+<option value='40'>Cayman Islands</option>
+<option value='41'>Central African Republic</option>
+<option value='42'>Chad</option>
+<option value='43'>Chile</option>
+<option value='44'>China</option>
+<option value='45'>Christmas Island</option>
+<option value='46'>Cocos (Keeling Islands)</option>
+<option value='47'>Colombia</option>
+<option value='48'>Comoros</option>
+<option value='49'>Congo</option>
+<option value='242'>Congo, the Democratic Republic of the</option>
+<option value='50'>Cook Islands</option>
+<option value='51'>Costa Rica</option>
+<option value='52'>Cote D'Ivoire (Ivory Coast)</option>
+<option value='53'>Croatia (Hrvatska)</option>
+<option value='54'>Cuba</option>
+<option value='243'>Curaçao</option>
+<option value='55'>Cyprus</option>
+<option value='56'>Czech Republic</option>
+<option value='57'>Denmark</option>
+<option value='58'>Djibouti</option>
+<option value='59'>Dominica</option>
+<option value='60'>Dominican Republic</option>
+<option value='61'>East Timor</option>
+<option value='64'>Ecuador</option>
+<option value='62'>Egypt</option>
+<option value='63'>El Salvador</option>
+<option value='65'>Equatorial Guinea</option>
+<option value='66'>Eritrea</option>
+<option value='67'>Estonia</option>
+<option value='68'>Ethiopia</option>
+<option value='69'>Falkland Islands (Malvinas)</option>
+<option value='70'>Faroe Islands</option>
+<option value='71'>Fiji</option>
+<option value='72'>Finland</option>
+<option value='73'>France</option>
+<option value='74'>France, Metropolitan</option>
+<option value='75'>French Guiana</option>
+<option value='76'>French Polynesia</option>
+<option value='77'>French Southern Territories</option>
+<option value='78'>French West Indies</option>
+<option value='79'>Gabon</option>
+<option value='80'>Gambia</option>
+<option value='81'>Georgia</option>
+<option value='82'>Germany</option>
+<option value='83'>Ghana</option>
+<option value='84'>Gibraltar</option>
+<option value='85'>Greece</option>
+<option value='86'>Greenland</option>
+<option value='87'>Grenada</option>
+<option value='88'>Guadeloupe</option>
+<option value='89'>Guam</option>
+<option value='90'>Guatemala</option>
+<option value='244'>Guernsey</option>
+<option value='91'>Guinea</option>
+<option value='92'>Guinea-Bissau</option>
+<option value='93'>Guyana</option>
+<option value='94'>Haiti</option>
+<option value='95'>Heard and McDonald Islands</option>
+<option value='96'>Honduras</option>
+<option value='97'>Hong Kong</option>
+<option value='98'>Hungary</option>
+<option value='99'>Iceland</option>
+<option value='100'>India</option>
+<option value='101'>Indonesia</option>
+<option value='102'>Iran</option>
+<option value='103'>Iraq</option>
+<option value='104'>Ireland</option>
+<option value='246'>Isle of Man</option>
+<option value='105'>Israel</option>
+<option value='106'>Italy</option>
+<option value='107'>Jamaica</option>
+<option value='108'>Japan</option>
+<option value='247'>Jersey</option>
+<option value='109'>Jordan</option>
+<option value='110'>Kazakhstan</option>
+<option value='111'>Kenya</option>
+<option value='112'>Kiribati</option>
+<option value='113'>Korea (North)</option>
+<option value='114'>Korea (South)</option>
+<option value='254'>Kosovo</option>
+<option value='115'>Kuwait</option>
+<option value='116'>Kyrgyzstan</option>
+<option value='117'>Laos</option>
+<option value='118'>Latvia</option>
+<option value='119'>Lebanon</option>
+<option value='120'>Lesotho</option>
+<option value='121'>Liberia</option>
+<option value='122'>Libya</option>
+<option value='123'>Liechtenstein</option>
+<option value='124'>Lithuania</option>
+<option value='125'>Luxembourg</option>
+<option value='126'>Macao</option>
+<option value='127'>Macedonia</option>
+<option value='128'>Madagascar</option>
+<option value='129'>Malawi</option>
+<option value='130'>Malaysia</option>
+<option value='131'>Maldives</option>
+<option value='132'>Mali</option>
+<option value='133'>Malta</option>
+<option value='134'>Marshall Islands</option>
+<option value='135'>Martinique</option>
+<option value='136'>Mauritania</option>
+<option value='137'>Mauritius</option>
+<option value='138'>Mayotte</option>
+<option value='139'>Mexico</option>
+<option value='140'>Micronesia</option>
+<option value='141'>Moldova</option>
+<option value='142'>Monaco</option>
+<option value='143'>Mongolia</option>
+<option value='144'>Montenegro</option>
+<option value='145'>Montserrat</option>
+<option value='146'>Morocco</option>
+<option value='147'>Mozambique</option>
+<option value='248'>Myanmar</option>
+<option value='148'>Namibia</option>
+<option value='149'>Nauru</option>
+<option value='150'>Nepal</option>
+<option value='151'>Netherlands</option>
+<option value='152'>Netherlands Antilles</option>
+<option value='153'>New Caledonia</option>
+<option value='154'>New Zealand</option>
+<option value='155'>Nicaragua</option>
+<option value='156'>Niger</option>
+<option value='157'>Nigeria</option>
+<option value='158'>Niue</option>
+<option value='159'>Norfolk Island</option>
+<option value='160'>Northern Mariana Islands</option>
+<option value='161'>Norway</option>
+<option value='162'>Oman</option>
+<option value='163'>Pakistan</option>
+<option value='164'>Palau</option>
+<option value='249'>Palestinian Territory, Occupied</option>
+<option value='165'>Panama</option>
+<option value='166'>Papua New Guinea</option>
+<option value='167'>Paraguay</option>
+<option value='168'>Peru</option>
+<option value='169'>Philippines</option>
+<option value='170'>Pitcairn</option>
+<option value='171'>Poland</option>
+<option value='172'>Portugal</option>
+<option value='173'>Puerto Rico</option>
+<option value='174'>Qatar</option>
+<option value='176'>Reunion</option>
+<option value='177'>Romania</option>
+<option value='178'>Russian Federation</option>
+<option value='175'>Rwanda</option>
+<option value='239'>Saint Barthélemy</option>
+<option value='195'>Saint Kitts and Nevis</option>
+<option value='196'>Saint Lucia</option>
+<option value='198'>Saint Vincent and the Grenadines</option>
+<option value='179'>Samoa</option>
+<option value='180'>San Marino</option>
+<option value='181'>Sao Tome and Principe</option>
+<option value='182'>Saudi Arabia</option>
+<option value='183'>Senegal</option>
+<option value='184'>Serbia</option>
+<option value='185'>Seychelles</option>
+<option value='186'>Sierra Leone</option>
+<option value='187'>Singapore</option>
+<option value='252'>Sint Maarten (Dutch part)</option>
+<option value='188'>Slovakia</option>
+<option value='189'>Slovenia</option>
+<option value='190'>Solomon Islands</option>
+<option value='250'>Somalia</option>
+<option value='191'>South Africa</option>
+<option value='245'>South Georgia and the South Sandwich Islands</option>
+<option value='251'>South Sudan</option>
+<option value='192'>Spain</option>
+<option value='193'>Sri Lanka</option>
+<option value='194'>St. Helena</option>
+<option value='197'>St. Pierre and Miquelon</option>
+<option value='199'>Sudan</option>
+<option value='200'>Suriname</option>
+<option value='201'>Svalbard</option>
+<option value='202'>Swaziland</option>
+<option value='203'>Sweden</option>
+<option value='204'>Switzerland</option>
+<option value='205'>Syria</option>
+<option value='206'>Taiwan</option>
+<option value='207'>Tajikistan</option>
+<option value='208'>Tanzania</option>
+<option value='209'>Thailand</option>
+<option value='210'>Togo</option>
+<option value='211'>Tokelau</option>
+<option value='212'>Tonga</option>
+<option value='213'>Trinidad and Tobago</option>
+<option value='214'>Tunisia</option>
+<option value='215'>Turkey</option>
+<option value='216'>Turkmenistan</option>
+<option value='217'>Turks and Caicos Islands</option>
+<option value='218'>Tuvalu</option>
+<option value='219'>Uganda</option>
+<option value='220'>Ukraine</option>
+<option value='221'>United Arab Emirates</option>
+<option value='222'>United Kingdom</option>
+<option value='1' selected="selected">United States</option>
+<option value='224'>Uruguay</option>
+<option value='223'>US Minor Outlying Islands</option>
+<option value='225'>Uzbekistan</option>
+<option value='226'>Vanuatu</option>
+<option value='227'>Vatican City State</option>
+<option value='228'>Venezuela</option>
+<option value='229'>Viet Nam</option>
+<option value='230'>Virgin Islands (British)</option>
+<option value='231'>Virgin Islands, U.S.</option>
+<option value='232'>Wallis and Futuna Islands</option>
+<option value='233'>Western Sahara</option>
+<option value='234'>Yemen</option>
+<option value='235'>Yugoslavia</option>
+<option value='236'>Zaire</option>
+<option value='237'>Zambia</option>
+<option value='253'>Zimbabwe</option>
+
+			</select>
+		</div>
+	</div>
+	</div>
+	</fieldset>
+<fieldset class="fieldsetIndent-outside">
+			<div class="fieldRow ">
+		<div class="fieldBox fileField  ">
+			<label for="coverLetter">Cover Letter</label>
+			<div class="fieldDiv" id="coverLetterUpload">
+				<div class="files">
+									</div>
+
+				<span class="attach-wrapper" data-id="coverLetter" ></span>
+				<script>
+					/**
+					 * This is kind of the way we'll always do things when working with single-file uploads. Some of it could be pushed into the plugin.
+					 */
+					$(function() {
+						var coverLetterFieldId = '';
+						var options = {
+							linkHTML: '<a class="attach-link btn" > Choose File </a>',
+							success: function (data, elm) {
+								$('#coverLetterUpload .noFile').hide();
+								$('#coverLetterUpload .attach-link').parent().hide();
+								$('#coverLetterUpload .fallbackframe').parent().hide();
+								var attachInput = $('#coverLetterUpload .attach-wrapper').closest('form').find('input[name=clAttachId]');
+								if(attachInput.length != 0) {
+									attachInput.val(data.fid);
+								} else {
+									var form = $('#coverLetterUpload .attach-wrapper').closest('form')
+									form.append('<input type="hidden" name="clAttachId" value="'+data.fid+'">');
+								}
+							},
+							removeFile: function() {
+								$('#coverLetterUpload .noFile').show();
+								$('#coverLetterUpload .attach-link').parent().show();
+								$('#coverLetterUpload .fallbackframe').parent().show();
+								$('#coverLetterUpload .attach-wrapper').closest('form').find('input[name=clAttachId]').remove();
+								return true;
+							},
+							createFileWrapper: function(name, progress) {
+								$('#coverLetterUpload .attach-link').parent().hide();
+								$('#coverLetterUpload .noFile').hide();
+								return $.fileUploader.createFileWrapper(name, progress);
+							},
+							uploaderId: 'edit_application_cl',
+							validExtensions: '.xlsx, .xls, .pptx, .ppt, .docx, .doc, .txt, .rtf, .odt, .ods, .odp, .pdf, .png, .jpg, .gif, .bmp',
+							fallbackParams: {
+								style: 'default',
+								requirePreviewable: 1
+							}
+						};
+						$('#coverLetterUpload .attach-wrapper').parent().fileUploader(options);
+						if (coverLetterFieldId) {
+							$('#coverLetterUpload .attach-link').parent().hide();
+							$('#coverLetterUpload .fallbackframe').parent().hide();
+							$('#coverLetterUpload .file-x').click(function () {
+								$.fileUploader.remove($(this).closest('#coverLetterUpload .file-wrapper'));
+								$('#coverLetterUpload .noFile').show();
+								$('#coverLetterUpload .attach-link').parent().show();
+								$('#coverLetterUpload .fallbackframe').parent().show();
+							});
+						}
+					});
+				</script>
+				<span class="noFile"><i class="bicon-file-upload"></i>No file selected</span>
+			</div>
+		</div>
+	</div>
+	 				<div class="fieldRow ">
+		<div class="fieldBox fileField  required">
+			<label for="resume">Resume</label>
+			<div class="fieldDiv" id="resumeUpload">
+				<div class="files">
+									</div>
+
+				<span class="attach-wrapper" data-id="resume" ></span>
+				<script>
+					$(function() {
+						var resumeFileId = '';
+						var options = {
+							linkHTML: '<a class="attach-link btn" >Choose File</a>',
+							success: function (data, elm) {
+								$('#resumeUpload .noFile').hide();
+								$('#resumeUpload .attach-link').parent().hide();
+								$('#resumeUpload .fallbackframe').parent().hide();
+								var attachInput = $('#resumeUpload .attach-wrapper').closest('form').find('input[name=attachId]');
+								if(attachInput.length != 0) {
+									attachInput.val(data.fid);
+								} else {
+									var form = $('#resumeUpload .attach-wrapper').closest('form')
+									form.append('<input type="hidden" name="attachId" value="'+data.fid+'">');
+								}
+							},
+							removeFile: function() {
+								$('#resumeUpload .noFile').show();
+								$('#resumeUpload .attach-link').parent().show();
+								$('#resumeUpload .fallbackframe').parent().show();
+								$('#resumeUpload .attach-wrapper').closest('form').find('input[name=attachId]').remove();
+								return true;
+							},
+							createFileWrapper: function(name, progress) {
+								$('#resumeUpload .attach-link').parent().hide();
+								$('#resumeUpload .noFile').hide();
+								return $.fileUploader.createFileWrapper(name, progress);
+							},
+							uploaderId: 'edit_application',
+							validExtensions: '.xlsx, .xls, .pptx, .ppt, .docx, .doc, .txt, .rtf, .odt, .ods, .odp, .pdf, .png, .jpg, .gif, .bmp',
+							fallbackParams: {
+								style: 'default',
+								requirePreviewable: 1
+							}
+						}
+						$('#resumeUpload .attach-wrapper').parent().fileUploader(options);
+						if (resumeFileId) {
+							$('#resumeUpload .attach-link').parent().hide();
+							$('#resumeUpload .fallbackframe').parent().hide();
+							$('#resumeUpload .file-x').click(function () {
+								$.fileUploader.remove($(this).closest('#resumeUpload .file-wrapper'));
+								$('#resumeUpload .noFile').show();
+								$('#resumeUpload .attach-link').parent().show();
+								$('#resumeUpload .fallbackframe').parent().show();
+							})
+						}
+					});
+				</script>
+				<span class="noFile"><i class="bicon-file-upload"></i>No file selected</span>
+			</div>
+		</div>
+	</div>
+	 	
+	
+
+	<div class="fieldRow">
+		<div class="fieldBox ">
+				<label for="phone">Date Available</label>
+			<div class="fieldDiv">
+				<input name="applicant[availableYmd]" type="text" class="text calendar-field" value="">
+			</div>
+		</div>
+	</div>
+			<div class="fieldRow">
+		<div class="fieldBox ">
+			<label for="salary">Desired Pay</label>
+			<div class="fieldDiv">
+				<input name="positionApplicant[desiredSalary]" type="text" class="text" id="salary" value="">
+			</div>
+		</div>
+	</div>
+	</fieldset>
+<fieldset class="fieldsetIndent-outside">
+		<div class="fieldRow">
+		<div class="fieldBox  required">
+			<label for="website">Website, Blog, or Portfolio</label>
+			<div class="fieldDiv">
+				<input name="applicant[websiteUrl]" type="text" id="website" class="text long-field" maxlength="2000" ba-count-chars value="">
+			</div>
+		</div>
+	</div>
+			<div class="fieldRow">
+				<div class="fieldBox ">
+			<label for="linkedin">
+				<svg class="socialIcon" viewBox="0 0 16 16" preserveAspectRatio="xMaxYMax meet">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#LinkedIn-small"></use>
+				</svg>
+				LinkedIn Profile URL</label>
+			<div class="fieldDiv">
+				<input name="applicant[linkedinUrl]" type="text" id="linkedin" class="text long-field" maxlength="2000" ba-count-chars value="">
+			</div>
+		</div>
+					</div>
+</fieldset>
+<fieldset class="fieldsetIndent-outside">
+		<div class="fieldRow">
+		<div class="fieldBox  required">
+			<label for="custom183">Our photographers use their own camera and computer gear. Please list your camera body(ies), Lenses and editing equipment.</label>
+			<div class="fieldDiv">
+				<textarea name="customQuestion[183]" id="customQuestion[183]" class="visible text extralong-field autosize"></textarea>
+			</div>
+		</div>
+	</div>
+	</fieldset>
+
+<script>
+var curStateVal = '';
+$(function () {
+	$('label.input :input').insetLabel();
+	$('#country').change( updateStateDropDown );
+	$('.js-state-fieldDiv').on('keyup', '.js-state-input', function() {
+		curStateVal = this.value;
+	});
+	var initialCountry = $('#country').val();
+	if(initialCountry != "1" && initialCountry != "2" && initialCountry != "222" && initialCountry != "3") {
+		updateStateDropDown();
+	}
+
+	if ($('input[name="applicant\[linkedinUrl\]"]').closest('form').is('.bhrValidate')) {
+		//delay this until all other loading scripts are complete, since validator probably hasn't run on the form
+		setTimeout(function() {
+			$.validator.addMethod('linked_in_url', function(value, element, param) {
+				return validateLinkedIn($(element));
+			});
+			$('input[name="applicant\[linkedinUrl\]"]').each(function() {
+				$(this).rules("add",{ linked_in_url:true });
+			});
+		},1);
+	}
+	if ($('input[name="applicant\[websiteUrl\]"]').closest('form').is('.bhrValidate')) {
+		//delay this until all other loading scripts are complete, since validator probably hasn't run on the form
+		setTimeout(function() {
+			$.validator.addMethod('website_url', function(value, element, param) {
+				return validateWebsite($(element));
+			});
+			$('input[name="applicant\[websiteUrl\]"]').each(function() {
+				$(this).rules("add",{ website_url: true });
+			});
+		},1);
+	}
+});
+	function updateStateDropDown() {
+	    // look up by name = countryId
+	    var country = false;
+	    var stateText;
+	    if($('#country').length) {
+		country=parseInt($('#country').val());
+	    }
+	    if(!country){
+		return;
+	    }
+	    switch (country) {
+		    case 1://us
+		    case 0://nothing
+		    case 3: // australia
+			    stateText = "State";
+			    break;
+		    case 222://uk
+			    stateText = "County";
+			    break;
+		    default:
+			    stateText = "Province";
+			    break;
+	    }
+	    $('label[for=state]').text(stateText);
+	    var stateSelector = ".state-field";
+	    $.getJSON("/ajax/states.php?country="+country, function(data) {
+		if(data.result=='OK') {
+
+			var lastVal=$(stateSelector).val() || "";
+
+			if(data.data.length>0) {
+				var newEl=$('<select class="list-field state-field"></select>');
+				newEl.attr("name",$(stateSelector).attr("name"));
+				if( $(stateSelector+':first').hasClass('request')) {
+					newEl.addClass("request");
+				}
+				if( $(stateSelector+':first').hasClass('disabled')) {
+					newEl.addClass('disabled');
+					newEl.attr("onmousedown","return false");
+				}
+				$(stateSelector+':first').replaceWith(newEl).next('.chzn-container').remove();
+				var optList=$(stateSelector)[0];
+				if(optList){
+					$(optList).removeClass('chzn-done').next('.chzn-container').remove();
+					optList.options.length=0;
+					optList.options[0]=new Option( "", "" );
+
+					for(var i=0;i<data.data.length;i++) {
+						var opt=new Option( data.data[i].name , data.data[i].id );
+						if(data.data[i].name==lastVal || data.data[i].id==lastVal) {
+							opt.selected=true;
+						}
+						optList.options[ i+1 ]=opt;
+					}
+				}
+				$('select'+stateSelector+':visible').chosen(bhrChosenOptions);
+			} else if($('input'+stateSelector).length==0) {
+				if (!isNaN(curStateVal)) {
+					curStateVal = '';
+				}
+				// There are no input.state elements, so de
+				var newEl2 = $('<input type="text" class="state state-field text wide js-state-input" maxlength="255" ba-count-chars value="' + curStateVal + '" />');
+				if( $('select'+stateSelector+':first').hasClass('request')) {
+					newEl2.addClass('request');
+				}
+
+				newEl2.attr("name",$('select'+stateSelector).attr("name"));
+				$('select'+stateSelector+':first').replaceWith( newEl2 );
+				newEl2.next('.chzn-container').remove();
+			}
+
+		}
+	    });
+	}
+
+	/**
+	 * Validate a LinkedIn URL (make sure it has https?://linkedin.com)
+	 *
+	 * @param {wrapper} linkedin The jQuery wrapped element
+	 *
+	 * @returns {boolean}
+	 */
+	function validateLinkedIn(linkedin) {
+		if (linkedin.length) {
+			if (linkedin.val().length > 0 && linkedin.val().indexOf('http://') != 0 && linkedin.val().indexOf('https://') != 0) {
+				linkedin.val('http://' + linkedin.val());
+			}
+			linkedInUrlRegEx = /^https?\:\/\/(.*\.)?linkedin.com/;
+			if (linkedin.val().length > 0 && linkedInUrlRegEx.exec(linkedin.val()) === null) {
+				return false;
+			}
+			return true;
+		}
+	}
+
+	/**
+	 * Validate a website (make sure it has https?://)
+	 *
+	 * @param {wrapper} website The jQuery wrapped element
+	 *
+	 * @returns {boolean}
+	 */
+	function validateWebsite(website) {
+		if (website.length) {
+			if (website.val().length > 0 && website.val().indexOf('http://') != 0 && website.val().indexOf('https://') != 0) {
+				website.val('http://' + website.val());
+			}
+			websiteUrlRegEx = /^https?\:\/\/(.*\.)/;
+			if (website.val().length > 0 && websiteUrlRegEx.exec(website.val()) === null) {
+				return false;
+			}
+			return true;
+		}
+	}
+
+	function applicationFormValidation() {
+		var website = $('input[name="applicant\[websiteUrl\]"]');
+		if(website.length && website.val().length > 0 && website.val().indexOf('http://') != 0 && website.val().indexOf('https://') != 0 ){
+			website.val('http://'+website.val());
+		}
+		var linkedin = $('input[name="applicant\[linkedinUrl\]"]');
+		if(!validateLinkedIn(linkedin)) {
+			linkedin.closest('.fieldBox').addClass('error');
+		} else {
+			linkedin.closest('.fieldBox').removeClass('error');
+		}
+		var website = $('input[name="applicant\[websiteUrl\]"]');
+		if(!validateWebsite(website)) {
+			website.closest('.fieldBox').addClass('error');
+		} else {
+			website.closest('.fieldBox').removeClass('error');
+		}
+		var missing = {};
+		$('#applicationForm').find('.required :input').each(function(index, item) {
+			if($(item).is('#description')) {
+				if(tinyMCE.get('description').getContent() == '') {
+					missing[$(item).attr('name')] = item;
+				}
+			} else if($(item).is('.uploadInput')) {
+				if($(item).parent() && $(item).parent().data('id') == "coverLetter") {
+					//deal with verifying either clAttachId or coverLetterFileId
+					if($('#applicationForm').find('input[name=clAttachId]').length == 0 && $('#applicationForm').find('input[name=coverLetterFileId]').length == 0) {
+						missing[$(item).attr('name')+'cl'] = item;
+					}
+				}else{
+					//deal with verifying either attachId or resumeFileId
+					if($('#applicationForm').find('input[name=attachId]').length == 0 && $('#applicationForm').find('input[name=resumeFileId]').length == 0) {
+						missing[$(item).attr('name')] = item;
+					}
+				}
+			} else if(!$(item).val() && $(item).attr('name') != undefined) {
+				missing[$(item).attr('name')] = item;
+			}
+		});
+		for(var i in missing) {
+			$(missing[i]).closest('.required').addClass('error');
+			$(missing[i]).parent().children(':input').on('change.missing', function () {
+				$(this).closest('.required').removeClass('error');
+				$(this).off('change.missing');
+			});
+		}
+		if($('.fieldBox.error').length > 0 || Object.keys(missing).length > 0) {
+			alert("Whoops... No worries. Please fix any missing or incorrect information and try again.");
+			return false;
+		}
+		return true;
+	}
+</script>
+						</form>
+
+					</div>
+				</div>
+
+				<div class="ResAts__card-content ResAts__card-content--footer clearfix">
+					<div class="col-xs-12 col-sm-4">
+						<button class="btn btnLarge btnAction js-jobs-submit-application addProcessing">Submit Application</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="ResAts__page ResAts__success js-jobs-page js-jobs-success">
+
+				<div class="ResAts__card-content">
+					<div>
+						<svg class="baseFillColor" viewBox="0 0 80 80" preserveAspectRatio="xMaxYMax meet">
+							<use xlink:href="#Jobs-Complete"></use>
+						</svg>
+					</div>
+					<div class="thanks">Thank You</div>
+					<div class="success">Your application was submitted successfully.</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="ResAts__sideBar js-jobs-sidebar col-md-4">
+	<div class="col-md-12 ResAts__sideBar-content">
+		<div class="ResAts__card clearfix">
+			<a class="btn btnLarge btnAction js-jobs-action noCaps">Apply for this Job</a>
+
+<hr />
+
+<div class="jobsShare">
+	
+	
+			<div class="jobsShare__Link">
+			<label>Link to this job</label>
+		</div>
+		<input type="text" class="inputField linkUrl text-100 jobsShare__LinkText" readonly value="https://bellababy.bamboohr.com/jobs/view.php?id=89" onclick="this.select()" />
+	
+	<div class="row">
+	<div class="col-sm-4">
+		<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=://bellababy.bamboohr.com/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01&amp;source=linkedin&amp;title=Position Name&amp;summary=&amp;source=BambooHR" target="_blank" title="LinkedIn" class="jobsShare__Widget jobsShare__Widget--count linkedin js-linkedin " data-via="BambooHR" data-url="https://bellababy.bamboohr.com/jobs/view.php?id=89?source=linkedin">
+			<span class="icon">
+				<svg viewBox="0 0 40 40" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#LinkedIn"></use>
+				</svg>
+			</span>
+			<span class="count">&nbsp;</span>
+		</a>
+	</div>
+	
+	<div class="col-sm-4">
+		<a title="Facebook" class="jobsShare__Widget jobsShare__Widget--count facebook js-facebook " data-via="BambooHR" data-url="https://bellababy.bamboohr.com/jobs/view.php?id=89?source=facebook">
+			<span class="icon">
+				<svg viewBox="0 0 40 40" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Facebook"></use>
+				</svg>
+			</span>
+			<span class="count">&nbsp;</span>
+		</a>
+	</div>
+	
+	<div class="col-sm-4">
+		<a href="https://twitter.com/intent/tweet?hashtags=&amp;original_referer=://bellababy.bamboohr.com/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01&amp;related=undefined&amp;source=tweetbutton&amp;text=Position Name&amp;url=://bellababy.bamboohr.com/jobs/view.php?id=89&amp;source=indeed&amp;src=indeed&amp;postedDate=2017-09-01&amp;via=BambooHR" title="Twitter" class="jobsShare__Widget twitter js-twitter " data-via="BambooHR" data-url="https://bellababy.bamboohr.com/jobs/view.php?id=89?source=twitter">
+			<span class="icon">
+				<svg viewBox="0 0 40 40" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Twitter"></use>
+				</svg>
+			</span>
+			<span class="count">&nbsp;</span>
+		</a>
+	</div>
+</div>	
+</div>
+
+<script type="text/javascript">
+
+	window.addEventListener('message', function(e) {
+		if (e.origin == "https://app.bamboohr.com") {
+			
+			if (e.data.message == 'linkedin_count') {
+				$('.linkedin .count').html(e.data.count);
+				if (e.data.count != 0) {
+					$('.linkedin .count').addClass('non-zero')
+				}
+			}
+		}
+	});
+
+</script>
+		</div>
+		<ul>
+	<li class="posInfo">
+		<div class="posInfo__Title">Location</div>
+		<div class="posInfo__Value">Walnut Creek, California</div>
+	</li>
+	
+		<li class="posInfo posInfo--department">
+		<div class="posInfo__Title">Department</div>
+		<div class="posInfo__Value">California</div>
+	</li>
+		
+	<li class="posInfo posInfo--employmentType">
+		<div class="posInfo__Title">Employment Type</div>
+		<div class="posInfo__Value">Part-time</div>
+	</li>
+	
+		<li class="posInfo posInfo--minExperience">
+		<div class="posInfo__Title">Minimum Experience</div>
+		<div class="posInfo__Value">Entry-level</div>
+	</li>
+		
+		<li class="posInfo posInfo--compensation">
+		<div class="posInfo__Title">Compensation</div>
+		<div class="posInfo__Value">Commission</div>
+	</li>
+		
+		
+	<li class="posInfo poweredBy">
+		Powered by
+		<a href="http://www.bamboohr.com" target="_blank" rel="external nofollow">
+			<svg viewBox="0 0 94 16" preserveAspectRatio="xMaxYMax meet">
+				<use xlink:href="#Logo"></use>
+			</svg>
+		</a>
+	</li>
+	
+</ul>	</div>
+</div>
+
+
+	<div class="row ResAts__footer">
+		<div class="col-xs-5 ResAts__footer-priPolicy">
+			<svg viewBox="0 0 8 11" preserveAspectRatio="xMaxYMax meet">
+				<use xlink:href="#Lock"></use>
+			</svg>
+			<a href="http://www.bamboohr.com/privacy.php" target="_blank" rel="external nofollow">Privacy Policy</a>
+
+		</div>
+		<div class="col-xs-7 poweredBy">
+			Powered by
+			<a href="http://www.bamboohr.com" target="_blank" rel="external nofollow">
+				<svg viewBox="0 0 94 16" preserveAspectRatio="xMaxYMax meet">
+					<use xlink:href="#Logo"></use>
+				</svg>
+			</a>
+		</div>
+	</div>
+
+</div><!-- end container -->
+<script type="text/javascript" src="//resources.bamboohr.com/17.0901.233834-8f1f71d/js/global.dist.js?cb=43d8e6d6"></script>
+
+			<script type="text/javascript" src="//resources.bamboohr.com/17.0901.233834-8f1f71d/js/combiner.php?lang=en_US&amp;js=512&amp;cb=4358ce9b8478d05eefa7fca26fc257501f6e34da48"></script>
+
+
+			<script type="text/javascript" src="//resources.bamboohr.com/17.0901.233834-8f1f71d/js/jobs.dist.js?cb=43823cce" class="pageJS"></script>
+	
+
+</body>
+</html>

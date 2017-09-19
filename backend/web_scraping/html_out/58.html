@@ -1,0 +1,469 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/css/UIv8/jquery/Classic/ui.core.css">
+<link type="text/css" rel="stylesheet" href="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/css/UIv8/jquery/Classic/ui.theme.css">
+<link type="text/css" rel="stylesheet" href="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/css/UIv8/jquery/Classic/ui.datepicker.css">
+<link type="text/css" rel="stylesheet" href="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/css/UIv8/jquery/Classic/ui.dialog.css">
+
+
+
+
+<style type="text/css">
+    .alert-error {
+        color: #990000;
+        font-weight: bold;
+    }
+
+    td.top {
+        vertical-align: top !important;
+    }
+
+    td.left {
+        float: none;
+        text-align: left;
+    }
+
+    td.right {
+        float: none;
+        text-align: right;
+    }
+
+    .nowrapFormLabel {
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    h1 {
+        font-size: 120%
+    }
+
+    h2 {
+        font-size: 110%
+    }
+
+    h3 {
+        font-size: 100%
+    }
+
+    .hidden-accessibility-text {
+        position: absolute;
+        left: -2000px;
+        top: 0;
+        width: 1;
+        height: 1;
+        overflow: hidden;
+        font-size: 0.1em;
+    }
+
+    .ofcc305table TD, .ofcc305table TH, .ofcc305table textarea,
+    .ofcc305table textfield, .ofcc305table select,
+    .ofcc305table input, .ofcc305table a {
+        font-size:12px !important;
+        font-family:Arial,sans-serif,Helvetica !important;
+    }
+
+    #cws-search-results th, #cws-job-alerts th {
+        border-top: #CCCCCC 2px solid;
+        border-bottom: #CCCCCC 2px solid;
+    }
+
+    #cws-search-results tr:last-of-type td, #cws-job-alerts tr:last-of-type td {
+        border-bottom: #CCCCCC 2px solid;
+        padding-bottom: 3px;
+    }
+</style>
+
+<html lang='en'><head><title>RH Careers</title>
+<style type="text/css">
+/* Taleo Base Styles */
+body {
+	font-family: Verdana;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+}
+td, th {
+	font-family: Verdana;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+}
+textarea {font-family:Verdana; font-size:10px;}
+textfield {font-family:Verdana; font-size:10px;}
+select {font-family:Verdana; font-size:10px;}
+input {font-family:Verdana; font-size:10px;}
+
+/* RH Styles */
+body {
+	margin:0;
+	padding:0;
+}
+.rh-brand {
+	text-transform:uppercase;
+	letter-spacing:1px;
+}
+
+.header {
+            position: relative;
+            height: 52px;
+            border-bottom: 1px solid #CCC;
+            margin: 0 auto;
+            width: 80%;
+            margin-bottom: 3px;
+        }
+        .logo {
+            display: inline-block;
+            position: relative;
+            top: 13px;
+            height: 26px;
+            width: 46px;
+            transition-delay: .325s !important;
+            background-image: url(https://www.restorationhardware.com/assets/images/rh/rh-logo-black-2016.png);
+            background-image: url(https://www.restorationhardware.com/assets/images/rh/rh-logo-black-2016.svg), none;
+            background-size: 46px 26px;
+
+}
+     
+        .uber-nav-wrapper {
+            display: inline-block;
+            position: relative;
+            top: 13px;
+            left: 43px;
+        }
+        #uber-nav {
+            background-color: transparent;
+            box-sizing: border-box;
+            font: 11px/18px "proxima-nova", "open-sans", Arial, Helvetica, sans-serif;
+            height: 32px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #uber-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+        }
+        .uber-nav__brand {
+            display: inline-block;
+            padding-right: 40px;
+        }
+        .uber-nav__brand a {
+            color: #999;
+            display: inline-block;
+            font: 11px/18px "proxima-nova", "open-sans", Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+            padding: 8px 0;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .uber-nav__brand a:hover {
+            color: black;
+        }
+#rh-taleocontainer{
+	width:80%;
+	margin:0 auto;
+}
+#rh-footer {
+	background: #302F31;
+	height: 70px;
+	width:100%;
+}
+#rh-copyright {
+	background: #FFF;
+	height: 32px;
+	width:100%;
+	text-align:center;
+	font-size:9px;
+	font-family:Verdana, Geneva, sans-serif;
+	text-transform:uppercase;
+	margin-top:10px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="header" class="header">
+            <a href="http://www.rh.com" class="logo" alt="RH"></a>
+        <div class="uber-nav-wrapper">
+            <nav id="uber-nav">
+                <ul>
+                    <li class="uber-nav__brand"><a href="https://chm.tbe.taleo.net/chm04/ats/careers/jobSearch.jsp?org=RESTORATIONHARDWARE&cws=1&rid=14717"><b>Search Open Positions</b></a></li>
+		
+		     <li class="uber-nav__brand"><a href="https://www.restorationhardware.com/company-info/jobs/index.jsp">About Us</a></li></ul></nav></div></div>
+<div id="rh-taleocontainer">
+<!-- END TALEO HEADER -->
+<script type='text/javascript' src="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/js/UIv8/tbe-basic-cws.js"></script>
+<script type='text/javascript' src="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/dwr-cws/engine.js"></script>
+<script type='text/javascript' src="https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/dwr-cws/interface/CwsDWRFacade.js"></script>
+<script type='text/javascript'> CwsDWRFacade._path = 'https://chm.tbe.taleo.net/chm04/ats/dwr-cws';
+var DWRFacade = CwsDWRFacade; </script>
+<script type="text/javascript">
+var timer;
+var calendarArray = new Array ();
+function startSessionTimer(){
+	timer=setTimeout("sessionAboutToEnd()", 86100000);
+}
+function sessionAboutToEnd(){
+	var oHead = document.getElementsByTagName('head')[0];
+	loadScript(oHead, 'https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/js/UIv8/engine.js',  function() {
+		var answer = confirm("Your session is about to expire. Would you like to continue your session?");
+		if(answer){
+			dwr.engine.setErrorHandler( function(errorString, exception) {
+				window.location = "https://chm.tbe.taleo.net/chm04/ats/sessionTimedOut.jsp?locale=enUS"
+			});
+			CwsDWRFacade.refreshSession();
+			clearTimeout(timer);
+			startSessionTimer();
+		} else {
+			window.location = "https://chm.tbe.taleo.net/chm04/ats/sessionTimedOut.jsp?locale=enUS";
+		}
+	});
+}
+startSessionTimer();</script>
+
+
+
+
+
+
+<table border=0 cellspacing=0 cellpadding=2 width='100%' role='presentation'>
+<tr>
+<td colspan=2 width='100%'><a  tabindex='6' href='https://chm.tbe.taleo.net/chm04/ats/careers/searchResults.jsp;jsessionid=8E78B6CF446EF2648968C09C6F65D0E4?org=RESTORATIONHARDWARE&cws=1' title='Back to Search Results' >Back to Search Results<br></a><br><br></td>
+</tr>
+<tr>
+<td colspan=2><hr width='100%' size='1' color='silver'></td></tr><tr><td colspan=2><h1>SQL Analyst, Call Center Optimization</h1></td>
+</tr>
+<tr>
+<td class='nowrapFormLabel width160 top'>Working Location:</td>
+<td class='formFieldNormal top' colspan=1 style='width: 100%'><b>CA - Corte Madera</b></td>
+</tr>
+<tr>
+<td class='nowrapFormLabel width160 top'>Job Function:</td>
+<td class='formFieldNormal top' colspan=1 style='width: 100%'><b>Operations &#38; Supply Chain</b></td>
+</tr>
+<tr>
+<td class='nowrapFormLabel width160 top'>Employment Duration:</td>
+<td class='formFieldNormal top' colspan=1 style='width: 100%'><b>Full Time</b></td>
+</tr>
+<tr>
+<td colspan=2><hr width='100%' size='1' color='silver'>
+<h1><span class='head1'></span></h1></td>
+</tr>
+<tr>
+<td colspan=2 width='100%'><p style="text-align: center;"><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">At RH, we believe deeply that the &quot;right&quot; people are our greatest asset.</span></span></p>
+
+<p><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">RH is a curator of design, taste and style in the luxury lifestyle market. We offer our collections through our retail galleries, source books and online at RH.com. The RH brand platform includes RH, Modern, RH Baby &amp; Child and&nbsp;RH TEEN.</span></span></p>
+
+<p><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">We value innovation, taking risks and boldly going where no company has gone before. We believe you&rsquo;re either striving to get better or allowing yourself to get worse - there is no such thing as staying the same. The power of innovation comes from leveraging the creative minds and spirit of all our people, at all levels of the organization. We embrace those people who have the courage to put forth new ideas and breathe new life into our company. Innovation is at the core of what we do.</span></span></p></td>
+</tr>
+<tr>
+<tr><td colspan=2><hr width='100%' size='1' color='silver'></td></tr>
+<tr><td colspan=2><h1>Description</h1></td></tr>
+<tr><td colspan=2><p><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">As a SQL Analyst, you will play a critical role in driving the development and ongoing enhancement to key reporting infrastructure, tools and analytics that will enable RH Call Centers to optimize effective engagement with our customers. This&nbsp;team is small but plays a pivotal role in providing analytics to drive&nbsp;decision-making throughout RH Customer Support. As a member of the Workforce Planning&nbsp;team, you&rsquo;ll have an opportunity to influence every decision we make.</span></span></p>
+
+<p><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">You&rsquo;ll help us&nbsp;understand the needs of our customers, assess the effectiveness of our current tools, and estimate the impact of key business decisions.&nbsp;</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;"><strong>RESPONSIBILITIES</strong></span></span></p>
+
+<ul>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Help us improve our customer experience through analysis of workforce data trends</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Gather&nbsp;data via SQL or OLAP Cube</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Discover and recommend business opportunities through data analysis and design experiments to test them</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Present your findings and insights&nbsp;to Call Center&nbsp;leadership and&nbsp;key stakeholders across our Supply Chain</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Perform ad-hoc analyses to support&nbsp;optimization and company vision</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Complete&nbsp;post-mortem analysis to highlight areas of opportunities and planning adjustments</span></span></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;"><strong>REQUIREMENTS</strong></span></span></p>
+
+<ul>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Professional&nbsp;experience in call center, distribution center&nbsp;or retail environment, with thorough understanding of related metrics, processes and practices</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Familiarity with Avaya phone data structure</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Professional experience&nbsp;presenting complex results to non-technical audiences</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Prior experience with Salesforce&nbsp;reporting</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Advanced-level SQL knowledge, including SSRS and SSAS</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Excel expertise, including advanced formulas, macros, and tables</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Proficiency in scripting languages such as Ruby, Python, or JavaScript&nbsp;</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">Schedule flexibility to see a project/analysis to completion, which may require nights and/or weekends</span></span></li>
+	<li><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">BS in Computer Science, MIS, or similar field of study preferred</span></span></li>
+</ul></td></tr>
+</tr>
+<tr>
+<td colspan=2><hr width='100%' size='1' color='silver'>
+<h1><span class='head1'></span></h1></td>
+</tr>
+<tr>
+<td colspan=2 width='100%'><p style="text-align: justify;"><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">We believe that service starts inside the organization and embrace a concept called &ldquo;People First.&rdquo;&nbsp; At RH, you will receive generous benefits, an incredible product discount and plenty of opportunity for career advancement.&nbsp; Simply put, it means &ldquo;if we expect our people to deliver first-class service to our customers, we must first deliver first-class service to our people.&rdquo;</span></span></p>
+
+<p style="text-align: justify;"><em><span style="font-size:12px;"><span style="font-family:verdana,geneva,sans-serif;">RH is an Equal Opportunity Employer and does not discriminate against any applicant on the basis of race, color, religion, national origin, gender, marital status, age, disability, sexual orientation, military/veteran status, or any other status protected by Federal or State law or local ordinance.</span></span></em></p></td>
+</tr>
+<tr>
+<tr><td class='left'><br>
+<form action='https://chm.tbe.taleo.net/chm04/ats/careers/apply.jsp;jsessionid=8E78B6CF446EF2648968C09C6F65D0E4?org=RESTORATIONHARDWARE&cws=1&rid=15558' method='post' name='apply'>
+<input type='hidden' name='act' value='addCart'>
+<input type='hidden' name='org' value='RESTORATIONHARDWARE'>
+<input type='hidden' name='cws' value='1'>
+<input type='hidden' name='_csrf' value='v1:;1504428427132:;wV3BbnuK6vtz0AkDIDJr69TzvIp51Er2vo5DWHDopRg=' /><input type='submit' name='tbe_cws_submit' value='Apply for this Position' tabIndex="24"></form></td>
+</td>
+<td align='right' colspan=1><br>
+</td></tr>
+</tr>
+<tr>
+<td colspan=2 width='100%'><p><strong>Current RH Associates, please&nbsp;<a href="https://chm.tbe.taleo.net/chm04/ats/careers/apply.jsp?org=RESTORATIONHARDWARE&amp;cws=39&amp;rid=15558">click here</a> to submit an internal application.</strong></p></td>
+</tr>
+<tr>
+<td colspan=2 width='100%'><br></td>
+</tr>
+<tr>
+<td colspan=2 width='100%'><style type="text/css">p.border
+{        
+border-top: 1px solid #CCC;
+text-align: justify;
+}
+</style>
+<p class="border"><strong><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Are you a returning applicant?</span></span></strong></p></td>
+</tr>
+<tr>
+<form action='https://chm.tbe.taleo.net/chm04/ats/careers/applyModal.jsp;jsessionid=8E78B6CF446EF2648968C09C6F65D0E4?org=RESTORATIONHARDWARE&cws=1' method='post' name='TBE_theForm'>
+<input type='hidden' name='org' value='RESTORATIONHARDWARE'>
+<input type='hidden' name='cws' value='1'>
+<input type='hidden' name='rid' value='15558'>
+<input type='hidden' name='currentTime' value='1504428427132'>
+<input type='hidden' name='signature' value='LtrRveCx8jT13pH2gAXLxKc84Yg4yhNsyq1gfZ0ZBxc='>
+<input type='hidden' name='et' value='CAND'>
+<input type='hidden' name='act' value='addCart'>
+<input type='hidden' name='_csrf' value='v1:;1504428427132:;wV3BbnuK6vtz0AkDIDJr69TzvIp51Er2vo5DWHDopRg=' /><tr><td colspan=2>
+<table border=0 cellpadding=2 cellspacing=0 role="presentation"><tr>
+<td nowrap colspan=2>Previous Applicants:</td>
+</tr>
+<tr>
+<td nowrap align='right'><label for='email'>Email:</label></td>
+<td class='nowrap'><input type='text' id='email' name='email' maxlength=50 autocomplete='off' tabindex='29'></td>
+</tr>
+<input type='text' style='display:none'>
+<input type='password' style='display:none'>
+<tr>
+<td nowrap align='right'><label for='cwsPassword'>Password:</label></td>
+<td class='nowrap'><input type='password' id='cwsPassword' name='cwsPassword' maxlength=30 autocomplete='off' tabindex='30'></td>
+</tr>
+<tr><td nowrap colspan=2>
+<input type='submit' name='tbe_cws_submit' value='Add to My Jobs' tabIndex="31"></td></tr>
+<tr><td nowrap colspan=2><br>
+If you do not remember your password <a href='https://chm.tbe.taleo.net/chm04/ats/careers/forgotID.jsp?org=RESTORATIONHARDWARE&cws=1' tabIndex='32'>click here</a>.<br><br></td></tr>
+</table>
+</td></tr></form>
+</tr>
+<tr>
+<td colspan=2 width='100%'><style type="text/css">p.border
+{        
+border-top: 1px solid #CCC;
+padding-top: 10px;
+text-align: justify;
+}
+</style>
+
+<p class="border">RH does not accept unsolicited resumes from individual recruiters or third party recruiting agencies in response to job postings. No fee will be paid to third parties who submit unsolicited candidates directly to our hiring teams. All candidates must be submitted by approved RH vendors who have been expressly requested to make a submission by our Talent Acquisition team for a specific job opening. No placement fees will be paid to any firm unless such a request has been made by the RH Talent Acquisition team and such candidate was submitted directly to the RH Talent Acquisition Team.</p>
+
+<p>&nbsp;</p></td>
+</tr>
+<tr>
+<td colspan=2 width='100%'><!--</td>
+</tr>
+<tr>
+<td colspan=2 width='100%'><br><div align='right'><img src='https://tbe.taleo.net/graphics/Taleo_powered_by_small.gif' alt='Powered By Taleo' border='0'></div><br><br></td>
+</tr>
+<tr>
+<td colspan=2 width='100%'>--></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        //jQuery Calendar
+        jQuery(document).ready(function($) {
+	$('.jquerycalendar').datepicker({
+altField:'',altFormat:'',appendText:'',buttonImage:'https://staticchm.tbe.taleo.net/chm04/ats/cacheable/R17-07-13-22-21-19-17.B1_prod/img/UIv8/calendar.gif',buttonImageOnly:true,buttonText:'Calendar',changeMonth:true,changeYear:true,closeText:'\'Close\'',constrainInput:true,currentText:'Today',dateFormat:'mm/dd/yy',monthYearDateFormat:'MM/yy',dayNames:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],dayNamesShort:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],dayNamesMin:['Su','Mo','Tu','We','Th','Fr','Sa'],defaultDate:null,duration:'normal',firstDay:0,gotoCurrent:false,hideIfNoPrevNext:false,isRTL:false,maxDate:null,minDate:null,monthNames:['January','February','March','April','May','June','July','August','September','October','November','December'],monthNamesShort:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],navigationAsDateFormat:false,nextText:'Next',numberOfMonths:1,prevText:'Previous',shortYearCutoff:'+10',showAnim:'show',showButtonPanel:false,showCurrentAtPos:0,showMonthAfterYear:false,showOn:'button',showOptions:{},showOtherMonths:false,stepMonths:1,yearRange:'1940:2030'});});
+    </script>
+
+<style>#rh-footer {
+	background: #ffffff;
+	height: 70px;
+	width:100%;
+}
+#rh-copyright {
+	background: #FFF;
+	height: 32px;
+	width:100%;
+	text-align:center;
+	font-size:9px;
+	font-family:Verdana, Geneva, sans-serif;
+	text-transform:uppercase;
+	margin-top:10px;
+}</style>
+<div id="rh-footer">
+</div>
+<div id="rh-copyright">
+	<p>© 2017 RH</p>
+</div>
+
+
+

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class=" html_stretched responsive av-default-lightbox  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky_disabled html_header_shrinking_disabled html_mobile_menu_tablet html_disabled html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch html_minimal_header html_entry_id_78 ">
+<head>
+<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<!-- page title, displayed in your browser bar -->
+<title>Onsite Production Technician- SF - 164380 - PItney Bowes Careers</title>
+
+<link rel="icon" href="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/pb_favicon.png" type="image/png" />
+
+<!-- mobile setting -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+<!-- Scripts/CSS and wp_head hook -->
+<link rel="alternate" hreflang="english" href="https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="french" href="https://careers.pitneybowes.com/fr/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="german" href="https://careers.pitneybowes.com/de/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="es_ES" href="https://careers.pitneybowes.com/es/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="canadian" href="https://careers.pitneybowes.com/fr-ca/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="portugai" href="https://careers.pitneybowes.com/pt-pt/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="Swedish" href="https://careers.pitneybowes.com/sv/job-detail/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<link rel="alternate" hreflang="ja" href="https://careers.pitneybowes.com/ja/job-detailj/7215722/onsite-production-technician-sf-brisbane-ca/" />
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v3.7.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Onsite Production Technician- SF - 164380 - PItney Bowes Careers" />
+<meta property="og:url" content="https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/" />
+<meta property="og:site_name" content="Pitney Bowes Careers" />
+<meta property="article:publisher" content="https://www.facebook.com/PitneyBowes" />
+<meta property="og:image" content="http://cdn-static.findly.com/wp-content/uploads/sites/19/2015/02/pb_icon.png" />
+<meta property="DC.date.issued" content="2015-02-18T23:17:44+00:00" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//careers.conocophillips.com' />
+<link rel='dns-prefetch' href='//careers.pitneybowes.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Pitney Bowes Careers &raquo; Feed" href="https://careers.pitneybowes.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Pitney Bowes Careers &raquo; Comments Feed" href="https://careers.pitneybowes.com/comments/feed/" />
+<link rel="alternate" type="text/calendar" title="Pitney Bowes Careers &raquo; iCal Feed" href="https://careers.pitneybowes.com/upcoming-events/?ical=1" />
+<link rel="alternate" type="application/rss+xml" title="Pitney Bowes Careers &raquo; Job Detail Comments Feed" href="https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/careers.pitneybowes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='tribe_events-widget-calendar-pro-style-css'  href='https://careers.pitneybowes.com/wp-content/plugins/events-calendar-pro/src/resources/css/widget-calendar-full.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe_events--widget-calendar-pro-override-style-css'  href='https://careers.pitneybowes.com/wp-content/plugins/events-calendar-pro/src/resources/css/widget-calendar-full.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='clean-login-css-css'  href='https://careers.pitneybowes.com/wp-content/plugins/clean-login/content/style.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cws-styles-css'  href='https://careers.pitneybowes.com/wp-content/plugins/cws/css/cws.css?ver=3.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='select2-css'  href='https://careers.pitneybowes.com/wp-content/plugins/cws/css/select2.min.css?ver=3.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uaf_client_css-css'  href='https://careers.pitneybowes.com/wp-content/uploads/sites/19/useanyfont/uaf.css?ver=1477616858' type='text/css' media='all' />
+<link rel='stylesheet' id='wpml-legacy-dropdown-0-css'  href='//careers.conocophillips.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style.css?ver=1' type='text/css' media='all' />
+<style id='wpml-legacy-dropdown-0-inline-css' type='text/css'>
+.wpml-ls-statics-shortcode_actions{background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu, .wpml-ls-statics-shortcode_actions a {border-color:#EEEEEE;}.wpml-ls-statics-shortcode_actions a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions a:hover,.wpml-ls-statics-shortcode_actions a:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language:hover>a, .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
+</style>
+<link rel='stylesheet' id='wpml-menu-item-0-css'  href='//careers.conocophillips.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.css?ver=1' type='text/css' media='all' />
+<style id='wpml-menu-item-0-inline-css' type='text/css'>
+#lang_sel img, #lang_sel_list img, #lang_sel_footer img { display: inline; }
+</style>
+<link rel='stylesheet' id='tribe-events-calendar-pro-style-css'  href='https://careers.pitneybowes.com/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-full.min.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe-events-calendar-pro-mobile-style-css'  href='https://careers.pitneybowes.com/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-full-mobile.min.css?ver=4.4.2' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='ub_adminbar_general_styles-css'  href='https://careers.pitneybowes.com/wp-content/plugins/ultimate-branding/ultimate-branding-files/modules/custom-admin-bar-files/css/general.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpml-cms-nav-css-css'  href='https://careers.pitneybowes.com/wp-content/plugins/wpml-cms-nav/res/css/navigation.css?ver=1.4.19' type='text/css' media='all' />
+<link rel='stylesheet' id='cms-navigation-style-base-css'  href='https://careers.pitneybowes.com/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation-base.css?ver=1.4.19' type='text/css' media='screen' />
+<link rel='stylesheet' id='cms-navigation-style-css'  href='https://careers.pitneybowes.com/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation.css?ver=1.4.19' type='text/css' media='screen' />
+<link rel='stylesheet' id='avia-grid-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/css/grid.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-base-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/css/base.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-layout-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/css/layout.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-scs-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/css/shortcodes.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-popup-css-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/js/aviapopup/magnific-popup.css?ver=1' type='text/css' media='screen' />
+<link rel='stylesheet' id='avia-media-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/js/mediaelement/skin-1/mediaelementplayer.css?ver=1' type='text/css' media='screen' />
+<link rel='stylesheet' id='avia-print-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/css/print.css?ver=1' type='text/css' media='print' />
+<link rel='stylesheet' id='avia-dynamic-css'  href='https://careers.pitneybowes.com/wp-content/uploads/sites/19/dynamic_avia/enfold-hodes-v1.css?ver=5923dbbdea6fc' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-custom-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/css/custom.css?ver=2' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-style-css'  href='https://careers.pitneybowes.com/wp-content/themes/findlycws/style.css?ver=2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-wpml-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/config-wpml/wpml-mod.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='avia-events-cal-css'  href='https://careers.pitneybowes.com/wp-content/themes/enfold/config-events-calendar/event-mod.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sccss_style-css'  href='https://careers.pitneybowes.com/?sccss=1&#038;ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-amd-style-css'  href='https://careers.pitneybowes.com?amd_asset_type=style&#038;amd_is_asset=1&#038;ver=3476' type='text/css' media='all' />
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/wp-a11y.min.js?ver=4.7.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/select2.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/underscore.min.js?ver=1.8.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cws_opts = {"org":"1916","poll_script":"https:\/\/connect.thehive.com\/static\/js\/lightbox.js","poll_nolightbox":"","job_detail_path":"\/job","title_autocomplete":["Driver IV (CDL A)","On -Site Electro Mechanical Technician - Mail processing equipment repair must be flexible to work 1st, 2nd & 3rd shifts","Mensageiro","Front-End Developer","Driver I Part Time (Non CDL)","Driver II (Non CDL)","Machine Technician","Custodian (3p-11p)","Driver I (Non CDL)","Electromechanical Technician Intern","Executive Assistant","Lead Driver","Major Account Manager (MAM)","Presorter (3rd Shift: $9.60\/hr plus shift differential)","Senior Software Engineer","Software Engineer","1st Shift Expeditor","2nd Shift Supervisor","2nd shift PRESORTER","3rd Shift Expeditor","3rd Shift Presorter","3rd Shift Technician Trainee","3rd shift LEAD","3rd shift PRESORTER","Account Executive - Great Lakes Region","Account Executive - Illinois","Advisory Software Engineer- Poland","Application Support Engineer - Java, SQL, Linux","Assistant Controller (Global eCommerce)","Associate Technical Support Engineer - Poland","Big Data Solution Architect","Bilingual French-Managed Account Specialist, work from home","Business Development Manager (Ecommerce)","Business Development Representative","Business Web Analyst","Chef de projet marketing H\/F","Chief Data Scientist","Client Manager - Ecommerce Solutions","Client Manager \u2013 EngageOne\u00ae Video \u2013 Professional Services","Client Operations Manager (Ecommerce)","Client Service Associate, multiple positons available, $12-$13.50\/hr","Client Service Engineer - On-site Shepshed, Leicester","Compliance Analyst-Ecommerce Shipping","Compliance Clerk (3rd Shift)","Compliance Specialist (2nd Mid-Shift 8:00pm -4:00am)","Coordenador de Operacoes","Corporate Tax Intern (P\/T) - Shelton, CT (2 Open Positions)","Counsel","Custodian (1 am - 9 am)","Custodian (11a-7p)","Customer Care Manager - Late shift - 4 pm \u2013 12.30","Customer Care Team Leader","Customer Retention Specialist","Customer Satisfaction Research Manager","Customer Service Representative, multiple positions available, $12-$13.50\/hr","Cyber Security Analyst","DE_EVENTSSTRATEGYMANAGER,GERMANY","DE_MAJOR_ACCOUNT_MGR_SMB","DI\/DQ - SERVICE DELIVERY MANAGER","Digital Designer","Director - Financial Operations and Product, Global Ecommerce","Director Pre-Sales","Director, Audit & Advisory Services","Dispatch (3rd Shift)","Dispatch - 2nd Shift (3:30pm-12:00am)","Enterprise Business Applications Solutions Architect","Executive Sales Rep - North East Territory","Field Service Technician- Denver","Field Service Technician- Mailroom\/ Office Equipment Repair","Field Service Technician- New Orleans","Field Service Technician-PDX","Finance - Ecommerce Corporate Technical Accounting Group Co-Op","Finance - Ecommerce Decision Support Co-Op","Finance - Ecommerce Investor Relations Co-Op","Finance Manager \u2013 Project Accountant (Data Migration \u2013 System Implementation)","Financial Operations Analyst","GCS - ADVISORY SOFTWARE ENGINEER (WEB SERVICES AND SOA)","General Manager","Global Controller - Software","HR Business Partner Associate","Ing\u00e9nieur commercial MAM (H\/F)- Secteur 10\/77\/51","Lead Service Technician","Logistics Procurement Manager","MAIL 360 - SENIOR SOFTWARE\/ADVISORY SOFTWARE ENGINEER","MDM Project Manager, Remote based anywhere in the US.","Mail Industry Dispatch - 2nd Shift","Mail Industry Quality Control Specialist, 1st Shift","Mail Industry Quality Control Specialist, 2nd Shift","Mail Presorter Operator, 1st shift ***MULTIPLE OPENINGS AVAILABLE***","Mail Presorter, 1st Shift - MULTIPLE OPENINGS AVAILABLE","Mail Presorter, 2nd Shift - MULTIPLE OPENINGS","Mail Presorter, 3rd Shift - MULTIPLE OPENINGS","Mail Production Lead","Mail Production Supervisor, Floater","Mail Production Training Coordinator, 3rd Shift","Mail Production, Client Relationship Manager","Mail Supervisor, 3rd Shift","Mailroom Production Lead, 3rd Shift","Major Account Executive \u2013 Parcels","Major Account Executive-California","Major Account Executive-Texas","Major Account Manager","Manager Content Production","Manager, Business Analytics GFS & Payments","Manager, Sales Operations","Mapping Technician","Marketing Manager (Campaigns & Digital Demand Gen, Software Solutions)","Mitarbeiter Vertriebsau\u00dfendienst (w\/m)","OEM Platform Sales Executive","On-Site Customer Service Technician","Onsite Production Technician - Portland","Onsite Production Technician- SF","Onsite Production Technician- Sacramento","Onsite Technician","Onsite Technician- Austin","Onsite Technician- Logan","Onsite Technician- SLC","Onsite Technician- San Antonio","Operations Analyst","Optimization Manager","PAYMENT API, JAVA SENIOR  FINANCIAL SERVICES DEVELOPER","Parcel Sales Manager","Partner Manager - Federal Government","Payroll Specialist - 6 Month FTC","Presales Consultant, Ecommerce Solutions (Agile position can be based in any US Major Market)","Presales Solution Engineer, Location Intelligence","Presales Solution Engineer, Remote based anywhere in the U.S.","Presorter (1st Shift: $9.60\/hr)","Presorter (2nd Shift) (2:45p - 11p)","Presorter (2nd Shift)(3p - 11:15p)","Presorter (3rd Shift) (11p - 7:15a)","Presorter - 2nd Shift (2:45pm-11:00pm)","Presorter - 2nd Shift (4:00pm-12:00am)","Presorter - 2nd Shift (7:00pm-3:30am)","Presorter - 3rd Shift (10:30pm-6:30am)","Presorter - 3rd Shift (10:45pm-7:00am)","Presorters","Pricing Manager - Parcel","Product Manager, Location Intelligence Data (Boulder, CO or White River Junction, VT)","Production Lead - 3rd Shift","Production Systems Coordinator","Program Manager","QA Engineer","QUALITY CONTROL SPECIALIST","Quality Control Clerk - 3rd Shift","Regionaler Servie Manager S\u00fcd","Repr\u00e9sentant des ventes externes - Gestionnaire de comptes","Retail Strategy Consultant, Software","SENIOR SOFTWARE ENGINEER - FULL STACK (6 MONTH CONTRACT)","SR. TECHNICIAN","SaaS e2e Engineer Manager","Sagent _Senior Software Engineer","Sales Specialist - Customer Information Management and Location Intelligence (Northeast US)","Security Incident Manager","Senior Account Executive, Data - Ad Tech\/Social Media","Senior Account Executive, Data - Real Estate Vertical","Senior Account Manager - Germany","Senior Analyst","Senior Business Analyst, Global Ecommerce Engineering","Senior Data Analyst","Senior Data Analyst - Global Ecommerce","Senior Data Scientist","Senior Financial Analyst","Senior Financial Reporting Analyst","Senior Internal Auditor","Senior Logistics Manager - Parcels","Senior Operations Director - Parcel Processing","Senior Operations Manager","Senior Presales Consultant (Asset Management)","Senior Presales Solution Engineer, CES","Senior QA  Automation Engineer","Senior QA Engineer","Senior Sales Compensation System Analyst","Senior Talent Advisor - Ecommerce","Senior Technology Auditor","Service Techniker - Mechatroniker im Aussendienst  (w\/m)  Norddeutschland","Service Techniker- Mechatroniker im Au\u00dfendienst (w\/m) M\u00fcnchen","Shipping Payments Pre-Sales Consultant","Software Channels Sales Specialist- MDM\/Data Specialist","Software Sales Account Executive -  Latin America Territory","Software Sales Executive \u2013 Infrastructure Asset Management (Confirm\u00ae)","Softwareentwickler\/in f\u00fcr Logistikl\u00f6sungen","Solutions Engineer (Ecommerce Solutions)","Spatial Data Analyst","Sr UX Interaction Designer","Sr. Software Engineer","System Integration Technician","Talent Advisor","Tech Central, General Enroute L2 - Support Engineer  (Contractual)","Technician","Technician (3rd Shift) ($23.50\/hr exp. req.)","Technician (Mid Shift)","Technician Trainee","Telesales Agent","Telesales Agent - 4 days a week","UK Data Engineer","UK Operations Manager (COE)","UK Senior Pre-Sales Consultant","US PARCELS SALES DIRECTOR","US_SUPERVISORFACILITIES","UX Architect Team Lead","UX- Director","Vertriebsmitarbeiter im Aussendienst (m\/w)","Vice President of Ecommerce\/B2C"],"accessible":"","personalization":"","mc_apply":"","ip_detect":"","google_type":"key","google_key":"AIzaSyDvqJNz40M3-YRP_xeSfoR1FmcEhH3o4Vs","google_place_search_type":"geocode","localization":{"applybtn":"Apply","add_to_cart":"Add to Cart","remove_from_cart":"Remove from Cart","Expanding":"Expanding","Collapsing":"Collapsing","Added":"Expanding","Removed":"Expanding","selected":"Expanding","Type a location, and use the down arrow to select a suggestion.":"Type a location, and use the down arrow to select a suggestion.","No locations match your input.":"No locations match your input.","within the last twenty four hours, use right arrow to increase":"within the last twenty four hours, use right arrow to increase","within the last seven days, use left and right arrow keys to change":"within the last seven days, use left and right arrow keys to change","within the last thirty days, use left and right arrow keys to change":"within the last thirty days, use left and right arrow keys to change","any time, use left arrow to reduce":"any time, use left arrow to reduce","Displaying page":"Displaying page","jobs":"jobs","of":"of","Clear the":"Clear the","location":"location","Clear":"Clear","Go to the first page of results.":"Go to the first page of results.","Go to the previous page of results.":"Go to the previous page of results.","Go to page":"Go to page","Go to the next page of results.":"Go to the next page of results.","Go to the last page of results.":"Go to the last page of results.","Collapse the search form":"Collapse the search form","Expand the search form":"Expand the search form","of results":"of results","Skip to main content":"Skip to main content","Show Map":"Show Map","Hide Map":"Hide Map","Invalid location selected":"Invalid location selected","Error please enter and select a valid location":"Error please enter and select a valid location","Error: Please enter and select a valid location":"Error: Please enter and select a valid location","Video Transcript":"Video Transcript","Hide Video Transcript":"Hide Video Transcript","Show Video Transcript":"Show Video Transcript","Enter a starting location and hit return\/enter on your keyboard to get directions":"Enter a starting location and hit return\/enter on your keyboard to get directions","opening":"opening","openings":"openings","switch to":"switch to","miles":"miles","kilometers":"kilometers"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/cws.js?ver=3.9.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/jquery.history.js?ver=4.7.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/cws.jobs.js?ver=3.9.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/jquery-ui.min.js?ver=3.9.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/jquery.ui.touch-punch.min.js?ver=3.9.3'></script>
+<script type='text/javascript' src='//careers.conocophillips.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script.js?ver=1'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.5.1'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/duracelltomi-google-tag-manager/js/analytics-talk-content-tracking.js?ver=1.5.1'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/themes/enfold/js/avia-compat.js?ver=2'></script>
+<link rel='https://api.w.org/' href='https://careers.pitneybowes.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://careers.pitneybowes.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://careers.pitneybowes.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://careers.pitneybowes.com/?p=78&#038;job_id=7215722' />
+<link rel="alternate" type="application/rss+xml" title="Pitney Bowes Careers GeoRSS-Feed" href="https://careers.pitneybowes.com/wp-content/plugins/leaflet-maps-marker-pro/leaflet-georss.php?layer=all" />
+<meta name="generator" content="WPML ver:3.6.3 stt:65,1,4,3,28,43,2,52;" />
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://careers.pitneybowes.com"><link rel="https://theeventscalendar.com" href="https://careers.pitneybowes.com/wp-json/tribe/events/v1/" />
+<!-- Google Tag Manager for WordPress by DuracellTomi - http://duracelltomi.com -->
+<script data-cfasync="false" type="text/javascript">
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || []
+
+	var gtm4wp_scrollerscript_debugmode         = false;
+	var gtm4wp_scrollerscript_callbacktime      = 100;
+	var gtm4wp_scrollerscript_readerlocation    = 150;
+	var gtm4wp_scrollerscript_contentelementid  = "content";
+	var gtm4wp_scrollerscript_scannertime       = 60;
+	dataLayer.push({"pageTitle":"Onsite Production Technician- SF - 164380 - PItney Bowes Careers","pagePostType":"page","pagePostType2":"single-page","pagePostAuthor":"ebirnbaum","pagePostDate":"February 18, 2015","pagePostDateYear":"2015","pagePostDateMonth":"02","pagePostDateDay":"18","browserName":"Amazon CloudFront","browserVersion":"","browserEngineName":"","browserEngineVersion":"","osName":"","osVersion":"","deviceType":"bot","deviceManufacturer":"","deviceModel":"","postCountOnPage":1,"postCountTotal":1});
+</script>
+<script data-cfasync="false">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KCNLM7');</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by DuracellTomi --><link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="Pitney Bowes Careers RSS2 Feed" href="https://careers.pitneybowes.com/feed/" />
+<link rel="pingback" href="https://careers.pitneybowes.com/xmlrpc.php" />
+<!--[if lt IE 9]><script src="https://careers.pitneybowes.com/wp-content/themes/enfold/js/html5shiv.js"></script><![endif]-->
+<link rel="icon" href="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/pb_favicon.png" type="image/png" />
+<style type='text/css'>
+@font-face {font-family: 'entypo-fontello'; font-weight: normal; font-style: normal;
+src: url('https://careers.pitneybowes.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3');
+src: url('https://careers.pitneybowes.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3#iefix') format('embedded-opentype'), 
+url('https://careers.pitneybowes.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff?v=3') format('woff'), 
+url('https://careers.pitneybowes.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.ttf?v=3') format('truetype'), 
+url('https://careers.pitneybowes.com/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.svg?v=3#entypo-fontello') format('svg');
+} #top .avia-font-entypo-fontello, body .avia-font-entypo-fontello, html body [data-av_iconfont='entypo-fontello']:before{ font-family: 'entypo-fontello'; }
+
+@font-face {font-family: 'cws'; font-weight: normal; font-style: normal;
+src: url('https://careers.pitneybowes.com/wp-content/uploads/sites/19/avia_fonts/cws/cws.eot');
+src: url('https://careers.pitneybowes.com/wp-content/uploads/sites/19/avia_fonts/cws/cws.eot?#iefix') format('embedded-opentype'), 
+url('https://careers.pitneybowes.com/wp-content/uploads/sites/19/avia_fonts/cws/cws.woff') format('woff'), 
+url('https://careers.pitneybowes.com/wp-content/uploads/sites/19/avia_fonts/cws/cws.ttf') format('truetype'), 
+url('https://careers.pitneybowes.com/wp-content/uploads/sites/19/avia_fonts/cws/cws.svg#cws') format('svg');
+} #top .avia-font-cws, body .avia-font-cws, html body [data-av_iconfont='cws']:before{ font-family: 'cws'; }
+</style>
+</head>
+
+
+
+
+<body id="top" class="page-template-default page page-id-78 stretched arial-websave _arial tribe-no-js" itemscope="itemscope" itemtype="https://schema.org/WebPage"  >
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KCNLM7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->	<div id='wrap_all'>
+
+	
+<header id='header' class=' header_color light_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky_disabled av_header_shrinking_disabled av_header_stretch av_mobile_menu_tablet av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
+
+	<a id="advanced_menu_toggle" href="#" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="WCAG-2-A">Menu Toggle</span></a><a id="advanced_menu_hide" href="#" 	aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="WCAG-2-A">Menu Hide</span></a>
+
+
+	<div id='header_main' class='container_wrap container_wrap_logo'>
+
+		
+		<div class='container'>
+
+			<div class='inner-container'>
+				<strong class='logo'><a href='https://careers.pitneybowes.com/'><img height='100' width='300' src='https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/06/int_pb_hor_rgb_grd_pos.png' alt='Pitney Bowes Careers' /></a></strong><nav class='main_menu' data-selectname='Select a page'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" ><div class="avia-menu av-main-nav-wrap"><ul id="avia-menu" class="menu av-main-nav"><li id="menu-item-825" class="show-on-desktop menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-1"><a target="_blank" href="http://careers.pitneybowes.com/application-process/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Application Process</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-827" class="show-on-desktop menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-2"><a target="_blank" href="http://pb.taleo.net/careersection/iam/accessmanagement/login.jsf?lang=en&amp;redirectionURI=http%3A%2F%2Fpb.taleo.net%2Fcareersection%2F2%2Fjobsearch.ftl%3Fpostdata%3D%24RB8YdjBgsNqntNuwdYCXrg%3D%3D%26lang%3Den%26ftlcompclass%3DLoginComponent&amp;TARGET=http%3A%2F%2Fpb.taleo.net%2Fcareersection%2F2%2Fjobsearch.ftl%3Fpostdata%3D%24RB8YdjBgsNqntNuwdYCXrg%3D%3D%26lang%3Den%26ftlcompclass%3DLoginComponent" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Application Status</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-3"><a href="https://careers.pitneybowes.com/home-new/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Home</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-4"><a href="https://careers.pitneybowes.com/sales/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Sales</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-5"><a href="https://careers.pitneybowes.com/engineering/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Engineering</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-6"><a href="https://careers.pitneybowes.com/corporate-support/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Corporate</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-7"><a href="https://careers.pitneybowes.com/operations/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Operations</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-8"><a href="https://careers.pitneybowes.com/locations/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Job locations</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-9"><a href="https://careers.pitneybowes.com/working-here/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Working Here</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-1150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-10"><a target="_blank" href="https://www.pbprojectliving.com/en/global/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Benefits</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-1030" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-11"><a href="https://careers.pitneybowes.com/news-en/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">News</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-3272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-12"><a href="https://careers.pitneybowes.com/grow-and-thrive/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Campus</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-13"><a href="https://careers.pitneybowes.com/job-search-results/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Job Search</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-14"><a href="https://careers.pitneybowes.com/locations/north-america/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">North America</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-681" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-15"><a href="https://careers.pitneybowes.com/locations/emea/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Europe, Middle East, Africa</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-2636" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-16"><a href="https://careers.pitneybowes.com/locations/india/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">India</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-1097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-17"><a href="http://pb.taleo.net/careersection/iam/accessmanagement/login.jsf?lang=en&amp;redirectionURI=http%3A%2F%2Fpb.taleo.net%2Fcareersection%2F2%2Fjobsearch.ftl%3Fpostdata%3D%24RB8YdjBgsNqntNuwdYCXrg%3D%3D%26lang%3Den%26ftlcompclass%3DLoginComponent&amp;TARGET=http%3A%2F%2Fpb.taleo.net%2Fcareersection%2F2%2Fjobsearch.ftl%3Fpostdata%3D%24RB8YdjBgsNqntNuwdYCXrg%3D%3D%26lang%3Den%26ftlcompclass%3DLoginComponent" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">My Application Status</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-wpml-ls-3-en" class="menu-item-language menu-item-language-current menu-item menu-item-has-children wpml-ls-slot-3 wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-menu-item wpml-ls-first-item menu-item-top-level menu-item-top-level-18"><a title="English" href="https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/us.png" alt="en" title="English"><span class="wpml-ls-display">English</span></span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-wpml-ls-3-fr" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-fr wpml-ls-menu-item"><a title="French" href="https://careers.pitneybowes.com/fr/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="fr" title="Français"><span class="wpml-ls-display">French</span></span></a></li>
+	<li id="menu-item-wpml-ls-3-de" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-de wpml-ls-menu-item"><a title="German" href="https://careers.pitneybowes.com/de/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png" alt="de" title="Deutsch"><span class="wpml-ls-display">German</span></span></a></li>
+	<li id="menu-item-wpml-ls-3-es" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-es wpml-ls-menu-item"><a title="Spanish" href="https://careers.pitneybowes.com/es/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt="es" title="Español"><span class="wpml-ls-display">Spanish</span></span></a></li>
+	<li id="menu-item-wpml-ls-3-fr-ca" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-fr-ca wpml-ls-menu-item"><a title="Canadian French" href="https://careers.pitneybowes.com/fr-ca/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/uploads/sites/19/flags/120px-Flag_of_Acadia.svg.png" alt="fr-ca" title="Canadian French"><span class="wpml-ls-display">Canadian French</span></span></a></li>
+	<li id="menu-item-wpml-ls-3-pt-pt" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-pt-pt wpml-ls-menu-item"><a title="Portuguese (Portugal)" href="https://careers.pitneybowes.com/pt-pt/job-details/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/uploads/sites/19/flags/pt.png" alt="pt-pt" title="Português"><span class="wpml-ls-display">Portuguese (Portugal)</span></span></a></li>
+	<li id="menu-item-wpml-ls-3-sv" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-sv wpml-ls-menu-item"><a title="Swedish" href="https://careers.pitneybowes.com/sv/job-detail/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/sv.png" alt="sv" title="Swedish"><span class="wpml-ls-display">Swedish</span></span></a></li>
+	<li id="menu-item-wpml-ls-3-ja" class="menu-item-language menu-item wpml-ls-slot-3 wpml-ls-item wpml-ls-item-ja wpml-ls-menu-item wpml-ls-last-item"><a title="Japanese" href="https://careers.pitneybowes.com/ja/job-detailj/7215722/onsite-production-technician-sf-brisbane-ca/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text"><img class="wpml-ls-flag" src="https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/ja.png" alt="ja" title="日本語"><span class="wpml-ls-display">Japanese</span></span></a></li>
+</ul>
+</li>
+<li class='av-language-switch-item language_en avia_current_lang'><a href='https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='English' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/us.png' /></span></a></li><li class='av-language-switch-item language_fr '><a href='https://careers.pitneybowes.com/fr/job-details/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='Français' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png' /></span></a></li><li class='av-language-switch-item language_de '><a href='https://careers.pitneybowes.com/de/job-details/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='Deutsch' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png' /></span></a></li><li class='av-language-switch-item language_es '><a href='https://careers.pitneybowes.com/es/job-details/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='Español' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png' /></span></a></li><li class='av-language-switch-item language_fr-ca '><a href='https://careers.pitneybowes.com/fr-ca/job-details/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='Canadian French' src='https://careers.pitneybowes.com/wp-content/uploads/sites/19/flags/120px-Flag_of_Acadia.svg.png' /></span></a></li><li class='av-language-switch-item language_pt-pt '><a href='https://careers.pitneybowes.com/pt-pt/job-details/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='Português' src='https://careers.pitneybowes.com/wp-content/uploads/sites/19/flags/pt.png' /></span></a></li><li class='av-language-switch-item language_sv '><a href='https://careers.pitneybowes.com/sv/job-detail/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='Swedish' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/sv.png' /></span></a></li><li class='av-language-switch-item language_ja '><a href='https://careers.pitneybowes.com/ja/job-detailj/7215722/onsite-production-technician-sf-brisbane-ca/'>	<span class='language_flag'><img title='日本語' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/ja.png' /></span></a></li></ul></div></nav>
+				<!-- end inner-container-->
+			</div>
+
+			<!-- end container-->
+		</div>
+
+		<!-- end container_wrap-->
+	</div>
+
+	<div class='header_bg'></div>
+
+	<!-- end header -->
+</header>
+	
+	<div id='main' data-scroll-offset='0'>
+
+	<div class='stretch_full container_wrap alternate_color light_bg_color title_container'><div class='container'><div id='gtm-pagetitle' class='main-title entry-title'><a href='https://careers.pitneybowes.com/job/7215722/onsite-production-technician-sf-brisbane-ca/' rel='bookmark' aria-hidden='true' title='Permanent Link: Job Detail'  itemprop="headline" >Job Detail</a></div></div></div>
+<!— SmartClick attribution —>
+<span id="gtm-jobdetail-idSC" style="display:none;">164380</span>
+
+<script type="application/ld+json">
+{
+    "@context": "http:\/\/schema.org\/",
+    "@type": "JobPosting",
+    "title": "Onsite Production Technician- SF",
+    "description": "<div><b>About the Opportunity<\/b>  <\/div><div><br><\/div><div>As a(n) Onsite Production Technician at Pitney Bowes, you thrive on meeting the company\u2019s mailing productivity standards and you deliver with precision.  You see opportunities where others see challenges.  <\/div><div><br><\/div><div><br><\/div><div><b>Build. Deploy. Bridge. Grow. <\/b><\/div><div><br><\/div><div>In this role, you\u2019ll join our Presort Service team. You will be responsible for:<\/div><div><ul><li>Mechanical and electronic repairs of all equipment including printer and mail sorting equipment<\/li><li>Completes preventative maintenance according to Mail Preparation Total Quality Management and vendor operating standards<\/li><li>Responds to equipment break down or emergency situations with urgency and expediency<\/li><li>Consistently utilizes inventory, pm schedule and work order systems and maintains the spare parts\/supply inventory<\/li><li>Consistently utilizes inventory, pm schedule and work order systems and maintains the spare parts\/supply inventory<\/li><\/ul><\/div>  <p>  <div><b>Qualifications<\/b><\/div><div><ul><li>Successful completion of Electronics course work usually provided in a program at a trade school or community college. AA degree in Electronics, Computer Science or related field of study is preferred<\/li><li>Minimum of one year of experience in maintaining, repairing, or installing mailing or comparable equipment<\/li><li>Experience trouble-shooting and repairing complex mechanical equipment with at least one year of break\/fix mechanical experience <\/li><li>Ability to work a flexible work schedule based on Business needs; including overtime, weekends and Holidays with limited to no advance notice<\/li><\/ul><\/div><div><br><\/div><div><b>The Team<\/b><\/div><div><br><\/div><div>Our Presort Services team is a national outsource provider of mail presort services for first-class and standard-class mail in the U.S. and a workshare partner of the United States Postal Service (USPS). Our Presort Services network provides mailers with end-to-end solutions from pick up at their location to delivery into the postal system. Through our network of 33+ U.S. locations, and with our fully customized proprietary technology, we process approximately 15 billion pieces of mail annually and are able to expedite delivery and optimize postage savings for our clients.  <\/div><div><br><\/div><div><br><\/div><div>Pitney Bowes is an Equal Employment Opportunity\/Affirmative Action Employer that values diversity and inclusiveness in the workplace. <\/div><div><br><\/div><div><br><\/div><div><b>W\/M\/Veterans\/Individuals with Disabilities\/LGBT are encouraged to apply. <\/b><\/div><div><br><\/div><div><br><\/div><div>All interested individuals must apply online. Individuals with disabilities who cannot apply via our online application should refer to the alternate application options via our Individuals with Disabilities link.<\/div>",
+    "identifier": {
+        "@type": "PropertyValue",
+        "name": "Pitney Bowes",
+        "value": "1916"
+    },
+    "datePosted": "2017-03-06",
+    "validThrough": "2022-03-05",
+    "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Pitney Bowes"
+    },
+    "jobLocation": {
+        "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Brisbane",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+        }
+    },
+    "industry": "Computers General"
+}                 
+</script>
+<div id='av_section_1' class='avia-section main_color avia-section-no-padding avia-no-shadow avia-bg-style-scroll  avia-builder-el-0  el_before_av_section  avia-builder-el-first   av-minimum-height av-minimum-height-custom container_wrap fullsize' style = 'background-color: #eaeaea; background-color: #eaeaea; '  ><div class='container' style='height:30px'><main  role="main" itemprop="mainContentOfPage"  class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-78'><div class='entry-content-wrapper clearfix'>
+<section class="av_textblock_section"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock '   itemprop="text" ><div class="breadcrumb breadcrumbs avia-breadcrumbs"><div class="breadcrumb-trail" ><a href="https://careers.pitneybowes.com" title="Pitney Bowes Careers" rel="home" class="trail-begin">Home</a> <span class="sep">&rsaquo;</span> <span class="trail-end">Job Detail</span></div></div>
+</div></section>
+
+</div></div></main><!-- close content main element --></div></div><div id='job-results-block' class='avia-section main_color avia-section-default avia-no-shadow avia-bg-style-scroll  avia-builder-el-2  el_after_av_section  avia-builder-el-last   container_wrap fullsize'   ><div class='container' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-78'><div class='entry-content-wrapper clearfix'>
+<div class="flex_column av_one_fourth  flex_column_div first  avia-builder-el-3  el_before_av_three_fourth  avia-builder-el-first  " ><div class='avia-builder-widget-area clearfix  avia-builder-el-4  el_before_av_textblock  avia-builder-el-first '><div id="widget_job_search-5" class="widget clearfix widget-jobsearch"><form method="GET" id="cws_quickjobsearch" class="clearfix" role="search" action="/job-search-results/"><div class="quicksearch-title first avia-builder-el-first "><h3 class="widgettitle">Search Jobs</h3></div><div class="quicksearch-field "><input type="text" title="Keyword" name="keyword" class="keyword_suggest" data-autocomplete_limit="5" id="cws_quickjobsearch_keywords" placeholder="Keywords" /><input type="hidden" name="fuzzy" id="cws_quickjobsearch_fuzzy" /></div><div class="quicksearch-field "><select name="category" title="Category" id="cws_quickjobsearch_category"><option value="">Category</option><option value="Client Services">Client Services</option><option value="Corporate">Corporate</option><option value="Engineering/Innovation">Engineering/Innovation</option><option value="Finance">Finance</option><option value="Human Resources">Human Resources</option><option value="IT">IT</option><option value="Legal">Legal</option><option value="Marketing">Marketing</option><option value="Operations">Operations</option><option value="Sales">Sales</option><option value="Vertrieb">Vertrieb</option></select></div><div class="quicksearch-field location-wrapper   "><input type="text" name="location" id="cws_quickjobsearch_location" title="Location" placeholder="Location"  /><input type="hidden" name="latitude" id="cws_quickjobsearch_latitude" value="" /><input type="hidden" name="longitude" id="cws_quickjobsearch_longitude" value="" /><input type="hidden" name="radius" id="cws_quickjobsearch_radius" value="25" /></div><div class="quicksearch-btn avia-builder-el-last " style="text-align: left;"><input class="avia-button avia-color-theme-color avia-size-small" type="submit" value="Search" /></div></form></div></div>
+<section class="av_textblock_section"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock '   itemprop="text" ><p>What if your search didn&#8217;t reveal your ideal job? Don&#8217;t worry.</p>
+<p>Sign up now to get updates on our latest opportunities.</p>
+<div class="join-com"><a class="findly-connect-lightbox" href="https://connect.thehive.com/pitneybowes-join?cp=Pitney+Bowes+Career+Site&amp;ty=0&amp;d=fnCLOSE">Join our talent community</a></div>
+<p>And please, check back often to search again, as new positions are posted regularly.</p>
+<p><!--What if your search didn't reveal your ideal job? Don't worry.
+
+Join our <a href="https://connect.thehive.com/pitneybowes-join?cp=Pitney+Bowes+Career+Site&ty=0&d=fnCLOSE" target="_blank">talent community</a> now to get updates on our latest opportunities.
+
+And please, check back often to search again, as new positions are posted regularly.--></p>
+</div></section>
+<section class="avia_codeblock_section avia_code_block_0"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_codeblock award-images-desktop-only'  itemprop="text" > <div class="award-images">
+
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2017/05/Americas-Best-Large-Employers-C-01-external_1.png" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2017/03/AHA-fit-friendly_gold_2016_1.jpg" alt="" />
+<!--
+<div class="award-images">--><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/ABP_HR_Leaders_logo.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/Bestemployersforhealthylifestyles.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/Greatplacetowork_india.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/PLANSPONSOR-Story-Best-in-class-401k.gif" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/PRweekbestplacestowork.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/nfsb_gen.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/Intranet_Bestofbreedawards.png" alt="" />
+
+</div> </div></section></div><div class="flex_column av_three_fourth  flex_column_div av-zero-column-padding   avia-builder-el-7  el_after_av_one_fourth  avia-builder-el-last  " style='border-radius:0px; '><div class='avia-builder-widget-area clearfix  avia-builder-el-8  el_before_av_textblock  avia-builder-el-first '><a href="/job-cart/" class="jobcart-counter" data-hide="" style="">View Job Cart</a></div>
+<section class="av_textblock_section"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock '   itemprop="text" ><h3 id="gtm-jobdetail-title" class="jobdetail-title">Onsite Production Technician- SF</h3>
+<h3>Job Posting Number: 164380</h3>
+<div class="jobdetail-info"><span id="gtm-jobdetail-category">Client Services</span> <span id="gtm-jobdetail-city">Brisbane</span>, <span id="gtm-jobdetail-state">CA</span> <span id="gtm-jobdetail-date" class="format-date">March 6, 2017</span></div>
+<div class="jobdetail-buttons"><span id="gtm-jobdetail-apply"><a href="https://connect.thehive.com/pitneybowes-atsapply?a=Onsite+Production+Technician-+SF&al=Brisbane%2C+CA&ar=164380&cp=Pitney+Bowes+Career+Site&gj=Client+Services&gl=CA&jt=Onsite+Production+Technician-+SF&d=https%3A%2F%2Fpb.taleo.net%2Fcareersection%2F2%2Fjobapply.ftl%3Fjob%3D164380" class="findly-connect-lightbox button apply-btn" role="button" tabindex="0" >Apply</a></span> <span id="gtm-jobdetail-cart"><a href="#" class="button avia-color-theme-color jobcart-btn" data-job="%7B%22id%22%3A7215722%2C%22title%22%3A%22Onsite+Production+Technician-+SF%22%2C%22ref%22%3A%22164380%22%2C%22primary_city%22%3A%22Brisbane%22%2C%22primary_state%22%3A%22CA%22%2C%22primary_country%22%3A%22US%22%2C%22open_date%22%3A%22March+6%2C+2017%22%2C%22url%22%3A%22http%3A%5C%2F%5C%2Fcareers.pitneybowes.com%5C%2Fjob%5C%2F7215722%5C%2Fonsite-production-technician-sf-brisbane-ca%22%7D" data-add="1" data-addtext="Add to Cart" data-removetext="Remove from Cart" role="button" aria-pressed="false" tabindex="0"><span class="av_font_icon avia_animate_when_visible av-icon-style-  avia-icon-pos-left " style="color:#fff; border-color:#fff;"><span class='av-icon-char' style='font-size:20px;line-height:20px;' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello' ></span></span><span class="cartbtn-text">Add to Cart</span></a></span></div>
+<div style="clear: both;"></div>
+<div id="gtm-jobdetail-desc" class="jobdetail-desc">
+<div><b>About the Opportunity</b>  </div>
+<div></div>
+<div>As a(n) Onsite Production Technician at Pitney Bowes, you thrive on meeting the company’s mailing productivity standards and you deliver with precision.  You see opportunities where others see challenges.  </div>
+<div></div>
+<div></div>
+<div><b>Build. Deploy. Bridge. Grow. </b></div>
+<div></div>
+<div>In this role, you’ll join our Presort Service team. You will be responsible for:</div>
+<div>
+<ul>
+<li>Mechanical and electronic repairs of all equipment including printer and mail sorting equipment</li>
+<li>Completes preventative maintenance according to Mail Preparation Total Quality Management and vendor operating standards</li>
+<li>Responds to equipment break down or emergency situations with urgency and expediency</li>
+<li>Consistently utilizes inventory, pm schedule and work order systems and maintains the spare parts/supply inventory</li>
+<li>Consistently utilizes inventory, pm schedule and work order systems and maintains the spare parts/supply inventory</li>
+</ul>
+</div>
+<p><div><b>Qualifications</b></div>
+<div>
+<ul>
+<li>Successful completion of Electronics course work usually provided in a program at a trade school or community college. AA degree in Electronics, Computer Science or related field of study is preferred</li>
+<li>Minimum of one year of experience in maintaining, repairing, or installing mailing or comparable equipment</li>
+<li>Experience trouble-shooting and repairing complex mechanical equipment with at least one year of break/fix mechanical experience </li>
+<li>Ability to work a flexible work schedule based on Business needs; including overtime, weekends and Holidays with limited to no advance notice</li>
+</ul>
+</div>
+<div></div>
+<div><b>The Team</b></div>
+<div></div>
+<div>Our Presort Services team is a national outsource provider of mail presort services for first-class and standard-class mail in the U.S. and a workshare partner of the United States Postal Service (USPS). Our Presort Services network provides mailers with end-to-end solutions from pick up at their location to delivery into the postal system. Through our network of 33+ U.S. locations, and with our fully customized proprietary technology, we process approximately 15 billion pieces of mail annually and are able to expedite delivery and optimize postage savings for our clients.  </div>
+<div></div>
+<div></div>
+<div>Pitney Bowes is an Equal Employment Opportunity/Affirmative Action Employer that values diversity and inclusiveness in the workplace. </div>
+<div></div>
+<div></div>
+<div><b>W/M/Veterans/Individuals with Disabilities/LGBT are encouraged to apply. </b></div>
+<div></div>
+<div></div>
+<div>All interested individuals must apply online. Individuals with disabilities who cannot apply via our online application should refer to the alternate application options via our Individuals with Disabilities link.</div>
+</div>
+
+</div></section>
+<div style='height:50px' class='hr hr-invisible  avia-builder-el-10  el_after_av_textblock  el_before_av_codeblock  '><span class='hr-inner ' ><span class='hr-inner-style'></span></span></div>
+<section class="avia_codeblock_section avia_code_block_1"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_codeblock award-images-mobile-only'  itemprop="text" > <div class="award-images"><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/ABP_HR_Leaders_logo.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/Bestemployersforhealthylifestyles.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/Greatplacetowork_india.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/INNVentanaAward.gif" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/PLANSPONSOR-Story-Best-in-class-401k.gif" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/PRweekbestplacestowork.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/nfsb_gen.jpg" alt="" />
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/08/Intranet_Bestofbreedawards.png" alt="" /></div> </div></section>
+<div class='avia-builder-widget-area clearfix  avia-builder-el-12  el_after_av_codeblock  el_before_av_social_share '><div id="widget_job_list-2" class="widget clearfix widget-joblist"><h3 class="widgettitle">Jobs that may interest you</h3><div class="widget_joblist_row" ><a href="/job/7681982/mail-industry-quality-control-specialist-1st-shift-huntington-beach-ca/">Mail Industry Quality Control Specialist, 1st Shift</a><div class="widget_joblist_loc">Huntington Beach, CA</div></div><div class="widget_joblist_row alt"  style="background-color:#eeeeee;"><a href="/job/7681981/mail-industry-quality-control-specialist-2nd-shift-huntington-beach-ca/">Mail Industry Quality Control Specialist, 2nd Shift</a><div class="widget_joblist_loc">Huntington Beach, CA</div></div><div class="widget_joblist_row" ><a href="/job/7681980/mail-production-lead-huntington-beach-ca/">Mail Production Lead</a><div class="widget_joblist_loc">Huntington Beach, CA</div></div><div class="widget_joblist_row alt"  style="background-color:#eeeeee;"><a href="/job/7681979/mail-presorter-operator-1st-shift-multiple-openings-available-huntington-beach-ca/">Mail Presorter Operator, 1st shift ***MULTIPLE OPENINGS AVAILABLE***</a><div class="widget_joblist_loc">Huntington Beach, CA</div></div></div></div>
+<div class='av-social-sharing-box  avia-builder-el-13  el_after_av_sidebar  avia-builder-el-last  '><div class='av-share-box'><h5 class='av-share-link-description'>Share this entry</h5><ul class='av-share-box-list noLightbox'><li class='av-share-link av-social-link-facebook'><a target='_blank' href='http://www.facebook.com/sharer.php?u=https%3A%2F%2Fcareers.pitneybowes.com%2Fjob%2F7215722%2Fonsite-production-technician-sf-brisbane-ca%2F&amp;t=Job%20Detail' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class='avia_hidden_link_text'>Share on Facebook</span></a></li><li class='av-share-link av-social-link-twitter'><a target='_blank' href='https://twitter.com/share?text=Job%20Detail&url=https%3A%2F%2Fcareers.pitneybowes.com%2F%3Fp%3D78%26job_id%3D7215722' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class='avia_hidden_link_text'>Share on Twitter</span></a></li><li class='av-share-link av-social-link-linkedin'><a target='_blank' href='http://linkedin.com/shareArticle?mini=true&amp;title=Job%20Detail&amp;url=https%3A%2F%2Fcareers.pitneybowes.com%2Fjob%2F7215722%2Fonsite-production-technician-sf-brisbane-ca%2F' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class='avia_hidden_link_text'>Share on Linkedin</span></a></li><li class='av-share-link av-social-link-mail'><a  href='mailto:?subject=Job%20Detail&amp;body=https%3A%2F%2Fcareers.pitneybowes.com%2Fjob%2F7215722%2Fonsite-production-technician-sf-brisbane-ca%2F' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class='avia_hidden_link_text'>Share by Mail</span></a></li></ul></div></div></div>
+</div></div></div><!-- close content main div --> <!-- section close by builder template -->		</div><!--end builder template--></div><!-- close default .container_wrap element -->						<div class='container_wrap footer_color' id='footer'>
+
+					<div class='container'>
+
+						<div class='flex_column   first el_before_'><section id="text-2" class="widget clearfix widget_text">			<div class="textwidget"><div class="pb-footer clearfix">
+	<div class="footer-col pb-footer-col1">
+		<a href="https://pitneybowes.com/" style="overflow: hidden"><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/pb_color_logo.png"><span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a>
+	</div>
+
+	<div class="footer-col pb-footer-col2">
+		<h6>About Pitney Bowes</h6>
+    <ul>
+        <li>
+            <a class="" href="http://pitneybowes.com/us/our-company.html" title="Our Company">Our Company</a>
+        </li>
+
+        <li>
+            <a class="" href="http://news.pb.com/" target="_blank" title="Newsroom">Newsroom</a>
+        </li>
+
+        <li>
+            <a class="" href="http://www.investorrelations.pitneybowes.com/" target="_blank" title="Investor Relations">Investor Relations</a>
+        </li>
+
+        <li>
+            <a class="" href="http://www.pitneybowes.com/us/careers.html" title="Careers">Careers</a>
+        </li>
+
+        <li>
+            <a class="" href="http://www.pitneybowes.com/us/partners/digital-commerce.html" title="Software Partners">Software Partners</a>
+        </li>
+		
+		<li>
+            <a class="" href="http://www.pitneybowes.com/us/blog.html" title="Blog">Blog</a>
+        </li>
+		
+		
+    </ul>
+	</div>
+
+	<div class="footer-col pb-footer-col3">
+		<h6>Shop</h6>
+    <ul>
+        <li>
+            <a class="" href="http://www.pb.com/smb/postage-meters" target="_blank" title="Postage Meters">Postage Meters</a>
+        </li>
+
+        <li>
+            <a class="" href="http://www.pb.com/smb/online-postage-stamps" target="_blank" title="Online Postage">Online Postage</a>
+        </li>
+
+        <li>
+            <a class="" href="https://www.pb.com/MyAccount/EquipmentDisplay_11556_10555_-1_10304_10304" target="_blank" title="Postage Meter Ink">Postage Meter Ink</a>
+        </li>
+
+        <li>
+            <a class="" href="https://www.pb.com/MyAccount/TopCategoryDisplay_11556_10555_-1_14671" target="_blank" title="Mailing Supplies">Mailing Supplies</a>
+        </li>
+
+        <li>
+            <a class="" href="https://www.pb.com/MyAccount/DMTPartsHome_12756_11055_-1" title="Production Mail Repair Parts">Production Mail Repair Parts</a>
+        </li>
+    </ul>
+	</div>
+	<div class="footer-col pb-footer-col4">
+	    <h6>Customer Service </h6>
+
+	    <ul>
+	        <li>
+	            <a class="" href="https://www.pb.com/bv2was/LoginHome.go?lang=en&country=US&request_locale=en_US" target="_blank" title="View & Pay Bills">View
+	            & Pay Bills</a>
+	        </li>
+
+	        <li>
+	            <a class="" href="http://support.pb.com/ekip/index?page=home" target="_blank" title="Product Support">Product
+	            Support</a>
+	        </li>
+
+	        <li>
+	            <a class="" href="http://support.pb.com/ekip/index?page=rate_change" target="_blank" title="Postal Rate Change">Postal Rate Change</a>
+	        </li>
+
+	        <li>
+	            <a class="" href="https://www.pb.com/bv2was/LoginHome.go?request_locale=en_US" target="_blank" title="My Account">My
+	            Account</a>
+	        </li>
+
+	        <li>
+	            <a class="" href="http://www.pitneybowes.com/us/contact-us.html" title="Contact Us">Contact Us</a>
+	        </li>
+
+	        <li>
+	            <a class="" href="http://www.pitneybowes.com/us/envelope-messages.html" title="Envelope Messaging">Envelope
+	            Messaging</a>
+	        </li>
+	    </ul>
+	</div>
+
+	<div class="footer-col pb-footer-col5">
+	    <h6>Follow Us</h6>
+
+	    <div class="row social-container">
+	        <ul class="col-xs-12 social">
+	            <li class="icn-fb">
+	                <a href="https://www.facebook.com/PitneyBowesCareers" target="_blank" style="overflow: hidden"><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/facebook.jpg"><span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a>
+	            </li>
+
+	            <li class="icn-tw">
+	                <a href="https://twitter.com/pb_careers" target="_blank" style="overflow: hidden"><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/twitter.jpg"><span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a>
+	            </li>
+
+	            <li class="icn-in">
+	                <a href="https://www.linkedin.com/company/pitney-bowes" target="_blank" style="overflow: hidden"><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/linkedIn.jpg"><span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a>
+	            </li>
+
+	            <li class="icn-yt">
+	                <a href="https://www.youtube.com/user/PitneyBowesInc" target="_blank" style="overflow: hidden"><img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/youtube.jpg"><span class="image-overlay overlay-type-video"><span class="image-overlay-inside"></span></span></a>
+	            </li>
+	        </ul>
+	    </div>
+	</div>
+
+	<div class="footer-col pb-footer-col6">
+	    <div class="bottom-text">
+	        <p>©1996-2015 Pitney Bowes Inc. All rights
+	        reserved.</p>
+	    </div>
+
+	    <ul>
+	        <li>
+	            <a href="http://www.pitneybowes.com/us/legal.html">Legal</a>
+	        </li>
+
+	        <li>
+	            <a href="http://www.pitneybowes.com/us/legal/privacy-statement.html">Privacy
+	            Statement</a>
+	        </li>
+
+	        <li>
+	            <a href="http://www.pitneybowes.com/us/sitemap.html">Site Map</a>
+	        </li>
+	    </ul>
+	</div>
+
+</div>
+
+<div id="eeostatement">If a disability prevents you from applying for a job through the Career Center, <a href="http://careers.pitneybowes.com/frequently-asked-questions/"><strong>click here</strong></a>. No other requests will be acknowledged.<br>
+For more information on applicable equal employment regulations, refer to the <a href="http://www.dol.gov/ofccp/regs/compliance/posters/pdf/OFCCP_EEO_Supplement_Final_JRF_QA_508c.pdf" target="_blank"><strong>“EEO is the Law” poster</strong></a>, <br/>the<a href="https://cdn-static.findly.com/wp-content/uploads/sites/19/2016/09/OFCCP_EEO_Supplement_Final_JRF_QA_508c.pdf" target="_blank"><strong> EEO is the Law Supplement</strong></a> or the  <a href="https://cdn-static.findly.com/wp-content/uploads/sites/19/2016/09/eppac.pdf" target="_blank"><strong>Employee Polygraph Protection Act</strong>.</a><br>
+(Para mas información sobre “La Igualdad de Oportunidades en el Empleo” <a href="http://www.eeoc.gov/employers/upload/eeoc_self_print_poster_spanish.pdf" target="_blank"><strong>oprima aqui.</strong></a>)<br>
+Pitney Bowes participates in E-Verify. Details in <a href="http://www.uscis.gov/sites/default/files/files/nativedocuments/PrtcpPstr-SWA-ENG-NoPhotoTool-v8.pdf" target="_blank"><strong>English</strong></a> and <a href="http://www.fwlli.com/Assets/E-Verify%20Spanish.pdf" target="_blank"><strong>Spanish</strong></a>.<br>
+Right to Work Statement in <a href="http://www.uscis.gov/sites/default/files/USCIS/Verification/E-Verify/E-Verify_Native_Documents/Right_to_Work_Poster_English.pdf" target="_blank"><strong>English</strong></a> and <a href="http://www.nbcunicareers.com/sites/default/files/footer/OSC_Right_to_Work_Poster_ES.pdf" target="_blank"><strong>Spanish</strong>.</a>
+</div>
+
+<div id="stickyfooter">
+ <a href="https://connect.thehive.com/pitneybowes-join?cp=Pitney+Bowes+Career+Site&ty=0&d=fnCLOSE" class="findly-connect-lightbox stickyfootertext" role="button" style="overflow: hidden">
+<img src="https://cdn-static.findly.com/wp-content/uploads/sites/19/2015/05/StickyFoot-icon.png">
+Join Our Talent Community<span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a>
+</div></div>
+		<span class="seperator extralight-border"></span></section></div>
+
+					</div>
+
+
+				<!-- ####### END FOOTER CONTAINER ####### -->
+				</div>
+
+	
+
+
+			
+
+					<!-- end main -->
+		</div>
+		
+		<!-- end wrap_all --></div>
+
+<!-- Facebook Pixel Code --> 
+<script> 
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function()
+{n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}
+;if(!f._fbq)f._fbq=n; 
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0; 
+t.src=v;s=b.getElementsByTagName(e)0;s.parentNode.insertBefore(t,s)}(window, 
+document,'script','https://connect.facebook.net/en_US/fbevents.js'); 
+fbq('init', '1942377799383218'); // Insert your pixel ID here. 
+fbq('track', 'PageView'); 
+</script> 
+<noscript><img height="1" width="1" style="display:none" 
+src="https://www.facebook.com/tr?id=1942377799383218&ev=PageView&noscript=1" 
+/></noscript> 
+<!-- DO NOT MODIFY --> 
+<!-- End Facebook Pixel Code -->		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		
+ <script type='text/javascript'>
+ /* <![CDATA[ */  
+var avia_framework_globals = avia_framework_globals || {};
+    avia_framework_globals.frameworkUrl = 'https://careers.pitneybowes.com/wp-content/themes/enfold/framework/';
+    avia_framework_globals.installedAt = 'https://careers.pitneybowes.com/wp-content/themes/enfold/';
+    avia_framework_globals.ajaxurl = 'https://careers.pitneybowes.com/wp-admin/admin-ajax.php?lang=en';
+/* ]]> */ 
+</script>
+ 
+ <script type='text/javascript'> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done"}};/* ]]> */ </script><script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/themes/enfold/js/avia.js?ver=3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/themes/findlycws/js/shortcodes.js?ver=3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/themes/enfold/js/aviapopup/jquery.magnific-popup.min.js?ver=2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Download File":"Download File","Download Video":"Download Video","Play":"Play","Pause":"Pause","Captions\/Subtitles":"Captions\/Subtitles","None":"None","Time Slider":"Time Slider","Skip back %1 seconds":"Skip back %1 seconds","Video Player":"Video Player","Audio Player":"Audio Player","Volume Slider":"Volume Slider","Mute Toggle":"Mute Toggle","Unmute":"Unmute","Mute":"Mute","Use Up\/Down Arrow keys to increase or decrease volume.":"Use Up\/Down Arrow keys to increase or decrease volume.","Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds."}};
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=2.22.0'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/themes/findlycws/custom.js?ver=1'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/comment-reply.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com?amd_asset_type=script&#038;amd_is_asset=1&#038;ver=3480'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-includes/js/wp-embed.min.js?ver=4.7.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var icl_vars = {"current_language":"en","icl_home":"https:\/\/careers.pitneybowes.com\/","ajax_url":"https:\/\/careers.pitneybowes.com\/wp-admin\/admin-ajax.php","url_type":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js?ver=4.7.3'></script>
+<script type='text/javascript' src='https://careers.pitneybowes.com/wp-content/plugins/cws/js/cws.hotjobs.js?ver=3.9.3'></script>
+<script type="text/css" id="tmpl-tribe_customizer_css">.tribe-events-list .tribe-events-loop .tribe-event-featured,
+				.tribe-events-list #tribe-events-day.tribe-events-loop .tribe-event-featured,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap:hover {
+					background-color: #0ea0d7;
+				}
+
+				#tribe-events-content table.tribe-events-calendar .type-tribe_events.tribe-event-featured {
+					background-color: #0ea0d7;
+				}
+
+				.tribe-events-list-widget .tribe-event-featured,
+				.tribe-events-venue-widget .tribe-event-featured,
+				.tribe-mini-calendar-list-wrapper .tribe-event-featured,
+				.tribe-events-adv-list-widget .tribe-event-featured .tribe-mini-calendar-event {
+					background-color: #0ea0d7;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single {
+					background-color: rgba(14,160,215, .7 );
+					border-color: #0ea0d7;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single:hover {
+					background-color: #0ea0d7;
+				}</script><style type="text/css" id="tribe_customizer_css">.tribe-events-list .tribe-events-loop .tribe-event-featured,
+				.tribe-events-list #tribe-events-day.tribe-events-loop .tribe-event-featured,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap:hover {
+					background-color: #0ea0d7;
+				}
+
+				#tribe-events-content table.tribe-events-calendar .type-tribe_events.tribe-event-featured {
+					background-color: #0ea0d7;
+				}
+
+				.tribe-events-list-widget .tribe-event-featured,
+				.tribe-events-venue-widget .tribe-event-featured,
+				.tribe-mini-calendar-list-wrapper .tribe-event-featured,
+				.tribe-events-adv-list-widget .tribe-event-featured .tribe-mini-calendar-event {
+					background-color: #0ea0d7;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single {
+					background-color: rgba(14,160,215, .7 );
+					border-color: #0ea0d7;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single:hover {
+					background-color: #0ea0d7;
+				}</style><script>
+jQuery(function() {
+    jQuery('#advanced_menu_toggle,#advanced_menu_hide')
+		.html('<div class="menutxt">Menu</div><div class="patty"></div>')
+		.addClass('icn-menu')
+		.removeAttr('data-av_icon')
+		.removeAttr('data-av_iconfont');	
+	jQuery('#advanced_menu_hide').addClass('x');
+	jQuery('#header_main > .container > .inner-container').append('<a href="/" class="product-cat-title">Careers</a>');
+});
+jQuery('#cws_jobsearch_addtnl_categories').data('facet', 'primary_category');
+
+/* Code added by laveena starts here */
+/* for hover effect on new homepage */
+
+
+/*jQuery(window).on('load', function() {
+	if (jQuery(window).width() <= 767) {*/
+jQuery('#rollover-images .hover-hide').css({"visibility":"hidden"});
+/*}
+});*/
+jQuery(function() {  
+
+    jQuery(".av-caption-image-overlay-bg").css('opacity','0');
+/*jQuery('#rollover-images .av-image-caption-overlay-center").addClass("hover-back');*/
+jQuery('#rollover-images .av-image-caption-overlay-center').addClass("hover-back");
+
+jQuery('.rollover-images .avia-image-container').hover(				
+               function () {
+                 jQuery(this).css({"opacity":"1"});
+                 jQuery(this).find('.hover-hide').css({"visibility":"visible"});
+jQuery(this).find('.hover-back').addClass("hover-backgound");
+
+                 jQuery('.rollover-images .avia-image-container').not(this).css({"opacity":"0.4"});                 
+               }, 				
+               function () {
+                  jQuery(this).css({"opacity":"1"});
+                 jQuery(this).find('.hover-hide').css({"visibility":"hidden"});
+jQuery(this).find('.hover-back').removeClass("hover-backgound");
+jQuery('.rollover-images .avia-image-container').not(this).css({"opacity":"1"});    
+               }
+            );
+  
+});
+
+
+
+jQuery(window).on('load', function() {
+	if (jQuery(window).width() <= 767) {
+jQuery('#rollover-images .hover-hide').css({"visibility":"hidden"});
+}
+});
+
+jQuery(function() {  
+jQuery('.desc').css('display','none');                               
+jQuery('#pb-tabs .one-fourth').hover(				
+               function () {
+                 jQuery(this).css({"opacity":"1"});
+                  jQuery('#pb-tabs .one-fourth').not(this).css({"opacity":"0.4"}); 
+jQuery(this).find('.desc').css('display','block');               
+               }, 				
+               function () {
+                  jQuery(this).css({"opacity":"1"});
+                 jQuery('#pb-tabs .one-fourth').not(this).css({"opacity":"1"}); 
+jQuery(this).find('.desc').css('display','none');                               
+               }
+            );
+  
+});
+
+		
+/* Code Added by laveenaends here */
+</script><a href='#top' title='Scroll to top' id='scroll-top-link' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Scroll to top</span></a>
+
+<div id="fb-root"></div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"49021e70cb","applicationID":"8718185","transactionName":"Z1NWNkIED0cDABAIWF4ZdQFEDA5aTRcBDEdcV0AHHQcUXQ4HARM=","queueTime":0,"applicationTime":723,"atts":"SxRVQAoeHEk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

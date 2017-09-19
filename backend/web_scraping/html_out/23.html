@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <!--[if IE]><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<link rel="shortcut icon" href="https://www.biocentury.com/sites/all/themes/biocentury/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image:alt" content="Biopharma/Science Writer (Research Analyst)" />
+<meta name="twitter:description" content="BioCentury&#039;s Database Group has full-time openings for Research Analysts." />
+<meta name="twitter:url" content="https://www.biocentury.com/node/286210" />
+<meta property="og:site_name" content="BioCentury" />
+<meta property="og:description" content="BioCentury&#039;s Database Group has full-time openings for Research Analysts." />
+<meta property="og:url" content="https://www.biocentury.com/node/286210" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Biopharma/Science Writer (Research Analyst)" />
+<meta name="twitter:title" content="Biopharma/Science Writer (Research Analyst)" />
+<meta name="description" content="BioCentury&#039;s Database Group has full-time openings for Research Analysts." />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.biocentury.com/node/286210" />
+<link rel="shortlink" href="https://www.biocentury.com/node/286210" />
+  <title>BioCentury  - Biopharma/Science Writer (Research Analyst)</title>
+  <meta id="meta-viewport-scaling" content="width=device-width, initial-scale=1, minimum-scale=0.25, user-scalable=0" name="viewport" />
+  <meta name="HandheldFriendly" content="true" />
+  <!--<link rel="stylesheet" type="text/css" href="//cloud.typography.com/7472272/757208/css/fonts.css" />-->
+  <link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_eW0AncxOl9Tq8dyAMF3RQiH_7eFDO7wNckdcMEkZPpE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_N7P2yld9_ya4nqnZlpSeq-S-HPu68frDRw0FkLoOQ7s.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_KJD8WyVfYjt-KphUEgGg58XNv9QgVhdbBB_u_8UuWQ4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_iHawHPc7flG4LCv_ECZdK2-bDdjYy_Cgv2fxEsdLgQ8.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_F9UNSTSQKEyxZIPIr9tPhBbxj8Z1f5dZgHQcMGO6wfg.css" media="print" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_5iNfKwVs133w3Myio30JuBl5h1wG3Nq_ZXaxob0gfdw.css" media="screen and (max-width: 1120px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_5EXYQH6kZ4ey-SyRU5GoDTbBw_SN_fyu6Z-an4_A4RQ.css" media="screen and (max-width: 960px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_cDEt0bUyCuiHZhWpnO8kO57p_Zty1olN5sCMK6BxPkE.css" media="screen and (max-width: 800px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_SSyKGn5MmbNE5Bs3ElquaFr3B1CfcHPpJR5U8qC7pws.css" media="screen and (max-width: 700px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_hYpzlqsSWBui3f7kBOphkxE4cowhzip6hTYufGRQS8c.css" media="screen and (max-width: 640px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_xTmUa04T6ken2h496ZJ1i4yAwUfYLtqgv6KiRXHrUhs.css" media="screen and (max-width: 480px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_G4zZ8mnDVMX0YIsaqVhq9r6THzHysnVzidIKkzfagqU.css" media="screen and (max-width: 400px)" />
+<link type="text/css" rel="stylesheet" href="https://www.biocentury.com/sites/default/files/css/css_RZjdVlUI5KLTsKMA986cOj_hMuHGscZpE6ZCHUaLg3M.css" media="screen and (max-width: 360px)" />
+  <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/sites/all/themes/biocentury/css/ie7.css"><![endif]-->
+
+  <script type="text/javascript">
+    (function() {
+      var didInit = false;
+      function initMunchkin() {
+        if(didInit === false) {
+          didInit = true;
+          Munchkin.init('731-BYF-828', { 'asyncOnly': true, 'disableClickDelay': true });
+        }
+      }
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//munchkin.marketo.net/munchkin.js';
+      s.onreadystatechange = function() {
+        if (this.readyState == 'complete' || this.readyState == 'loaded') {
+          initMunchkin();
+        }
+      };
+      s.onload = initMunchkin;
+      document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+  </script>
+    <script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-5500707-7', 'auto');
+	ga('send', 'pageview');
+   </script>
+   </head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-286210 node-type-job i18n-en section-node" >
+<script type="text/javascript" src="//app-sj13.marketo.com/js/forms2/js/forms2.min.js"></script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_JE9pq6eEWLckDlN4xJceut6LfFPHXWJ4gPnaBUlptTw.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.migrateMute=true;jQuery.migrateTrace=false;
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_XX9THuruZU-mjAYkefouxektft7dMeZF7WvFYRIomN0.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+googletag.slots = googletag.slots || {};
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_rEbPjuAQEoiYmG4a5yzi-U2v_aueuyLZiOvf47eP2U8.js"></script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_THcwq4G882w3Eb1HklHrvzGAKa_-1g_0QbuBqjMhaV4.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var mapping = googletag.sizeMapping()
+  .addSize([0, 0], [320, 50])
+  .addSize([768, 200], [728, 90])
+  .build();
+googletag.slots["drupal_leaderboard"] = googletag.defineSlot("/2408056/Drupal_Leaderboard_728x90", [728, 90], "dfp-ad-drupal_leaderboard")
+  .addService(googletag.pubads())
+  .defineSizeMapping(mapping);
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_OyB7mIqiEBtKi0luv0fu7jIYY9PN69XAtIZ0gAVc3rg.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+googletag.cmd.push(function() {
+  googletag.pubads().enableAsyncRendering();
+  googletag.pubads().enableSingleRequest();
+});
+
+googletag.enableServices();
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_lukORoR3u5HJIJVmoo6r7D_rLcK4lKH3vuJVTC0VMss.js"></script>
+<script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_gLQCwjVHsNKAxk_pPEOEfzDdqsM5_2sGvguTH1WbBig.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","bc_help_url":"https:\/\/accounts.biocentury.com\/help","ajaxPageState":{"theme":"biocentury","theme_token":"7id8g3jVt64Usc_nKjgUasNNKbTwF6rZDF155dENaPw","js":{"modules\/statistics\/statistics.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/2.1\/jquery.min.js":1,"0":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery-migrate\/1.2.1\/jquery-migrate.min.js":1,"misc\/jquery.once.js":1,"1":1,"https:\/\/www.googletagservices.com\/tag\/js\/gpt.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"2":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.tooltip.min.js":1,"3":1,"sites\/all\/modules\/features\/bc_transmitted_request_state\/bc_transmitted_request_state.js":1,"sites\/all\/modules\/contrib\/form_placeholder\/form_placeholder.js":1,"sites\/all\/themes\/biocentury\/..\/..\/modules\/contrib\/lodash\/lodash.min.js":1,"sites\/all\/themes\/biocentury\/js\/jquery.colorbox-min.js":1,"sites\/all\/themes\/biocentury\/js\/jquery.mCustomScrollbar.js":1,"sites\/all\/themes\/biocentury\/js\/jquery.cookie.js":1,"sites\/all\/themes\/biocentury\/js\/moment.min.js":1,"sites\/all\/themes\/biocentury\/js\/jquery.print.js":1,"sites\/all\/themes\/biocentury\/js\/moment-timezone-with-data.min.js":1,"sites\/all\/themes\/biocentury\/js\/script.js":1},"css":{"modules\/system\/system.base.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.tooltip.css":1,"sites\/all\/modules\/contrib\/simplenews\/simplenews.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/print\/print_ui\/css\/print_ui.theme.css":1,"sites\/all\/themes\/biocentury\/css\/reset.css":1,"sites\/all\/themes\/biocentury\/css\/colorbox.css":1,"sites\/all\/themes\/biocentury\/css\/jquery.mCustomScrollbar.css":1,"sites\/all\/themes\/biocentury\/css\/chosen.css":1,"sites\/all\/themes\/biocentury\/css\/style.css":1,"sites\/all\/themes\/biocentury\/css\/print.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-1120.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-960.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-800.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-700.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-640.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-480.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-400.css":1,"sites\/all\/themes\/biocentury\/css\/screen\/screen-360.css":1}},"bc_cookie_domain":".biocentury.com","form_placeholder":{"fallback_support":false,"include":"#commerce-checkout-form-checkout .form-text, #commerce-checkout-form-checkout .form-select","exclude":"","required_indicator":"leave"},"urlIsAjaxTrusted":{"\/node\/286210?destination=node\/286210":true},"better_exposed_filters":{"views":{"conference_menu":{"displays":{"conf_menu":{"filters":[]}}}}},"statistics":{"data":{"nid":"286210"},"url":"\/modules\/statistics\/statistics.php"},"bc_print_footer":"\u003Cp\u003E\u003Ca href=\u0022\/node\/1018\u0022\u003E\u003Cspan\u003E\u00a9 2017 BioCentury Inc. All Rights Reserved.\u003C\/span\u003E\u003C\/a\u003E \u00a0\u00a0 \u003Ca href=\u0022\/legal\/terms-of-use\u0022\u003ETerms \u0026amp; Conditions\u003C\/a\u003E | \u003Ca href=\u0022\/privacy-policy\u0022\u003EPrivacy Policy\u003C\/a\u003E\u003C\/p\u003E","bc_print_css":"https:\/\/www.biocentury.com\/sites\/all\/themes\/biocentury\/css\/print.css","bc":{"customerid":0,"product":""}});
+//--><!]]>
+</script>
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    
+  <div id="page-wrapper">
+        <div id="block-dfp-drupal-leaderboard" class="block block-dfp">
+
+    
+  <div class="content">
+    <div id="dfp-ad-drupal_leaderboard-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-drupal_leaderboard" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-drupal_leaderboard");
+    });
+  </script>
+</div>
+</div>  </div>
+</div>
+    <div id="menu-bar" class="section"><div class="limiter clearfix">
+      <a id="top-left-search" href="#"><img src="/sites/all/themes/biocentury/css/images/icon_search.png" width="30" height="30" alt="Search" /></a>
+
+<div class="links-top-left clearfix">
+  
+      <ul class="menu">
+        <li class="first leaf"><a title="View articles" href="/articles">Publications</a></li>
+        <li class="leaf"><a href="/archives">Archives</a></li>
+        <li class="leaf"><a href="/bciq-marketing/bciq">BCIQ</a></li>
+        <li class="leaf"><a href="/conferences">Conferences</a></li>
+        <!--<li class="last leaf"><a id="cart-link-top" href="/cart">Cart</a></li>-->
+      </ul>
+    </div>
+<div class="links-top-right clearfix">
+  	  <ul class="menu">
+    <li class="first leaf"><a title="Free Trial" href="/subscribe/trial">Free Trial</a> / <a title="Subscribe" href="/subscribe">Subscribe</a></li>	
+	    <li class="last leaf"><a title="Sign In" id="top-menu-login" href="/user/login">Sign In</a></li>    <li class="last leaf"><a title="Sign In" id="top-menu-login-mobile" href="#">Sign In</a></li>      </ul>
+
+		<ul class="language-switcher-locale-url">
+					<li class="en first active">
+				<a href="/" class="language-link active" xml:lang="en">
+					English				</a>
+			</li>
+					<li class="zh-hans">
+				<a href="/marketing/zh-hans" class="language-link " xml:lang="zh-hans">
+					简体中文				</a>
+			</li>
+					<li class="ja">
+				<a href="/marketing/ja" class="language-link " xml:lang="ja">
+					日本語				</a>
+			</li>
+					<li class="ko last">
+				<a href="/marketing/ko" class="language-link " xml:lang="ko">
+					한국어				</a>
+			</li>
+			</ul>
+</div>
+
+
+    </div></div>
+    <div id="menu-bar-bottom"><form action="/node/286210?destination=node/286210" method="post" id="user-login-form-custom" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name--2">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name--2" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass--2">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass--2" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="first last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-XhsHIecUzTW4AT_7CevU1MWBIqJwNSAfSFWK5FVuPXk" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="form-item form-type-checkbox form-item-remember">
+ <input type="checkbox" id="edit-remember--2" name="remember" value="1" class="form-checkbox" />  <label class="option" for="edit-remember--2">Remember me </label>
+
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Sign In" class="form-submit" /></div></div></form></div>
+    <div id="header" class="section"><div class="limiter clearfix">
+      <a href="/" title="Home" rel="home" id="logo-main">Biocentury</a>
+      
+    <form accept-charset="UTF-8" id="cross-site-search-form" class="views-exposed-form-search-page" method="get" action="/archives">
+      <div class="clearfix">
+        <div class="views-exposed-form">
+          <div class="views-exposed-widgets clearfix">
+            <input type="hidden" class="hidden" name="st" value="general" />
+            <div class="views-exposed-widget views-widget-filter-search_api_views_fulltext" id="edit-kwbc-wrapper">
+              <label for="edit-kwbc">Search</label>
+              <div class="views-widget">
+                <div class="form-item form-type-textfield form-item-kwbc">
+                  <input type="text" class="form-text" size="30" value="" name="kwb" id="edit-kwbc" autocomplete="off" />
+                </div>
+              </div>
+            </div>
+            <div class="views-exposed-widget views-submit-button">
+              <input type="submit" class="form-submit" value="Apply" name="" id="edit-submit-search" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>    </div>
+    <div class="block block-block contextual-links-region" id="menu-dropdown">
+	  <div class="content">
+	    <h6 class="clearfix"><img width="30" height="30" alt="Menu" src="/sites/all/themes/biocentury/css/images/menu_arrow.png"/><span>Menu</span></h6>
+	    <div class="menu-block-wrapper">
+	      <ul class="clearfix">
+	        <li class="collapse"><a id="menu-today" class="menu-today" href="/">Home <img width="20" height="20" alt="Today" src="/sites/all/themes/biocentury/css/images/icon_today.png"/><span>+</span></a></li>
+	        <li class="collapse"><a id="menu-publications" class="menu-publications" title="Publications" href="/articles">Publications <img width="20" height="20" alt="Publications" src="/sites/all/themes/biocentury/css/images/icon_publications.png"/><span>+</span></a>
+	          <ul class="menu" id="publication-brand-section-menu"><li class="brand-section-menu-item"><a href="/biocentury">BioCentury</a></li><li class="brand-section-menu-item"><a href="/bc-innovations">BC Innovations</a></li><li class="brand-section-menu-item"><a href="/bc-extra">BC Extra</a></li><li class="brand-section-menu-item"><a href="/bc-week-review">BC Week In Review</a></li><li class="brand-section-menu-item"><a href="/user/back-issues?type=bc">Current Issues</a></li></ul>
+	        </li>
+	        <li class="collapse"><a id="menu-archives" class="menu-archives" title="Archives" href="/archives">Archives <img width="20" height="20" alt="Archives" src="/sites/all/themes/biocentury/css/images/icon_archives.png"/><span>+</span></a>
+	          <ul class="menu"><li class="first leaf"><a href="/archives" id="menu-link-basic-search">Basic Search</a></li>
+<li class="leaf"><a href="/archives" id="menu-link-advanced-search">Advanced Search</a></li>
+<li class="last leaf"><a href="/user/back-issues?type=bc">Back Issues</a></li>
+</ul>
+	        </li>
+	        <li class="collapse"><a id="menu-bciq" title="BCIQ" class="menu-bciq" href="/bciq-marketing/bciq">BCIQ <img width="20" height="20" alt="BCIQ" src="/sites/all/themes/biocentury/css/images/icon_bciq.png"/><span>+</span></a>
+	          <ul class="menu">
+	      <li class="first leaf"><a href="/bciq-marketing/bciq">Overview<span>&gt;</span></a></li>
+	      <li class="leaf"><a href="/bciq-marketing/bciq">Pipeline Analyst<span>&gt;</span></a></li>
+	      <li class="leaf"><a href="/bciq-marketing/bciq">Financial Analyst<span>&gt;</span></a></li>
+	      <li class="leaf"><a href="/bciq-marketing/bciq">Company Analyst<span>&gt;</span></a></li>
+	      <li class="last leaf"><a href="/bciq-marketing/bciq">Deal Analyst<span>&gt;</span></a></li>
+	    </ul>
+	        </li>
+	        <li class="collapse"><a id="menu-conferences" title="Conferences" class="menu-conferences" href="/conferences">Conferences <img width="20" height="20" alt="Conferences" src="/sites/all/themes/biocentury/css/images/icon_conferences.png"/><span>+</span></a>
+	                <ul class="menu">
+      <li>
+          
+          <a href="/conferences/bio€quity-europe-2018" rel="Bio€quity Europe">Bio€quity Europe</a>    </li><li>
+          
+          <a href="/conferences/future-leaders-2018" rel="Future Leaders">Future Leaders</a>    </li><li>
+          
+          <a href="/conferences/china-healthcare-summit-2017" rel="China Healthcare Summit">China Healthcare Summit</a>    </li><li>
+          
+          <a href="/conferences/newsmakers-2017" rel="Newsmakers">Newsmakers</a>    </li>      <li><a href="/conferences/other-events">Other Industry Events</a></li>
+    </ul>
+  
+	        </li>
+	        <li class="collapse last" id="menu-interact-li"><a id="menu-interact" title="eLearning" class="menu-interact" href="/interactive">eLearning <img width="20" height="20" alt="Interact" src="/sites/all/themes/biocentury/css/images/icon_interact.png"/><span>+</span></a>
+	          <ul class="menu"><li class="first leaf"><a href="/interactive/videos">Videos</a></li>
+<li class="last leaf"><a href="/interactive/whitepapers">White Papers</a></li>
+</ul>
+	        </li>
+	        <li class="follow-us"><span class="text-link">Follow Us</span>
+	          <p>
+	          		<a bc-action="Tweet" href="https://twitter.com/BioCentury" target="_blank">
+	          			<img width="27" height="27" alt="Twitter" src="/sites/all/themes/biocentury/css/images/icon_twitter_gray3.png"/>
+	          		</a>
+	          		<a bc-action="LinkedIn" href="https://www.linkedin.com/company/biocentury-publications?trk=top_nav_home" target="_blank">
+	          			<img width="27" height="27" alt="LinkedIn" src="/sites/all/themes/biocentury/css/images/icon_linkedin_gray3.png"/>
+	          		</a>
+	          		<a bc-action="RSS" href="/rssfeeds">
+	          			<img width="27" height="27" alt="RSS" src="/sites/all/themes/biocentury/css/images/icon_rss_gray3.png"/>
+	          		</a>
+	          	</p>
+	        </li>
+	      </ul>
+	      <div><a href="" id="menu-close"><img width="30" height="30" alt="X" src="/sites/all/themes/biocentury/css/images/menu_x.png"/></a></div>
+	    </div>
+	  </div>
+	</div>    </div>
+    <div id="breadcrumb"><div class="limiter clearfix"><h2 class="element-invisible">You are here</h2><a href="/">Home</a> / <span>Biopharma/Science Writer (Research Analyst)</span></div></div>        <div id="main-content" class="section"><div class="limiter clearfix">
+            <div id="content-wrapper" class="form-close clearfix">
+                <div id="content" class="section clearfix">
+          <div id="content-wrapper-inner" class="clearfix">
+                        <h1 class="title" id="page-title">Biopharma/Science Writer (Research Analyst)</h1>                        <div class="tabs"></div>                                                    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-286210" class="node node-job clearfix" about="/node/286210" typeof="sioc:Item foaf:Document">
+
+    
+    <h2>Biopharma/Science Writer (Research Analyst)</h2>
+  <div class="content clearfix">
+
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>BioCentury's Database Group has full-time openings for Research Analysts.</p>
+</div></div></div><div class="field field-name-job-description field-type-text-long field-label-above"><div class="field-label">Job Description:&nbsp;</div><div class="field-items"><div class="field-item even"><p>Research Analysts write for BioCentury's Week in Review Report and collect, categorize, input, and edit various types of data (e.g. clinical, financial, licensing and M&amp;A transactions) that populate BioCentury's database platform BCIQ. The responsibilities include writing news items, data collection, data entry and data curation. Data collection may include reviewing company press releases and SEC filings, conducting phone interviews with company executives, and searching relevant sections of BioCentury archives.</p>
+<p>The position requires at least an undergraduate degree in one of the following disciplines: Life Sciences (e.g. Biology), Business, Finance, Journalism, English, Economics or related fields. Relevant work experience is a plus. </p></div></div></div><div class="field field-name-job-requirements field-type-text-long field-label-above"><div class="field-label">Requirements:&nbsp;</div><div class="field-items"><div class="field-item even"><p>All candidates will be asked to:</p><ul><li>Demonstrate the ability to write clearly and accurately to deadline</li><li>Demonstrate the ability to multitask and quickly prioritize work assignments</li><li>Demonstrate the ability to research, write and manipulate data through knowledgeable use of online technologies, including Access as well as Microsoft Excel and PowerPoint</li><li>Demonstrate the ability to analyze, categorize and summarize key aspects of drugs in development, clinical trial data, company financial data, and licensing transactions</li><li>Demonstrate the ability to communicate effectively with information sources and colleagues in a professional manner</li></ul><p>The work environment is casual; however, professional behavior, rapt attention to detail and the ability to meet deadlines are absolute requirements.</p>
+<p>Finally, all BioCentury employees are obligated to meet the highest standards with respect to accuracy, conflict of interest, intellectual property rights, slander, confidentiality and respect for information sources and readers.</p>
+<p>To be considered, applicants must submit both a cover letter and resume to <a href="mailto:careers@biocentury.com">careers@biocentury.com</a>.</p></div></div></div><div class="field field-name-job-compensation-benefits field-type-text-long field-label-above"><div class="field-label">Compensation and Benefits:&nbsp;</div><div class="field-items"><div class="field-item even"><ul><li>Compensation and Benefits commensurate with experience</li><li>Company sponsored health and life insurance</li><li>Bonus / 401K Plan</li><li>Position based in either the Redwood City or Chicago office</li></ul></div></div></div>  </div>
+        	<div class="readmore"><a class="link-learnmore" href="/contact/career-opportunities">Read More</a></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+          </div>
+                  </div>
+      </div>
+    </div></div>
+    <div id="footer" class="section">
+      <div class="limiter clearfix">
+        
+<div class="block block-block contextual-links-region" id="footer-menu">
+  <div class="content">
+    <div class="columns columns-3 clearfix">
+      <div class="column column-1">
+        <h6>About Biocentury</h6>
+        <ul class="menu"><li class="first leaf"><a href="/about-biocentury">Company Overview</a></li>
+<li class="leaf"><a href="/about/biocentury-management">Management</a></li>
+<li class="leaf"><a href="/about/editorial-research">Editorial &amp; Research</a></li>
+<li class="last leaf"><a href="/market-data">Market Data</a></li>
+</ul>      </div>
+      <div class="column column-2">
+        <h6>Contact</h6>
+        <ul class="menu"><li class="first leaf"><a href="/contact-us">Contact Us</a></li>
+<li class="leaf"><a href="/contact/advertising-sponsorship">Advertising &amp; Sponsorship</a></li>
+<li class="last leaf"><a href="/contact/career-opportunities">Career Opportunities</a></li>
+</ul>      </div>
+      <div class="column column-3">
+        <h6>Support</h6>
+        <ul class="menu"><li class="first leaf"><a href="http://accounts.biocentury.com/help">Forgot Password</a></li>
+<li class="leaf"><a href="/support/customer-service">Customer Service</a></li>
+<li class="leaf"><a href="/support/reprints">Reprints</a></li>
+<li class="last leaf"><a href="/support/faqs">FAQs</a></li>
+</ul>      </div>
+      <div class="column column-4">
+        <h6>Products & Solutions</h6>
+        <ul class="menu"><li class="first leaf"><a href="/marketing">Products Overview</a></li>
+<li class="leaf"><a href="/articles">Publications</a></li>
+<li class="leaf"><a href="/archives">Archives</a></li>
+<li class="leaf"><a href="/bciq-marketing/bciq" target="_blank">BCIQ</a></li>
+<li class="leaf"><a href="/conferences">Conferences</a></li>
+<li class="leaf"><a href="/interactive">eLearning</a></li>
+<li class="last leaf"><a href="/rssfeeds">RSS Feeds</a></li>
+</ul>      </div>
+      <div class="column column-5">
+        <h6>Legal</h6>
+        <ul class="menu"><li class="first leaf"><a href="/legal/user-agreement">User Agreement</a></li>
+<li class="leaf"><a href="/legal/terms-of-use">Terms of Use</a></li>
+<li class="leaf"><a href="/legal/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="/legal/your-california-privacy-rights">Your California Privacy Rights</a></li>
+<li class="leaf"><a href="/legal/use-of-images">Use of Images</a></li>
+<li class="last leaf"><a href="/market-data">Market Data</a></li>
+</ul>		<ul>
+	        <li class="follow-us">Follow Us
+	          <p>
+	          	<a bc-action="Tweet" target="_blank" href="https://twitter.com/BioCentury">
+	          		<img width="27" height="27" alt="Twitter" src="/sites/all/themes/biocentury/css/images/icon_twitter_gray.png">
+	          	</a>
+	          	<a bc-action="LinkedIn" target="_blank" href="https://www.linkedin.com/company/biocentury-publications?trk=top_nav_home">
+	          		<img width="27" height="27" alt="LinkedIn" src="/sites/all/themes/biocentury/css/images/icon_linkedin_gray.png">
+	          	</a>
+          		<a bc-action="RSS" href="/rssfeeds">
+          			<img width="27" height="27" alt="RSS" src="/sites/all/themes/biocentury/css/images/icon_rss_gray.png"/>
+          		</a>
+	          </p>
+	        </li>
+        </ul>
+      </div>
+      <div class="column column-6">
+        <h6>What is BioCentury?</h6>
+        <p>BioCentury employs a fully integrated multimedia platform — including publications, video, online data solutions and conferences — to provide its audience with authoritative and up-to-date intelligence about corporate strategy, partnering, emerging technology, clinical data, public policy and the financial markets.</p>
+        <p id="footer-buttons" class="clearfix"><a id="btn-footer-login" href="https://accounts.biocentury.com/login">Sign In</a><a id="btn-free-trial" href="/subscribe/trial">Free Trial</a></p>      </div>
+     </div>
+  </div>
+</div>
+<div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="/node/1018"><span>© 2017 BioCentury Inc. All Rights Reserved.</span></a>    <a href="/legal/terms-of-use">Terms &amp; Conditions</a> | <a href="/privacy-policy">Privacy Policy</a></p>  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://www.biocentury.com/sites/default/files/js/js_VU7P4CTgUZdF2SyFko5LLAg9ZK0OSVjXVaAFnTLgVt0.js"></script>
+    <!-- Dummy to force load the icon image for iphone -->
+  <div style="display:none" class="chosen-container-multi">
+    <ul class="chosen-choices"><li class="search-choice"><a class="search-choice-close"></a></li></ul>
+  </div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"a9e716ee41","applicationID":"26374040","transactionName":"YlwGZxYEXRBUAU0IV1sWJVAQDFwNGgxWBV1qSQVUATpFClAV","queueTime":0,"applicationTime":299,"atts":"ThsFEV4eTh4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

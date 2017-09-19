@@ -1,0 +1,705 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10"/>
+
+
+<title>FED Security Officer (Armed)-Paragon
+</title>
+
+
+
+
+
+<script type="text/javascript">
+    var deviceMode="desktop";
+</script>
+
+<link rel="icon" href="https://wfa.kronostm.com/static/core/images/favicon_blnk.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="https://wfa.kronostm.com/static/core/images/favicon_blnk.ico"
+      type="image/x-icon"/>
+
+
+<!-- Dependencies -->
+<script type="text/javascript" src="common/jsutils/yui-2.7.0/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="common/jsutils/yui-2.7.0/build/event/event-min.js"></script>
+<script type="text/javascript" src="common/jsutils/yui-2.7.0/build/dom/dom-min.js"></script>
+<script type="text/javascript" src="common/jsutils/yui-2.7.0/build/logger/logger-min.js"></script>
+<script type="text/javascript" src="common/jsutils/yui-2.7.0/build/element/element-min.js"></script>
+
+	<script type="text/javascript" src="common/jsutils/yui-2.7.0/build/cookie/cookie-min.js"></script>
+
+
+<script type="text/javascript" src="scripts/combined-4740190.js"></script>
+<script type="text/javascript" src="scripts/validation_en_US-min-4740190.js"></script>
+
+<script type="text/javascript" src="common/jsutils/WebKitDetect-min.js"></script>
+
+
+<script type="text/javascript">
+    var tbCloseLabel="Close";
+</script>
+
+<link rel="stylesheet" type="text/css" href="common/jsutils/thickbox/thickbox-min.css"/>
+<script type="text/javascript" src="common/jsutils/thickbox/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="common/jsutils/thickbox/thickbox-min.js"></script>
+
+
+<script type="text/javascript">
+
+    if ( (BrowserDetect.browser=="Opera") ||
+    (BrowserDetect.browser=="Netscape" && BrowserDetect.version<"7.2")
+    || (BrowserDetect.browser=="Safari" && BrowserDetect.version>"48" && BrowserDetect.version<"420")
+    )
+    {
+    window.location = "browserError.jsp"
+    }
+
+	var ataoDebug = false;
+    function initLogger() {};
+
+
+    Deploy.events.clientEventData = {"SLOT_0_3_3_10_12_2":{"ISACTIVELOCATION":true,"APPLYLINK":"?LOCATION_ID=44547582330&locale=en_US&applicationName=ParagonNonReqExt&SEQ=returningMemberLoginOrRegister&POSTING_ID=31931585435","NAVIGATEREFERJOB":"?LOCATION_ID=44547582330&locale=en_US&applicationName=ParagonNonReqExt&SEQ=jobReferral&POSTING_ID=31931585435&sourceSeq=postingLocationDetails","ISACTIVEPOSTING":true},"SLOT_0_3_3_1_0":{"NAVIGATERETURNING":"?FROMJAF=false&INDEX=0&locale=en_US&applicationName=ParagonNonReqExt&SEQ=returningMembers","HMCHELPPREFIX":"/","NAVIGATEREGISTRATION":"?FROMJAF=false&INDEX=0&locale=en_US&applicationName=ParagonNonReqExt&SEQ=registration","SHOWEXPLICITREGISTRATIONMODE":true,"NAVIGATELOGOUT":"?logout=1&applicationName=ParagonNonReqExt&locale=en_US","ISGUEST":true},"SLOT_0_3_3_10_14_2":{"LOCATIONPOSTINGDETAILS":"true","NAVIGATETOLOCATIONJOBS":"?LOCATION_ID=44547582330&locale=en_US&applicationName=ParagonNonReqExt&SEQ=locationDetails&APPLYALLJOBS=true","POSTINGEXISTS":"true","NAVIGATETOANYJOBAPPLY":"?LOCATION_ID=44547582330&locale=en_US&applicationName=ParagonNonReqExt&SEQ=returningMemberLoginOrRegister&APPLYALLJOBS=true","OPENINGSENABLED":"false"},"SLOT_0_3_3_10_10":{"ISACTIVELOCATION":true,"ISACTIVEPOSTING":true}};
+
+    var initCompleteEvent = new YAHOO.util.CustomEvent("initCompleteEvent");
+
+    var compiledInit = function () {
+    initLogger();
+    
+    YAHOO.util.Event.addListener(document.body, 'click', Deploy.eventHandler);
+    
+
+ initializeThickBox();
+
+    if (initCompleteEvent != null) {initCompleteEvent.fire();}
+    };
+    YAHOO.util.Event.addListener(window, "load", compiledInit);
+    Deploy.globalText = {};
+    YAHOO.util.Event.onAvailable("messageContainer", populateMessages);
+
+
+    //-->
+</script>
+
+<link rel="STYLESHEET" type="text/css"
+      href="styles/combined-4740190.css"/>
+
+
+<link rel="STYLESHEET" type="text/css" href="styles/style_en_US-min-4740190.css"/>
+<link rel="STYLESHEET" type="text/css" href="assets/Securitas_CIBranding/css/customer.css"/>
+<link rel="STYLESHEET" type="text/css" href="assets/SecuritasParagon_CIBranding/css/customer.css"/>
+
+
+<link rel="stylesheet" type="text/css" media="print" href="styles/print-min-4740190.css"/>
+
+<!--[if IE]>
+        <link rel="STYLESHEET" type="text/css" href="styles/ie-4740190.css"/>
+        <![endif]-->
+
+<!--[if IE 6]>
+        <link rel="STYLESHEET" type="text/css" href="styles/ie6-4740190.css"/>
+        <![endif]-->
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+    var windowBeforeUnloadMsg = '';
+    setHookOnWindowBeforeUnload(false);
+
+    <!-- Begin Pre-loading the page *************
+function clearPreloadDiv() { //DOM
+	if (document.getElementById('prePageDiv')) {
+		document.getElementById('prePageDiv').style.display='none';
+	}
+}
+if(/MSIE/.test(navigator.userAgent)){
+	YAHOO.util.Event.onDOMReady(clearPreloadDiv);
+}
+// End Pre-loading of the page ****************-->
+
+
+$(document).ready(function () { 
+	$("div.sidebar").css({backgroundSize: "cover"});
+	$("div.sidebar h2").css({backgroundSize: "100% 100%"});
+	$("div.sidebar h3").css({backgroundSize: "100% 100%"});
+	$("div.bgLight").css({backgroundSize: "cover"});
+	$("div.bgLight h2").css({backgroundSize: "100% 100%"});
+	$("div.bgLight h3").css({backgroundSize: "100% 100%"});
+
+   if(document.getElementById("caMain") && !(document.getElementById("caSidebar")) ){
+		$("#caMain").css({width: "80%"}).css({maxWidth: "80%"});
+   }
+   // Skip Navigation
+   if(document.getElementById("mainRegion")){
+      $("#skipper").click(function () {
+      	$('#mainRegion').attr('tabIndex', -1);
+      	$('#mainRegion').focus();}
+      ); 
+   }
+   else{ 
+      $("#skipper").remove(); 
+   } 
+});
+
+
+if (BrowserDetect.browser == "Explorer" && BrowserDetect.version >"9.0") {
+	var link = document.createElement( "link" );
+	link.href = "styles/ie10.css";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	link.media = "screen";
+
+	document.getElementsByTagName( "head" )[0].appendChild( link );
+}
+</script>
+
+</head>
+<body id="DeployMainBody"
+
+      onload="javascript:setAutoCompleteOffForWebKitBasedBrowsers();javascript:clearPreloadDiv();"
+      class="yui-skin-sam">
+
+	<div id="skipnav"><a href="#mainRegion" id="skipper">Press Enter to Skip to the main content Or Press Tab to continue</a></div>
+
+<div id="displayWait"></div>
+<div id="prePageDiv" class="preLoadDiv">
+    &nbsp;
+</div>
+
+
+<noscript>
+    <div id="JSmessageContainer">
+        <div class="dialog caution">
+            <h1>
+                No JavaScript
+            </h1>
+
+            <div class="paragraph">
+                Your browser does not support JavaScript or JavaScript is not enabled! This site contains functionality that requires JavaScript.
+            </div>
+        </div>
+    </div>
+
+</noscript>
+
+<div id="header" role="banner">
+<!-- view div[jspviews/customerHeader.jsp] -->
+
+<iframe id="customerHeader" 
+		title="Customer Header"
+		src="static/Securitas/Paragon_NonReq/header.html" 
+		frameborder="0" 
+		scrolling="no">
+</iframe>
+<!-- 
+<img id="printLogo" src="static/core/images/print_kronos.gif" alt="Logo for print version" />
+-->
+</div>
+<div id="wrapper" class=" noFluid">
+<div id="bodyContainer">
+<div id="sidenav" role="complementary" aria-label="Customer Sidebar">
+<div id="Slot_0_3_3_0_0">
+<!-- view div[jspviews/customerSideNav.jsp] -->
+
+<iframe id="customerLeftNav" 
+		title="Customer Side Navigation"
+		src="static/core/core_leftnav.htm" 
+		frameborder="0" 
+		scrolling="no">
+</iframe>
+</div>
+</div>
+<div id="navGroup" class=" fullCol" role="navigation">
+<div id="loginnav">
+<!-- view div[jspviews/loginNav.jsp] -->
+
+
+
+
+
+<div id="member" aria-label="Login Options">
+	
+
+        
+        	
+        	
+                <a  href="?FROMJAF=false&amp;INDEX=0&amp;locale=en_US&amp;applicationName=ParagonNonReqExt&amp;SEQ=returningMembers"  id="Div0" class="nav" ><span><strong>Sign In</strong></span></a>
+			 | 
+			Not a Member? 
+	        <a  href="?FROMJAF=false&amp;INDEX=0&amp;locale=en_US&amp;applicationName=ParagonNonReqExt&amp;SEQ=registration"  id="Div2" class="nav" ><span>Join Now!</span></a>
+	       
+
+	       
+	      
+        
+
+	
+
+	
+	
+</div>
+
+
+
+
+</div>
+<div id="nav">
+<!-- view div[jspviews/nav.jsp] -->
+
+	
+	
+
+
+
+
+<iframe id="shimIFrame" title="Nav Menu Helper" frameborder="0" style="height:22px;width:120px;position:absolute;top:0px;left:0px;z-index:1; display:none;" scrolling="no" src="common/IEFrameWarningBypass.htm"></iframe>
+<ul role="menubar" id="menuBar" aria-label="Menu Options">
+<li class="menuItemNoSub"> <a  href="?seq=home&amp;applicationName=ParagonNonReqExt&amp;locale=en_US"  id="Div3" class="nav" ><span>Home</span></a> 
+</li>
+<li class="menuItemNoSub"> <a  href="?seq=allOpenJobs&amp;applicationName=ParagonNonReqExt&amp;locale=en_US&amp;allOpenJobs=true"  id="Div4" class="nav" ><span>All Open Jobs</span></a> 
+</li>
+<li class="menuItemNoSub"> <a  href="?seq=allLocations&amp;applicationName=ParagonNonReqExt&amp;locale=en_US&amp;showAllLocations=true&amp;EVENT=com.deploy.application.hourly.plugin.LocationSearch.doSearch"  id="Div5" class="nav" ><span>Jobs by Location</span></a> 
+</li>
+<li class="menuItemNoSub"> <a  href="?seq=grand_opening&amp;applicationName=ParagonNonReqExt&amp;locale=en_US"  id="Div6" class="nav" ><span>NOW HIRING</span></a> 
+</li>
+
+	
+
+</ul>
+
+
+
+
+
+</div>
+</div>
+<div id="mainRegion" role="main">
+<div id="Slot_0_3_3_10_10" class=" fullCol">
+<!-- view div[jspviews/positionTitle.jsp] -->
+
+
+<h1 style="margin-bottom:10px;">FED Security Officer (Armed)</h1>
+
+				Location:
+				<strong>FAA Oakland,
+				CA
+				()</strong>
+
+
+
+
+<div id="messageContainer"></div>
+
+</div>
+<div id="caMain">
+<div id="Slot_0_3_3_10_12_2">
+<!-- view div[jspviews/positionLocationDetails.jsp] -->
+
+
+
+		<div id="fullCol">
+			<div class="nonform">
+				
+
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<div>
+	
+
+
+
+		<h3><div class="formRow"><div class="h2Label inline"><label class="h2Label inline">Job Description</label>    </div>
+&nbsp;</div>	</h3>
+		<div class="formattedContent">
+			<p style="text-align:center">Paragon Systems Inc. is a Federal Contractor that employs over 7,000 security specialists at more than 600 federal facilities throughout the United States. Paragon Systems has been dedicated to providing high quality services with one mission in mind: Support and Protect the United States of America!</p>
+
+<p style="text-align:center">We want you to join us, so apply online today! www.parasysjobs.com</p>
+
+<p><br />
+<strong>JOB DESCRIPTION:</strong><br />
+Under the supervision of the Program Manger working with Homeland Security Federal Protective Service you will be responsible for protection of federally owned/leased facilities. Will observe and report activities and incidents at assigned locations, providing for the security and safety of client property, visitors, and personnel. Preserves order and may act to enforce regulations and directives for the site pertaining to personnel, visitors, and premises; control access to client site and facility through the admittance process; responsive in all situations; monitors entrances and exits and acts to prevent unapproved or unlawful entry; patrols assigned site on foot or in vehicle, checks for unsafe conditions such as hazards, unlocked doors, and security violations; protects evidence or scenes of incident in the event of accidents, emergencies, or security investigations; prepares logs or reports as requested. May be exposed to stressful situations. Training certification classes will be provided.</p>
+		</div>
+	
+
+
+
+</div>
+
+
+
+	
+	
+
+	
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<div>
+	
+
+
+
+	<h3><div class="formRow"><div class="h2Label inline"><label class="h2Label inline">Requirements</label>    </div>
+&nbsp;</div>	</h3>
+	<div class="formattedContent">
+		<p><strong>JOB REQUIREMENTS:</strong></p>
+
+<ul>
+	<li>Minimum of a GED/High School Diploma (for reading, comprehension, and basic math skills).</li>
+	<li>Three years of ARMED security experience within the last 5 years, completion of a Police Officer&rsquo;s Standard Training (POST), and/or three years Military recent experience on Active duty or Reserve or National Guard in Intelligence, Infantry, Military Police or related training.</li>
+	<li>Ability to use computers and Microsoft office (Excel, Word, etc.), monitor security cameras, and send and receive email using MS Outlook.</li>
+	<li>Must be a US Citizen with valid Social Security Card; birth certificate; 21 years of age; fluent in speaking, reading, and writing English due to nature of the position</li>
+	<li>Ability to follow established procedures and policies. Post orders to include enforcement of client/company rules, policies, and/or regulations.</li>
+	<li>Excellent attention to detail, good verbal and written communications, including legible report writing.</li>
+	<li>Ability to provide quality Customer Service.</li>
+	<li>Ability to analyze and produce course of action reporting and escalate issues to management in typical and crisis situations.</li>
+	<li>Ability to work independently or as part of a small group to resolve urgent issues, process orientated with high attention to detail, and triage a problem quickly providing precise/clear information while working under minimum supervision.</li>
+	<li>Ability to perform essential functions of the position which may include long periods of sitting, walking, standing, climbing stairs, or driving with or without reasonable accommodations.</li>
+	<li>Ability to see, hear, and smell in order to respond to alarms and detect emergency situations.</li>
+	<li>Reliable and have a strong work ethic.</li>
+	<li>Reliable transportation and current Driver&rsquo;s License</li>
+	<li>Must able to obtain or possess any applicable security guard or weapons permit necessary</li>
+	<li>Must be able to pass a background check covering the last 10 years and pass a drug screening due to the nature of the position.</li>
+	<li>Must be able to pass a physical agility test if applicable; complete required training and pass examination.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>PREFERRED QUALIFICATIONS:</strong></p>
+
+<ul>
+	<li>Guard/clearance card, gun/OC/Baton permit, CPR, First Aid a plus.</li>
+</ul>
+
+<p><strong>HOURS/DAYS/SCHEDULE:</strong><br />
+Schedule will be discussed at the interview. Must be able to work weekends and overtime as required.</p>
+
+<p><br />
+<strong>BENEFIT: </strong>Our benefit include Health Insurance (medical, dental and vision available), 401(k), Vacation, Sick Leave and Paid Holidays.</p>
+
+<p><br />
+Honorably discharged veterans, widow/widowers, or spouses of honorably discharged veterans who have service connected permanent and total disability are encouraged to apply (. Equal Opportunity Employer and subject to the affirmative action and non-discrimination requirements of Executive order 11246, Section 503 of the Rehabilitation Act of 1973, Vietnam Era Veterans Readjustment Act of 1974, 38 USC Section 4212 as amended. Implementation of 41 CFR 60-1.4, 41 CFR 60-250.5, 300.5, and 741.5. Equal Opportunity Employer and follows all AA/ADAAA guidelines.</p>
+
+<p style="text-align:center"><br />
+EOE/M/F/VET/Disabilities Employer<br />
+VEVRAA Federal Contractor * Priority referrals for protected veterans*<br />
+We participate in the E-Verify Employment Verification Program<br />
+VA License Number: 11-4665</p>
+	</div>
+	
+
+
+
+</div>
+
+
+
+
+	
+
+	
+
+	
+
+
+			</div>
+
+			<div class="controlRow centered">
+			
+				<a  href="?LOCATION_ID=44547582330&amp;locale=en_US&amp;applicationName=ParagonNonReqExt&amp;SEQ=returningMemberLoginOrRegister&amp;POSTING_ID=31931585435"  id="Div8" class="largeButtonCssImg" ><img src=static/core/images/button_grey_huge.gif alt="" class="largeButtonCssImg"><span>Apply Now</span></a>
+			</div>
+			
+				
+				<div class="controlRow">
+					<a  href="?LOCATION_ID=44547582330&amp;locale=en_US&amp;applicationName=ParagonNonReqExt&amp;SEQ=jobReferral&amp;POSTING_ID=31931585435&amp;sourceSeq=postingLocationDetails"  id="Div9" class="noline imgPosition imgPosition1" ><img src=static/core/images/normalised/email_grey.gif alt="" class="noline imgPosition imgPosition1"><span>Refer This Job</span></a>
+				</div>
+			
+
+			
+
+		</div>
+
+
+</div>
+<div id="Slot_0_3_3_10_12_4">
+<!-- view div[jspviews/applyNow.jsp] -->
+
+
+
+
+
+
+</div>
+</div>
+<div id="caSidebar">
+<div id="Slot_0_3_3_10_14_2">
+<!-- view div[jspviews/locationInfo.jsp] -->
+
+
+<div class="sidebar">
+	<h2>
+	Location Details
+	</h2>
+	<div style="margin: 4px;">
+		<label class="inline">
+			<strong>Paragon</strong>
+		</label>
+		<br/>
+		
+
+
+	
+		<br/>
+	
+
+	
+		<span class="field readOnly">FAA Oakland</span>,
+	
+
+	
+		<span class="field readOnly">CA</span>&nbsp;
+	
+
+	
+		<span class="field readOnly">94611</span><br/>
+	
+
+
+	</div>
+	<p>
+		
+			<span class="pColor" aria-hidden="true">&#187;</span> <a  href="?LOCATION_ID=44547582330&amp;locale=en_US&amp;applicationName=ParagonNonReqExt&amp;SEQ=locationDetails&amp;APPLYALLJOBS=true"  id="Div12" class="field readOnly" ><span>See all jobs at this location</span></a>
+		
+
+	</p>
+
+</div>
+
+</div>
+<div id="Slot_0_3_3_10_14_4">
+<!-- view div[jspviews/applyNow.jsp] -->
+
+
+
+
+
+
+</div>
+</div>
+</div>
+<div id="caFooterGroup" class=" fullCol" role="contentinfo" aria-label="Copyright, Kronos Privacy Policy and Patents Information">
+<div id="caFooter">
+<!-- view div[jspviews/caFooter.jsp] -->
+
+	
+	
+
+     
+
+
+
+
+
+
+
+
+
+<div class="copyrightText">
+
+	<span style="vertical-align: top;">Copyright &copy; 2000 - 2017</span> by Kronos Incorporated. 
+
+
+	 
+	All rights reserved.
+	
+
+
+	<span style="vertical-align: top;">&nbsp;|&nbsp;&nbsp;<a data-role="none" href="http://www.kronos.com/Privacy.htm" target="_blank">Privacy Policy</a></span>
+	
+</div>	 
+<div class="patentsText">
+
+		<span class="patents">U. S. Patents 7,080,057; 7,310,626; 7,558,767; 7,562,059;</span> 7,472,097; 7,606,778; 8,086,558 and 8,046,251.
+	
+</div>
+
+
+	
+	
+          <script type="text/javascript">
+              var KronosUTMDomain = "kronostm.com";   // default SysVar value: "auto"
+              var KronosUTMGifPath = "https://wfsa-img.kronostm.com/__utm.gif"; // default SysVar value: "common/jsutils/urchin/__utm.gif"
+          </script>
+          <script src="common/jsutils/urchin/urchin.js" type="text/javascript"></script>
+          <script type="text/javascript">
+              // Urchin tracking (UTM)
+              urchinTracker();
+          </script>
+	
+
+	 
+</div>
+</div>
+</div>
+</div>
+<div id="footer" role="complementary" aria-label="Customer Footer">
+<!-- view div[jspviews/customerFooter.jsp] -->
+
+<iframe id="customerFooter" 
+		title="Customer Footer"
+        src="static/core/core_footer.htm" 
+        frameborder="0" 
+        scrolling="no">
+</iframe>
+</div>
+
+
+
+<div id="devFooter">
+
+
+
+
+<script type="text/javascript" src="scripts/tools-min-4740190.js"></script>
+
+
+</div>
+
+</body>
+</html>

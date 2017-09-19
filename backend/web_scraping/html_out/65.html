@@ -1,0 +1,730 @@
+
+<!doctype html>
+<!--[if lte IE 8]>    <html class="no-js lte-ie8" lang="en"> <![endif]-->
+<!--[if lte IE 9]>    <html class="no-js lte-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head><script type="text/javascript">/* <![CDATA[ */_cf_loadingtexthtml="<img alt=' ' src='/ja_cf_scripts/ajax/resources/cf/images/loading.gif'/>";
+_cf_contextpath="";
+_cf_ajaxscriptsrc="/ja_cf_scripts/ajax";
+_cf_jsonprefix='//';
+_cf_clientid='A7113CDDC5493FA14C96B40912032F85';/* ]]> */</script><script type="text/javascript" src="/ja_cf_scripts/ajax/messages/cfmessage.js"></script>
+<script type="text/javascript" src="/ja_cf_scripts/ajax/package/cfajax.js"></script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFAJAXPROXY');
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_registration=ColdFusion.AjaxProxy.init('/apply/cfc/registration.cfc','registration_udf');
+	_cf_registration.prototype.SubmitReferences=function(nextStep) { return ColdFusion.AjaxProxy.invoke(this, "SubmitReferences","5C4EA9899E", {nextStep:nextStep});};
+	_cf_registration.prototype.SendToReferences=function() { return ColdFusion.AjaxProxy.invoke(this, "SendToReferences","5C4EA9899E", {});};
+	_cf_registration.prototype.SubmitResume=function(email_sent) { return ColdFusion.AjaxProxy.invoke(this, "SubmitResume","5C4EA9899E", {email_sent:email_sent});};
+	_cf_registration.prototype.getEmploymentHistory=function(emp_num) { return ColdFusion.AjaxProxy.invoke(this, "getEmploymentHistory","5C4EA9899E", {emp_num:emp_num});};
+	_cf_registration.prototype.SubmitEducation=function(nextStep) { return ColdFusion.AjaxProxy.invoke(this, "SubmitEducation","5C4EA9899E", {nextStep:nextStep});};
+	_cf_registration.prototype.RedirectToCompleteWorkflow=function(job_id) { return ColdFusion.AjaxProxy.invoke(this, "RedirectToCompleteWorkflow","5C4EA9899E", {job_id:job_id});};
+	_cf_registration.prototype.ResetTrafficSource=function() { return ColdFusion.AjaxProxy.invoke(this, "ResetTrafficSource","5C4EA9899E", {});};
+	_cf_registration.prototype.SubmitProfile=function(nextStep) { return ColdFusion.AjaxProxy.invoke(this, "SubmitProfile","5C4EA9899E", {nextStep:nextStep});};
+	_cf_registration.prototype.SubmitEmploymentHistory=function(nextStep) { return ColdFusion.AjaxProxy.invoke(this, "SubmitEmploymentHistory","5C4EA9899E", {nextStep:nextStep});};
+	_cf_registration.prototype.SubmitSchedule=function(nextStep) { return ColdFusion.AjaxProxy.invoke(this, "SubmitSchedule","5C4EA9899E", {nextStep:nextStep});};
+	_cf_registration.prototype.GetTrafficSource=function() { return ColdFusion.AjaxProxy.invoke(this, "GetTrafficSource","5C4EA9899E", {});};
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_jobAppl=ColdFusion.AjaxProxy.init('/apply/cfc/jobAppl.cfc','application_udf');
+	_cf_jobAppl.prototype.RegisterForETC=function() { return ColdFusion.AjaxProxy.invoke(this, "RegisterForETC","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitDOT_EmploymentHistory=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitDOT_EmploymentHistory","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SignBCRelease=function() { return ColdFusion.AjaxProxy.invoke(this, "SignBCRelease","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitResume=function(email_sent) { return ColdFusion.AjaxProxy.invoke(this, "SubmitResume","5C4EA9899E", {email_sent:email_sent});};
+	_cf_jobAppl.prototype.CheckAutoRelease=function() { return ColdFusion.AjaxProxy.invoke(this, "CheckAutoRelease","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.deleteDOT_accidentHist_row=function(acct_id) { return ColdFusion.AjaxProxy.invoke(this, "deleteDOT_accidentHist_row","5C4EA9899E", {acct_id:acct_id});};
+	_cf_jobAppl.prototype.RefreshSession=function() { return ColdFusion.AjaxProxy.invoke(this, "RefreshSession","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitDOT_AccidentHist=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitDOT_AccidentHist","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.FinishTCCOWOTC=function() { return ColdFusion.AjaxProxy.invoke(this, "FinishTCCOWOTC","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitBCRelease=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitBCRelease","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitStandardForms=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitStandardForms","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.GetApplicationCompleteVideo=function() { return ColdFusion.AjaxProxy.invoke(this, "GetApplicationCompleteVideo","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitWOTCQuestion=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitWOTCQuestion","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.GetApplicationSteps=function(proc_num,job_id) { return ColdFusion.AjaxProxy.invoke(this, "GetApplicationSteps","5C4EA9899E", {proc_num:proc_num,job_id:job_id});};
+	_cf_jobAppl.prototype.deleteDOT_empHist_row=function(hist_id) { return ColdFusion.AjaxProxy.invoke(this, "deleteDOT_empHist_row","5C4EA9899E", {hist_id:hist_id});};
+	_cf_jobAppl.prototype.SubmitEEOC=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitEEOC","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitPosifitInterview=function(v_job_posifit,v_proc_num) { return ColdFusion.AjaxProxy.invoke(this, "SubmitPosifitInterview","5C4EA9899E", {v_job_posifit:v_job_posifit,v_proc_num:v_proc_num});};
+	_cf_jobAppl.prototype.LoadJobOnSession=function(job_id,ext_num,proc_num) { return ColdFusion.AjaxProxy.invoke(this, "LoadJobOnSession","5C4EA9899E", {job_id:job_id,ext_num:ext_num,proc_num:proc_num});};
+	_cf_jobAppl.prototype.FinishADPWOTC=function() { return ColdFusion.AjaxProxy.invoke(this, "FinishADPWOTC","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitDOT_ResidenceHist=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitDOT_ResidenceHist","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.deleteDOT_residenceHist_row=function(res_id) { return ColdFusion.AjaxProxy.invoke(this, "deleteDOT_residenceHist_row","5C4EA9899E", {res_id:res_id});};
+	_cf_jobAppl.prototype.Submit_checkForMissingData_EmpHistRows=function() { return ColdFusion.AjaxProxy.invoke(this, "Submit_checkForMissingData_EmpHistRows","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.FinishWOTC=function(opt_in,is_FormsMgmt_wotcTask,emp_fullname,emp_ssn) { return ColdFusion.AjaxProxy.invoke(this, "FinishWOTC","5C4EA9899E", {opt_in:opt_in,is_FormsMgmt_wotcTask:is_FormsMgmt_wotcTask,emp_fullname:emp_fullname,emp_ssn:emp_ssn});};
+	_cf_jobAppl.prototype.SubmitApplication=function(job_id,mobile,skipPosifit) { return ColdFusion.AjaxProxy.invoke(this, "SubmitApplication","5C4EA9899E", {job_id:job_id,mobile:mobile,skipPosifit:skipPosifit});};
+	_cf_jobAppl.prototype.SubmitHireUp=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitHireUp","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitDOT_TrafficConviction=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitDOT_TrafficConviction","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.GetPreviousStep=function() { return ColdFusion.AjaxProxy.invoke(this, "GetPreviousStep","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.deleteDOT_drivingExp_row=function(exp_id) { return ColdFusion.AjaxProxy.invoke(this, "deleteDOT_drivingExp_row","5C4EA9899E", {exp_id:exp_id});};
+	_cf_jobAppl.prototype.SubmitResumeEmail=function(resume_email,is_salaried) { return ColdFusion.AjaxProxy.invoke(this, "SubmitResumeEmail","5C4EA9899E", {resume_email:resume_email,is_salaried:is_salaried});};
+	_cf_jobAppl.prototype.SubmitStandardFormsComplete=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitStandardFormsComplete","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.Submit_DOT_drivingExpGrid=function() { return ColdFusion.AjaxProxy.invoke(this, "Submit_DOT_drivingExpGrid","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.nextStep=function(nextStepNumber) { return ColdFusion.AjaxProxy.invoke(this, "nextStep","5C4EA9899E", {nextStepNumber:nextStepNumber});};
+	_cf_jobAppl.prototype.SubmitWOTCOptIn=function(opt_in) { return ColdFusion.AjaxProxy.invoke(this, "SubmitWOTCOptIn","5C4EA9899E", {opt_in:opt_in});};
+	_cf_jobAppl.prototype.AssessmentOptIn=function() { return ColdFusion.AjaxProxy.invoke(this, "AssessmentOptIn","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.LoadApplicationOnSession=function(proc_num,job_id) { return ColdFusion.AjaxProxy.invoke(this, "LoadApplicationOnSession","5C4EA9899E", {proc_num:proc_num,job_id:job_id});};
+	_cf_jobAppl.prototype.SubmitAssessment=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitAssessment","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.deleteDOT_trafficConviction_row=function(conviction_id) { return ColdFusion.AjaxProxy.invoke(this, "deleteDOT_trafficConviction_row","5C4EA9899E", {conviction_id:conviction_id});};
+	_cf_jobAppl.prototype.ReuseAssessment=function() { return ColdFusion.AjaxProxy.invoke(this, "ReuseAssessment","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitDOT_DriverExp=function() { return ColdFusion.AjaxProxy.invoke(this, "SubmitDOT_DriverExp","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.DontReuseAssessment=function() { return ColdFusion.AjaxProxy.invoke(this, "DontReuseAssessment","5C4EA9899E", {});};
+	_cf_jobAppl.prototype.SubmitPosifitInterviewMobile=function(posifit_query,v_proc_num) { return ColdFusion.AjaxProxy.invoke(this, "SubmitPosifitInterviewMobile","5C4EA9899E", {posifit_query:posifit_query,v_proc_num:v_proc_num});};
+	_cf_jobAppl.prototype.Submit_DOT_empHistGrid=function() { return ColdFusion.AjaxProxy.invoke(this, "Submit_DOT_empHistGrid","5C4EA9899E", {});};
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_noSession=ColdFusion.AjaxProxy.init('/apply/cfc/noSession.cfc','noSession_udf');
+	_cf_noSession.prototype.mailLogin=function(login_email,is_salaried,login_captcha) { return ColdFusion.AjaxProxy.invoke(this, "mailLogin","5C4EA9899E", {login_email:login_email,is_salaried:is_salaried,login_captcha:login_captcha});};
+	_cf_noSession.prototype.StartSalariedApplication=function(sal_job_id,isSalaried) { return ColdFusion.AjaxProxy.invoke(this, "StartSalariedApplication","5C4EA9899E", {sal_job_id:sal_job_id,isSalaried:isSalaried});};
+	_cf_noSession.prototype.ApplicantSignIn=function(from_salaried,mobile) { return ColdFusion.AjaxProxy.invoke(this, "ApplicantSignIn","5C4EA9899E", {from_salaried:from_salaried,mobile:mobile});};
+	_cf_noSession.prototype.resetNewPassword=function(hash,newPassword) { return ColdFusion.AjaxProxy.invoke(this, "resetNewPassword","5C4EA9899E", {hash:hash,newPassword:newPassword});};
+	_cf_noSession.prototype.registrationStarted=function(sal_job_id,isSalaried) { return ColdFusion.AjaxProxy.invoke(this, "registrationStarted","5C4EA9899E", {sal_job_id:sal_job_id,isSalaried:isSalaried});};
+	_cf_noSession.prototype.checkCredentials=function(phoneNo,passCode,isSalaried) { return ColdFusion.AjaxProxy.invoke(this, "checkCredentials","5C4EA9899E", {phoneNo:phoneNo,passCode:passCode,isSalaried:isSalaried});};
+	_cf_noSession.prototype.CheckSessionApply=function(sal_job_id,isSalaried) { return ColdFusion.AjaxProxy.invoke(this, "CheckSessionApply","5C4EA9899E", {sal_job_id:sal_job_id,isSalaried:isSalaried});};
+	_cf_noSession.prototype.getJobList=function(page,pageSize,gridsortcolumn,gridsortdir,keyword,department,position_category,position_type,state,city,country,customer,database_lang_ext,button_click,is_mobile) { return ColdFusion.AjaxProxy.invoke(this, "getJobList","5C4EA9899E", {page:page,pageSize:pageSize,gridsortcolumn:gridsortcolumn,gridsortdir:gridsortdir,keyword:keyword,department:department,position_category:position_category,position_type:position_type,state:state,city:city,country:country,customer:customer,database_lang_ext:database_lang_ext,button_click:button_click,is_mobile:is_mobile});};
+	_cf_noSession.prototype.CheckSession=function(error_msg) { return ColdFusion.AjaxProxy.invoke(this, "CheckSession","5C4EA9899E", {error_msg:error_msg});};
+	_cf_noSession.prototype.SignInIndeed=function(inputPhoneIndeed,inputPinIndeed,isSalaried,salariedJobId) { return ColdFusion.AjaxProxy.invoke(this, "SignInIndeed","5C4EA9899E", {inputPhoneIndeed:inputPhoneIndeed,inputPinIndeed:inputPinIndeed,isSalaried:isSalaried,salariedJobId:salariedJobId});};
+	_cf_noSession.prototype.SearchResetPasswordProfiles=function() { return ColdFusion.AjaxProxy.invoke(this, "SearchResetPasswordProfiles","5C4EA9899E", {});};
+	_cf_noSession.prototype.claimAccount=function(profile_id,proc_num,customer,language) { return ColdFusion.AjaxProxy.invoke(this, "claimAccount","5C4EA9899E", {profile_id:profile_id,proc_num:proc_num,customer:customer,language:language});};
+	_cf_noSession.prototype.getPositionTypes=function(catg_value,selectTypeString,database_lang_ext) { return ColdFusion.AjaxProxy.invoke(this, "getPositionTypes","5C4EA9899E", {catg_value:catg_value,selectTypeString:selectTypeString,database_lang_ext:database_lang_ext});};
+	_cf_noSession.prototype.getActiveCities=function(state,customer,selectCityString) { return ColdFusion.AjaxProxy.invoke(this, "getActiveCities","5C4EA9899E", {state:state,customer:customer,selectCityString:selectCityString});};
+	_cf_noSession.prototype.sendJobEmail=function(job_url) { return ColdFusion.AjaxProxy.invoke(this, "sendJobEmail","5C4EA9899E", {job_url:job_url});};
+	_cf_noSession.prototype.SendTicketToSupport=function() { return ColdFusion.AjaxProxy.invoke(this, "SendTicketToSupport","5C4EA9899E", {});};
+	_cf_noSession.prototype.indeedAutoLogin=function(indeedApplicationId,isSalaried,salariedJobId) { return ColdFusion.AjaxProxy.invoke(this, "indeedAutoLogin","5C4EA9899E", {indeedApplicationId:indeedApplicationId,isSalaried:isSalaried,salariedJobId:salariedJobId});};
+	_cf_noSession.prototype.LogGoogleMapsUse=function(client_id,account,call_type) { return ColdFusion.AjaxProxy.invoke(this, "LogGoogleMapsUse","5C4EA9899E", {client_id:client_id,account:account,call_type:call_type});};
+	_cf_noSession.prototype.forgotValidateLogin=function(is_salaried,login_captcha,mobile) { return ColdFusion.AjaxProxy.invoke(this, "forgotValidateLogin","5C4EA9899E", {is_salaried:is_salaried,login_captcha:login_captcha,mobile:mobile});};
+	_cf_noSession.prototype.ApplicantSalariedSignIn=function(sal_job_id,from_salaried) { return ColdFusion.AjaxProxy.invoke(this, "ApplicantSalariedSignIn","5C4EA9899E", {sal_job_id:sal_job_id,from_salaried:from_salaried});};
+	_cf_noSession.prototype.getActiveStates=function(country,customer,selectStateString) { return ColdFusion.AjaxProxy.invoke(this, "getActiveStates","5C4EA9899E", {country:country,customer:customer,selectStateString:selectStateString});};
+	_cf_noSession.prototype.SubmitContactInformation=function(customer,signed_in,isSalaried,nextStep) { return ColdFusion.AjaxProxy.invoke(this, "SubmitContactInformation","5C4EA9899E", {customer:customer,signed_in:signed_in,isSalaried:isSalaried,nextStep:nextStep});};
+	_cf_noSession.prototype.getIndeedConfirmPageInfo=function(jobID,currentLang,databaseLangExt) { return ColdFusion.AjaxProxy.invoke(this, "getIndeedConfirmPageInfo","5C4EA9899E", {jobID:jobID,currentLang:currentLang,databaseLangExt:databaseLangExt});};
+	_cf_noSession.prototype.logout=function() { return ColdFusion.AjaxProxy.invoke(this, "logout","5C4EA9899E", {});};
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_upload=ColdFusion.AjaxProxy.init('/apply/cfc/upload.cfc','upload_proxy_udf');
+	_cf_upload.prototype.UnlinkFile=function(slotID) { return ColdFusion.AjaxProxy.invoke(this, "UnlinkFile","5C4EA9899E", {slotID:slotID});};
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_applied=ColdFusion.AjaxProxy.init('/apply/cfc/applied.cfc','applied_proxy_udf');
+	_cf_applied.prototype.createScormCourseRegistration=function(hired_profile_id,form_id) { return ColdFusion.AjaxProxy.invoke(this, "createScormCourseRegistration","5C4EA9899E", {hired_profile_id:hired_profile_id,form_id:form_id});};
+	_cf_applied.prototype.get_TCQ_pdf=function(proc_num) { return ColdFusion.AjaxProxy.invoke(this, "get_TCQ_pdf","5C4EA9899E", {proc_num:proc_num});};
+	_cf_applied.prototype.GetFormsSortingOption=function(client_id) { return ColdFusion.AjaxProxy.invoke(this, "GetFormsSortingOption","5C4EA9899E", {client_id:client_id});};
+	_cf_applied.prototype.getFormStatus=function(hired_profile_id,form_id) { return ColdFusion.AjaxProxy.invoke(this, "getFormStatus","5C4EA9899E", {hired_profile_id:hired_profile_id,form_id:form_id});};
+	_cf_applied.prototype.updateFormComplete=function(hired_profile_id,form_id,employee_confirm,employee_signed,manager_signed) { return ColdFusion.AjaxProxy.invoke(this, "updateFormComplete","5C4EA9899E", {hired_profile_id:hired_profile_id,form_id:form_id,employee_confirm:employee_confirm,employee_signed:employee_signed,manager_signed:manager_signed});};
+	_cf_applied.prototype.okToSendInStoreSMS=function() { return ColdFusion.AjaxProxy.invoke(this, "okToSendInStoreSMS","5C4EA9899E", {});};
+	_cf_applied.prototype.createScormCourseRegistrationLog=function(registration_id,message,log_type_id) { return ColdFusion.AjaxProxy.invoke(this, "createScormCourseRegistrationLog","5C4EA9899E", {registration_id:registration_id,message:message,log_type_id:log_type_id});};
+	_cf_applied.prototype.sendSMS=function() { return ColdFusion.AjaxProxy.invoke(this, "sendSMS","5C4EA9899E", {});};
+	_cf_applied.prototype.getFormStatistics=function(hired_profile_id) { return ColdFusion.AjaxProxy.invoke(this, "getFormStatistics","5C4EA9899E", {hired_profile_id:hired_profile_id});};
+	_cf_applied.prototype.get_WOTCTask_hp_fid=function() { return ColdFusion.AjaxProxy.invoke(this, "get_WOTCTask_hp_fid","5C4EA9899E", {});};
+	_cf_applied.prototype.updateScormCourseRegistration=function(registration_id) { return ColdFusion.AjaxProxy.invoke(this, "updateScormCourseRegistration","5C4EA9899E", {registration_id:registration_id});};
+	_cf_applied.prototype.updateTrainingStarted=function(hired_profile_id,form_id) { return ColdFusion.AjaxProxy.invoke(this, "updateTrainingStarted","5C4EA9899E", {hired_profile_id:hired_profile_id,form_id:form_id});};
+/* ]]> */</script>
+<script type="text/javascript" src="/ja_cf_scripts/ajax/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/ja_cf_scripts/ajax/yui/animation/animation-min.js"></script>
+<script type="text/javascript" src="/ja_cf_scripts/ajax/ext/adapter/yui/ext-yui-adapter.js"></script>
+<script type="text/javascript" src="/ja_cf_scripts/ajax/ext/ext-all.js"></script>
+<script type="text/javascript" src="/ja_cf_scripts/ajax/package/cfwindow.js"></script>
+<link rel="stylesheet" type="text/css" href="/ja_cf_scripts/ajax/resources/ext/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/ja_cf_scripts/ajax/resources/cf/cf.css" />
+
+  <meta charset="utf-8">
+  <meta property="og:title" content="Work for Cinemark" />
+  <meta property="og:image" content="http://secure.jobappnetwork.com/apply/img/JobApp_fb.jpg" />
+  <meta property="og:description" content="Work as a Bartender for Cinemark" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="talentReef Applicant Portal">
+  <meta name="designer" content="talentReef Inc.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0"/>
+
+  <title>talentReef Applicant Portal</title>
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <link rel="stylesheet" href="css/font-awesome.min.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/custom-theme/jquery-ui-1.8.16.custom.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/style.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/welcome.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/effects.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/salaried.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/forgotten.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/uniform.ja.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/chosen.ja.custom.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/tipTip.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/ui.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/description.css?v=151&sal=0" media="all" />
+  <link rel="stylesheet" href="css/directlink.css?v=151&sal=0" media="all" />
+
+  <!-- Fonts -->
+  
+    <link href="css/fonts.css?v=151&sal=0" rel="stylesheet" type="text/css" />
+  
+  <link rel="stylesheet" href="css/update.css?v=151&sal=0" media="all" />
+  <script src="js/libs/modernizr-custom.js"></script>
+
+  
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33193141-1']);
+  _gaq.push(['_setSiteSpeedSampleRate', 100]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFWINDOW');
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_window_init_1504428605369=function()
+	{
+		var _cf_window=ColdFusion.Window.create('MapWindow','<cfoutput>Map</cfoutput>','',{ modal:true, closable:true, divid:'cf_window1504428605368', draggable:false, resizable:false, fixedcenter:true, width:795, height:505, shadow:true, bodystyle:'background-color: white;', callfromtag:true, initshow:false, destroyonclose:false});
+	};ColdFusion.Event.registerOnLoad(_cf_window_init_1504428605369);
+/* ]]> */</script>
+</head>
+
+<body class="directlink" ontouchstart="">
+
+<div class="signin container small">
+  <div class="container-signin">
+    <form id="sign-in-form2" class="sign-in-form" action="" method="post" onsubmit="return false;">
+      <div class="sign-in-box-body">
+        <h4 class="header-text">Sign In</h4>
+
+        <a class="action-login-close">&times;</a>
+
+        <div class="phone-no">
+          <input id="input-phone-no" class="input-phone-no" type="text" name="input-phone-no" placeholder="Phone number" />
+        </div>
+
+        <div class="pin">
+          <input id="input-pin" class="input-pin" type="password" name="input-pin" placeholder="Password" />
+        </div>
+
+        <div class="forgotten-password">
+          <a id="forgot-password-link" class="forgot-password-link" title="Forgot your password?" alt="Forgot your password?">
+            Forgot your password?
+          </a>
+        </div>
+
+        <button data-role="button" role="button" class="sign-in-button sign-in-button2 button">Sign in</button>
+      </div>
+      
+    </form> 
+  </div>
+</div>
+
+<!-- Preloader graphics -->
+<div id="main-preloader-wrapper" class="canvas-loader-wrapper">
+	<div id="canvas-loader-main"></div>
+</div>
+
+
+
+<input type="hidden" name="signed_in" id="signed_in" value="0">
+<input type="hidden" name="profile_complete" id="profile_complete" value="0">
+<input type="hidden" name="isSalaried" id="isSalaried" value="0">
+<input type="hidden" name="applicant_name" id="applicant_name" value=""> 
+
+<div class="background-container">
+    <div class="main-container">
+      <header id="main-menu" class="main clear">
+  <div class="logo link-home">
+    
+
+<img id="logo-image" alt="" title="" src="" style="display: none" class="client-logo" />
+
+
+		<div id="logo-image-0" class="logo-image">
+			<img id="client-logo-image-0" class="client-logo" src="./images/logos/cine/1.png" alt="Company logo" title="Company logo" />
+		</div>
+		
+  </div>
+  <div class="container-navigation">
+    <a class="toggle">Menu</a>
+    <ul class="buttons center navigation">
+      <li><a id="bar-item-opportunities">Find Jobs</a></li>
+      <li><a id="bar-item-applications" >My applications</a></li>
+      
+        <li><a id="bar-item-myjobapp">My Profile</a></li> 
+      
+    </ul>
+  </div>
+  <div class="signin container">
+    <a class="toggle icon-hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </a>
+      <div class="drawer">
+        <ul class="buttons">
+          
+            <li class="new-applicants-start-container">
+              <p>New User looking to <br />apply for the first time?</p>
+              <a class="button success new-applicants-start">Start here</a>
+            </li>
+          
+          <li>
+            <p>New Hire or a <br />Returning Applicant?</p>
+            
+                <a id="bar-sign-in" class="action-sign-in button success">Sign in</a>
+                <div class="container-signin dropdown menu">
+  <form id="sign-in-form" class="sign-in-form" action="" method="post" onsubmit="return false;">
+    <div class="sign-in-box-body">
+      <h4 class="header-text">Sign In</h4>
+
+      <div class="phone-no">
+        <input id="input-phone-no" class="input-phone-no" type="text" name="input-phone-no" placeholder="Phone number" />
+      </div>
+
+      <div class="pin">
+        <input id="input-pin" class="input-pin" type="password" name="input-pin" placeholder="Password" />
+      </div>
+
+      <div class="forgotten-password">
+        <a id="forgot-password-link" class="forgot-password-link" title="Forgot your password?" alt="Forgot your password?">
+          Forgot your password?
+        </a>
+      </div>
+
+      <button data-role="button" role="button" class="sign-in-button sign-in-button1 button">Sign in</button>
+    </div>
+    
+  </form>
+</div>
+              </li>
+              <li><a id="bar-sign-out" class="action-sign-out button success" style="display: none;">Sign out</a></li>                
+            
+        </ul>
+
+        <!--
+<div class="progress">
+	<div class="progress-bar">
+		<div class="progress-bar-left progress-green"></div>
+		<div class="progress-bar-right"></div>
+	</div>
+	
+	<div class="progress-text">
+		<div class="progress-text-left">Registration</div>
+		<div class="progress-text-right">Application</div>
+	</div>
+</div>
+-->
+
+
+
+			<div class="steps">
+				<h3 class="header-text">Simple Apply!</h3>
+				
+					<div class="step active-step welcome-step step-0">
+						<div class="menu-icon icon-welcome-on"></div>
+						<span class="menu-text menu-text-active menu-text-shadow-on">Welcome</span>
+					</div>
+		    	
+         	    <div class="step disabled-step step-1">
+	                <div class="menu-icon menu-icon-off icon-contact"></div>
+	                <span class="menu-text-disabled menu-text-shadow-off">Contact information</span>
+	            </div>
+				
+						<div class="step disabled-step step-2">
+							<div class="menu-icon menu-icon-off icon-profile"></div>
+							<span class="menu-text-disabled menu-text-shadow-off">Profile</span>
+						</div>
+						<div class="step disabled-step step-3">
+							<div class="menu-icon menu-icon-off icon-schedule"></div>
+							<span class="menu-text-disabled menu-text-shadow-off">Schedule</span>
+						</div>
+					
+				<div class="step disabled-step step-4">
+					<div class="menu-icon menu-icon-off icon-education"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">Education</span>
+				</div>
+
+				<div class="step disabled-step step-5">
+					<div class="menu-icon menu-icon-off icon-employment"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">Employment</span>
+				</div>
+				
+					<div class="step disabled-step step-6">
+						<div class="menu-icon menu-icon-off icon-references"></div>
+						<span class="menu-text-disabled menu-text-shadow-off">References</span>
+					</div>
+				
+				<div class="step disabled-step step-7" style="display: none">
+					<div class="menu-icon menu-icon-off icon-my-job-applications"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">My Job Applications</span>
+				</div>
+	              
+				<div class="step disabled-step step-17" style="display: none">
+					<div class="menu-icon menu-icon-off icon-my-tasks"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">My Tasks</span>
+				</div>
+
+				<div class="step disabled-step step-18" style="display: none">
+					<div class="menu-icon menu-icon-off icon-my-training"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">My Training</span>
+				</div>
+	              
+				<div class="step disabled-step step-21" style="display: none">
+					<div class="menu-icon menu-icon-off icon-my-acknowledgement"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">My Acknowledgements</span>
+				</div>
+	              
+				<div class="step disabled-step step-8" style="display: none">
+					<div class="menu-icon menu-icon-off icon-find-opportunities"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">Find job opportunities</span>
+				</div>
+
+				<div class="step disabled-step step-9" style="display: none">
+					<div class="menu-icon menu-icon-off icon-1"></div>
+					<span class="menu-text-disabled">Posi-fit Interview</span>
+				</div>
+
+				<div class="step disabled-step step-10" style="display: none">
+					<div class="menu-icon menu-icon-off icon-2"></div>
+					<span class="menu-text-disabled menu-text-shadow-off">Confirm Application</span>
+				</div>
+	              
+	             
+			</div> <!-- /application-steps -->   
+      </div>
+    </div>
+</header> <div class="toolbar">
+	<div class="help-container">
+		<a class="help" href="https://talentreef.desk.com?b_id=14798" target="_blank"></a>
+	</div>
+
+	<div class="action-container dropdown select right select-language">
+		<a class="action-button">English</a>
+		<div class="action-menu">
+			<ul>
+				<li><a value="en">English</a></li>
+				<li><a value="es">Español</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+      <div role="main" class="main clear">
+        
+          <div class="head">
+            <span class="head-line-1">Job Description</span>
+            <span class="head-line-2">Is this the job for you?</span>
+          </div>
+        
+
+	      <div class="salaried-standalone-container-container panel">
+          <div class="sticky">
+            <div class="pull-right">
+              <button onclick="ja_popup_apply();" role="button" class="apply-button-top apply-directlink">
+                Apply now
+              </button>
+            </div>
+
+            <div class="head-line-1 ellipsis">Cinemark</div>
+            <div class="head-line-2 ellipsis">Bartender</div>
+          </div>
+
+	          <div class="salaried-standalone-container">
+                
+
+<div class="s-job-desc-container">
+<input type="hidden" id="selected_job_id" value="1366629">
+<input type="hidden" id="selected_job_url" value="https://secure.jobappnetwork.com/apply/c_cine/l_en/Bartender-job-Larkspur-CA-US-1366629t7.html">
+
+	<div class="desc-table">
+
+		<div class="desc-table-column">
+			<div class="desc-table-cell padding">
+				<div class="desc-table-label"><span class="salaried-description-title">Company:</span></div>
+				<div class="desc-table-value"><div class="s-client-name">Cinemark</div></div>
+			</div>
+
+			<div class="desc-table-cell">
+				<div class="desc-table-label"><span class="salaried-description-title">Position:</span></div>
+				<div class="desc-table-value">Bartender </div>
+			</div>
+
+			<div class="desc-table-cell">
+				<div class="desc-table-label"><span class="salaried-description-title">Department:</span></div>
+				<div class="desc-table-value">Theatre Crew</div>
+			</div>
+
+			
+					<div class="desc-table-cell">
+						<div class="desc-table-label"><span class="salaried-description-title">Status:</span></div>
+						<div class="desc-table-value">Part Time</div>
+					</div>					
+				
+					<div class="desc-table-cell">
+						<div class="desc-table-label">
+							<span class="salaried-description-title">
+					        	Shift:
+								
+							</span>
+						</div>
+						<div class="desc-table-value">
+							First / Day Second / Afternoon Third / Night 
+						</div>
+					</div>
+				
+				<div class="desc-table-cell">
+					<div class="desc-table-label"><span class="salaried-description-title">Req #:</span></div>
+					<div class="desc-table-value">1366629</div>
+				</div>
+			
+		</div>
+
+		<div class="desc-table-column">
+			<div class="desc-table-cell apply-button-top-container">
+				<button onclick="ja_popup_apply();" role="button" class="apply-button-top apply-directlink">
+	                Apply now
+	              </button>
+			</div>
+
+			<div class="desc-table-cell">
+				<div class="desc-table-label">
+					<span class="salaried-description-title">Date posted:</span>
+				</div>
+				<div class="desc-table-value">
+					January 17, 2017
+				</div>
+			</div>
+
+			<div class="desc-table-cell">
+				<div class="desc-table-label"><span class="salaried-description-title salaried-job-location">Location:</span>
+					<img class="salaried-location-map-icon" src="images/map.png" style="cursor: pointer;"  title="Click to see the map address of the job location." alt="Job Location Address Map"
+								onclick="javascript:openMapsWindow('1366629','');"></div>
+				<div class="desc-table-value salaried-job-address-itself">
+					
+					<div class="job-address-overflow">
+					500 Larkspur Landing Cr., Cinemark Location #426<br>
+					Larkspur, CA, 94939, US 
+					 </div>
+				</div>
+			</div>
+
+
+			
+				<div class="desc-table-cell">
+					<div class="desc-table-label"><span class="salaried-description-title">Job category:</span></div>
+					<div class="desc-table-value">Theatre Restaurant Team Member</div>
+				</div>
+			
+				<div class="desc-table-cell">
+					<div class="desc-table-label"><span class="salaried-description-title">Job link:</span></div>
+					<div class="desc-table-value"><span><img id="img-direct-link" name="img-direct-link" src="images/link.png" style="cursor: pointer;" alt="Direct job link" /></span></div>
+				</div>
+			
+		</div>
+
+		<div class="">
+			
+		</div>
+	</div>
+
+	
+			
+	<div class="salaried-description-text-container">
+		<div class="salaried-description-text">
+
+			As a Bartender, you ensure consistent drink quality by preparing orders in a short period of time and in accordance with recipes and guidelines established by the Food and Beverage department. You will also maintain a clean, sanitary, and safe work area in a fast paced environment, while providing superior guest service.<br><br><h4><u>Essential Job Responsibilities:</h4></u><ul><li>Greet guests in a timely and professional manner.<li>Verify guests that purchase alcohol are at least 21 years of age.<li>Possess full knowledge of bar and menu items and be able to make recommendations.<li>Accurately take food and beverage orders from guests in a timely manner at the bar and lounge area.<li>Deliver food and beverage orders within established time frames. Consistently use suggestive selling techniques.<li>Ensure that alcohol is consumed in designated areas only.<li>Set up and maintain appropriate stock levels for the bar.<li>Assist in placing orders for all liquor and bar related supplies.<li>Conduct inventory of all liquor and bar related supplies.</ul>As a Bartender at Cinemark Theatres, you’ll need to demonstrate:<ul><li>Provide proof of age (21 or older).<li>Possess basic food handling training and obtain any local or state mandated certification.<li>Success in a high volume bar environment.<li>Demonstrated ability to provide superior guest service.<li>Have a high aptitude for math and cash handling.<li>Demonstrate excellent verbal and written communication skills.</ul><h4>Physical and Environmental Requirements:</h4><ul><li>Frequent bending, kneeling, and lifting up to 50 lbs.<li>Frequent standing, walking and reaching around the theater.<li>Noise level may be moderate to high at times.<li>Be able to work in a standing position for extended periods of time.</ul>*Reasonable accommodations may be made to enable individuals with disabilities to perform the essential functions.<br><br>Note:  This job description is intended only as a general guideline of your duties and responsibilities at Cinemark and is not a legally binding contract.  Cinemark reserves the right to amend, change or terminate the job description, as it deems appropriate.  Any change amendments, or modifications may be implemented even though they have not been communicated, reprinted or substituted in this job description.<br><br> All Cinemark theatres are designated smoke-free workplaces.  This includes vapor, electronic, conventional, cigars, etc.<br><br><b>Cinemark USA, Inc. is an Equal Opportunity Employer</b> 
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+setTimeout(function () {
+	$('.ui-dialog.salaried-job-description-window').scrollTop(0);
+}, 50);
+</script> 
+                <div id="single-desc-bottom">
+<!--                  <div class="single-desc-apply">
+                    <button id="single-desc-apply-btn" class="single-next-button apply-directlink">
+                      <span>Apply now</span>
+                    </button>
+                  </div> -->
+
+                  <div class="single-desc-social">
+
+		                <button id="print-button" name="print-button" class="print-button">
+                      <span></span>
+                    </button>
+
+                    <button id="mail-friend-button" name="mail-friend-button" class="mail-friend-button">
+                      <span></span>
+                    </button>
+
+                    <button id="tweet-button" name="tweet-button" class="tweet-button">
+                      <span></span>
+                    </button>
+
+                    
+
+                    <div id="gplus-button-container">
+                      <div id="gplus-share" class="g-plus" data-height="24" data-annotation="none" data-action="share" data-href="https%3A%2F%2Fsecure%2Ejobappnetwork%2Ecom%2Fapply%2Fc%5Fcine%2Fl%5Fen%2FBartender%2Djob%2DLarkspur%2DCA%2DUS%2D1366629t7%2Ehtml"></div>
+                    </div>
+
+                    <div id="fb-iframe">
+                      <iframe src="https://www.facebook.com/plugins/like.php?locale=en_US&href=https%3A%2F%2Fsecure%2Ejobappnetwork%2Ecom%2Fapply%2Fc%5Fcine%2Fl%5Fen%2FBartender%2Djob%2DLarkspur%2DCA%2DUS%2D1366629t7%2Ehtml&show_faces=false&width=250&height=28&layout=standard&action=like" scrolling="no" frameborder="0" style="width: 250px; height: 28px;"></iframe>
+                    </div>
+
+                  </div>
+                </div>
+                
+                <div id="canvasLoader"></div>
+            </div>
+        </div>
+      </div>
+
+      
+      <div  id="cf_window1504428605368" class="x-hidden">
+	
+	<div  id="MapWindow_title" class="x-window-header">
+		<cfoutput>Map</cfoutput>
+	 </div>
+	<div  id="MapWindow_body" class="x-window-body" style="background-color: white;">
+		
+		
+	 </div>
+ </div> <footer class="main">
+  <div class="logo powered-by"><img src="images/talentreef_grey.png" /></div>
+  <div class="copyright">
+  	&copy;&nbsp;2017 talentReef&nbsp;Inc. All rights reserved. <a href='https://www.talentreef.com/privacy-policy' target='_blank'>Privacy Policy</a>.
+  </div>
+</footer>
+
+      <!-- Generic pop-up -->
+      <div id="modal-message" class="dialog-message" title="Any title here...">
+        <div id="message-container"></div>
+      </div>
+
+      <!-- Datepicker holder -->
+      <div id="dp-dialog"></div>
+
+      <!-- Salaried logon pop-up -->
+      <div id="salaried-login-window" style="display: none;">
+          <div id="salaried-login-content">
+              <div id="salaried-login-left">
+                <div id="salaried-new-account-header">Don't have a talentReef account yet?</div>
+                <div id="salaried-new-account-text">
+                  <div id="start-from-sal" class="new-applicants-start">
+                    <div class="start-button-wrapper">
+                      <div class="start-top">Start here</div>
+                      <div class="start-bottom">Create new application</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="salaried-login-right">
+                <form id="salaried-login-form">
+                  <div id="salaried-login-phone-no-label">Phone number</div>
+                  <div id="salaried-login-phone-no">
+                    <input id="salaried-login-phone" name="salaried-login-phone" type="text" maxlength="12" value="" />
+                  </div>
+                  <div id="salaried-login-pin-label">Password</div>
+                  <div id="salaried-login-pin-no">
+                    <input id="salaried-login-pin" name="salaried-login-pin" type="password" maxlength="50" value="" />
+                  </div>
+
+                  <div id="salaried-login-button">
+                    <button role="button" id="salaried-sign-in-button" class="salaried-sign-in-button">
+                      <span id="salaried-login-button-text">Sign in</span>
+                    </button>
+                  </div>
+                  <div id="salaried-login-forgot">
+                    <a id="salaried-forgot-password-link" class="salaried-forgot-password-link" href="#" title="Forgot your password?" alt="Forgot your password?">Forgot your password?</a>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+
+      <input type="hidden" name="salaried-standalone-page" id="salaried-standalone-page" value="1" />
+
+      <!-- JavaScript at the bottom for fast page loading -->
+
+      <!-- Loader/spinner -->
+      <script src="./js/libs/spin.min.js"></script>
+
+      <!-- Loading routines -->
+      <script src="./js/scripts/loader.js?v=151&sal=0"></script>
+
+      
+      <script src="./js/scripts/locationMap.js?v=151&sal=0" type="text/javascript"></script>
+
+      <!-- jQ & jqUI -->
+      
+        <script src="./js/libs/jquery-1.7.1.min.js"></script>
+      
+
+      <script src="./js/libs/jquery-ui.min.js"></script>
+
+      <!-- Fonts -->
+      
+
+      <!-- Proper cross-browser box-shadow -->
+      <script src="./js/libs/boxshadow.js"></script>
+
+      <!-- Translate touch events to clicks -->
+      <script src="./js/libs/jquery.ui.touch-punch.min.js"></script>
+
+      <!-- Devices with touch ability API -->
+      <script src="./js/libs/touchable.js"></script>
+
+      <!-- Hardware accelerated animation -->
+      <script src="./js/libs/jquery.animate-enhanced.min.js"></script>
+
+      <!-- Devices with touchscreen get gesture recognition -->
+      <script src="./js/libs/hammer.js"></script>
+      <script src="./js/libs/jquery.hammer.js"></script>
+
+      <!-- Tooltips -->
+      <script src="./js/libs/jquery.tipTip.minified.js"></script>
+
+      <!-- Scrolling routines -->
+      <script src="./js/libs/jquery.lionbars.0.3.js"></script>
+
+      <script src="./js/libs/jquery.sticky.js"></script>
+
+      <!-- Masking -->
+      <script src="./js/libs/jquery.meio.mask.min.js"></script>
+      <script src="./js/libs/regex-mask.js"></script>
+      <script src="./js/scripts/masks.js?v=151&sal=0"></script>
+
+      <!-- Placeholder -->
+      
+        <script src="./js/libs/jquery.placeholder.min.js"></script>
+      
+
+      <script src="./js/libs/manage/jquery.tmpl.min.js"></script>
+      <script src="./js/libs/manage/moment.js"></script>
+
+      <script src="./js/scripts/browser.js?v=151&sal=0"></script>
+      <script src="./js/scripts/functions.js?v=151&sal=0"></script>
+      <script src="./js/scripts/events.js?v=151&sal=0"></script>
+      <script src="./js/scripts/mainsalaried.js?v=151&sal=0"></script>
+      <script src="./js/scripts/salaried.js?v=151&sal=0"></script>
+      <script src="./js/scripts/validation.js?v=151&sal=0"></script>
+
+      <script src="./js/scripts/directlink.js?v=151&sal=0"></script>
+
+      
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+</body>
+</html> 
