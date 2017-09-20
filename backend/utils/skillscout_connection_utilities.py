@@ -9,12 +9,57 @@ from firebase_admin import db
 from firebase_admin import credentials
 from os.path import expanduser
 from bs4 import BeautifulSoup
+from sshtunnel import SSHTunnelForwarder
 
 ##################################################
 ### This module includes useful definitions    ###
 ### for various utilities which are used in    ###
 ### many places accross the skillscout backend ###
 ##################################################
+
+class LocalPostgresqlDB(object):
+    conn = None
+    cur = None
+
+    def __init__(self):
+        # server settings
+        SERVER_HOST = os.environ.get("SERVER_HOST")
+        SERVER_POST = os.environ.get("SERVER_PORT")
+        SERVER_USER = os.environ.get("SERVER_USER")
+        SERVER_PASSWORD = os.environ.get("SERVER_PASSWORD")
+        # db settings
+        DB_NAME = os.environ.get("PRIVATE_SKILLSCOUT_DB_NAME")
+        DB_USER = os.environ.get("PRIVATE_SKILLSCOUT_DB_USER")
+        DB_PASSWORD = os.environ.get("PRIVATE_SKILLSCOUT_DB_PASSWORD")
+        DB_HOST = os.environ.get("PRIVATE_SKILLSCOUT_DB_HOST")
+        DB_PORT = os.environ.get("PRIVATE_SKILLSCOUT_DB_PORT")
+        with SSHTunnelForwarder(
+            (SERVER_HOST, SERVER_PORT),
+            ssh_username=SERVER_USER,
+            ssh_password=SERVER_PASSWORD,
+            remote_bind_address=('localhost', 10022),
+            local_bind_address=('localhost', 10022)
+        ) as tunnel:
+            self.conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT)
+            self.cur = self.conn.cursor()
+
+    def execute(self, query, params):
+        return self.cur.execute(query, params)
+
+    def fetchall(self):
+        return self.cur.fetchall()
+
+    def fetchone(self):
+        return self.cur.fetchone()
+
+    def commit(self):
+        return self.conn.commit()
+
+    def close(self):
+        return self.conn.close()
+
+    def __del__(self):
+        self.conn.close()
 
 class PostgresqlDB(object):
     conn = None
