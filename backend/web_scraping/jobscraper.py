@@ -18,6 +18,7 @@ oPostgresql = PostgresqlDB()
 
 from scrapy.crawler import CrawlerProcess
 
+job_state_full = 'california' # TODO: find an official list of the shortenings, probably in a libraryW
 
 class JobSpider(scrapy.Spider):
     from secret_settings import *
@@ -141,8 +142,10 @@ class JobSpider(scrapy.Spider):
         #Fill a query
         print 'checking for repeats in primary key (url)...'
         try:
-            oPostgresql.execute("INSERT INTO jobs (docid,title,date,city,urlid,html,raw) VALUES (%s, %s, %s, %s, %s, %s, %s) ON CONFLICT (urlid) DO NOTHING",(doc_count,
-            job_title,job_date,job_city,job_url,job_html,job_text))
+            cityLower = job_city.lower()
+            stateLower = job_state_full.lower()
+            oPostgresql.execute("INSERT INTO jobs (docid,urlid,city,state,title,date,raw_html,raw_text) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (docid) DO NOTHING",
+            (doc_count,job_url,cityLower,stateLower,job_title,job_date,job_html,job_text))
             print 'no error, saving metadata to SQL and downloading document'
             oPostgresql.commit()
 

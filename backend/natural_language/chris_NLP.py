@@ -8,13 +8,19 @@ from utils.skillscout_connection_utilities import PostgresqlDB
 from utils.skillscout_connection_utilities import cleanHTML
 from nltk.corpus import stopwords
 from rake_nltk import Rake
+from operator import itemgetter
+
+#### city TODO: make this a variable passed!!!!!! (or generl)
+city = "san francisco"
+state = "california"
+industry = "Cool Test Industry"
 
 ##########################################
 ### Connect to DB and get all keywords ###
 ##########################################
 print "Connecting, retreving keywords, positive phrases, negative phrases, and closing..."
 oPostgresql = PostgresqlDB()
-oPostgresql.execute("SELECT title, raw FROM jobs;","") # note the params parameter can be just an empty string here
+oPostgresql.execute("SELECT title, raw_text, docid FROM jobs WHERE city = '" + city + "' AND state = '" + state + "'","") # note the params parameter can be just an empty string here
 lJobData = oPostgresql.fetchall()
 oPostgresql.execute("SELECT * FROM skills;","") # note the params parameter can be just an empty string here
 tSkills = oPostgresql.fetchall()
@@ -42,6 +48,13 @@ def findIndexes(lList, sVal):
 
 ### prints preceding and following words around skills in the text
 def findSkills(sText, sMethod):
+    # note that this query string includes DO UPDATE - if we improve the NLP alg later, any matchin key will be updated
+    sQuery = "INSERT INTO job_skills" \
+    + " (city, state, docid, title, industry, skill1name, skill1count, skill2name, skill2count, skill3name," \
+    + "skill3count, skill4name, skill4count, skill5name, skill5count, skill6name," \
+    + "skill6count, skill7name, skill7count, skill8name, skill8count, skill9name," \
+    + "skill9count, skill10name, skill10count)" \
+    + " VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (city, state, docid) DO NOTHING"
     ### BEGIN METHOD CHOICE ###
     if sMethod == "RAKE_RANKED_PHRASES":
         r.extract_keywords_from_text(sText)
@@ -58,13 +71,38 @@ def findSkills(sText, sMethod):
         lStemmedText = [porter.stem(t) for t in lTokenText] # porter stemmer to (matched with stemmed key words)
         # for each of the keywords, find the index of those keywords and print the word in front and after it
         iFoundCount = 0
+        lSkillsAndCount = [] # list to fill with {skill, times} dictionary pairs
         for sSkill in lStemmedSkills:
             lKeywordIndexes = findIndexes(lStemmedText, sSkill) # find indexes of keyword
             if len(lKeywordIndexes) > 0:
-                print "\tSkill found: " + lTokenText[lKeywordIndexes[0]] + " occured " + str(len(lKeywordIndexes)) + " times"
+                sSkillFound = lTokenText[lKeywordIndexes[0]]
+                iTimes = str(len(lKeywordIndexes))
+                print "\tSkill found: " + sSkillFound + " occured " + iTimes + " times"
+                lSkillsAndCount.append({'skill': sSkillFound.lower(), 'times': iTimes})
                 iFoundCount = iFoundCount + 1
         if iFoundCount == 0:
             print "\tNo skills for this job found..."
+            return
+        lSkillsAndCount = sorted(lSkillsAndCount, key=itemgetter('times'), reverse=True) # sort decending by number of times appeared
+
+        # ensure that lSkillsAndCount has at least 10 entries
+        if (len(lSkillsAndCount) < 10):
+            while len(lSkillsAndCount) != 10:
+                print len(lSkillsAndCount)
+                lSkillsAndCount.append({'skill': '', 'times': None})
+        else: # truncate all positions past 9 (10 entries)
+            lSkillsAndCount = lSkillsAndCount[:10]
+
+        # write these skills to the db
+        print "Writing these skills to the job_skills table..."
+        tValues = (city, state, tData[2], tData[0], industry,  lSkillsAndCount[0]['skill'], lSkillsAndCount[0]['times'], lSkillsAndCount[1]['skill'], lSkillsAndCount[1]['times'],
+        lSkillsAndCount[2]['skill'], lSkillsAndCount[2]['times'], lSkillsAndCount[3]['skill'], lSkillsAndCount[3]['times'], lSkillsAndCount[4]['skill'], lSkillsAndCount[4]['times'],
+        lSkillsAndCount[5]['skill'], lSkillsAndCount[5]['times'], lSkillsAndCount[6]['skill'], lSkillsAndCount[6]['times'], lSkillsAndCount[7]['skill'], lSkillsAndCount[7]['times'],
+        lSkillsAndCount[8]['skill'], lSkillsAndCount[8]['times'], lSkillsAndCount[9]['skill'], lSkillsAndCount[9]['times'])
+        print len(tValues)
+        print tValues
+        oPostgresql.execute(sQuery, tValues)
+        print "Done."
     if sMethod == "FREQUENCY":
         words = sText.split()
 
@@ -126,5 +164,6 @@ for tData in lJobData:
     iCount = iCount + 1
 print "== END NLP SKILL SEARCH =="
 
-# finally close connection to postgresql and mongodb
+# commit and close connection to postgresql
+oPostgresql.commit()
 oPostgresql.close()
